@@ -14,6 +14,7 @@
 		CB972CD727DBF2DE005AC0F1 /* Lost___FoundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB972CD627DBF2DE005AC0F1 /* Lost___FoundTests.swift */; };
 		CB972CE127DBF2DE005AC0F1 /* Lost___FoundUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB972CE027DBF2DE005AC0F1 /* Lost___FoundUITests.swift */; };
 		CB972CE327DBF2DE005AC0F1 /* Lost___FoundUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB972CE227DBF2DE005AC0F1 /* Lost___FoundUITestsLaunchTests.swift */; };
+		CB972CF027E11DDE005AC0F1 /* Login View.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB972CEF27E11DDE005AC0F1 /* Login View.swift */; };
 		E724577327E11AE200F89F01 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E724577227E11AE200F89F01 /* Item.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		CB972CDC27DBF2DE005AC0F1 /* Lost & FoundUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Lost & FoundUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB972CE027DBF2DE005AC0F1 /* Lost___FoundUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lost___FoundUITests.swift"; sourceTree = "<group>"; };
 		CB972CE227DBF2DE005AC0F1 /* Lost___FoundUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lost___FoundUITestsLaunchTests.swift"; sourceTree = "<group>"; };
+		CB972CEF27E11DDE005AC0F1 /* Login View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Login View.swift"; sourceTree = "<group>"; };
 		E724577227E11AE200F89F01 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,6 +98,7 @@
 		CB972CC427DBF2DB005AC0F1 /* Lost & Found */ = {
 			isa = PBXGroup;
 			children = (
+				CB972CEF27E11DDE005AC0F1 /* Login View.swift */,
 				CB972CC527DBF2DB005AC0F1 /* Lost___FoundApp.swift */,
 				CB972CC727DBF2DB005AC0F1 /* ContentView.swift */,
 				E724577127E11AC700F89F01 /* Model */,
@@ -271,6 +274,7 @@
 				CB972CC827DBF2DB005AC0F1 /* ContentView.swift in Sources */,
 				E724577327E11AE200F89F01 /* Item.swift in Sources */,
 				CB972CC627DBF2DB005AC0F1 /* Lost___FoundApp.swift in Sources */,
+				CB972CF027E11DDE005AC0F1 /* Login View.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
