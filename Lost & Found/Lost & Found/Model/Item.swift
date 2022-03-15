@@ -8,10 +8,11 @@
 import Foundation
 import SwiftUI
 
-struct LostItem {
+struct LostItem : Identifiable {
     var id : UUID
     var image : Image
     var title : String
     var addedDate : Date
     var isClaimed : Bool
+    var description : String
 }
