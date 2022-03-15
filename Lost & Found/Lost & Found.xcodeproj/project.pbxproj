@@ -98,9 +98,7 @@
 		CB972CC427DBF2DB005AC0F1 /* Lost & Found */ = {
 			isa = PBXGroup;
 			children = (
-				CB972CEF27E11DDE005AC0F1 /* Login View.swift */,
 				CB972CC527DBF2DB005AC0F1 /* Lost___FoundApp.swift */,
-				CB972CC727DBF2DB005AC0F1 /* ContentView.swift */,
 				E724577527E11D9A00F89F01 /* Views */,
 				E724577427E11D2700F89F01 /* ViewModel */,
 				E724577127E11AC700F89F01 /* Model */,
@@ -153,6 +151,8 @@
 		E724577527E11D9A00F89F01 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CB972CC727DBF2DB005AC0F1 /* ContentView.swift */,
+				CB972CEF27E11DDE005AC0F1 /* Login View.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
