@@ -15,6 +15,7 @@
 		CB972CE127DBF2DE005AC0F1 /* Lost___FoundUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB972CE027DBF2DE005AC0F1 /* Lost___FoundUITests.swift */; };
 		CB972CE327DBF2DE005AC0F1 /* Lost___FoundUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB972CE227DBF2DE005AC0F1 /* Lost___FoundUITestsLaunchTests.swift */; };
 		E724577327E11AE200F89F01 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E724577227E11AE200F89F01 /* Item.swift */; };
+		E724577827E11F5700F89F01 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E724577727E11F5700F89F01 /* ItemModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		CB972CE027DBF2DE005AC0F1 /* Lost___FoundUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lost___FoundUITests.swift"; sourceTree = "<group>"; };
 		CB972CE227DBF2DE005AC0F1 /* Lost___FoundUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lost___FoundUITestsLaunchTests.swift"; sourceTree = "<group>"; };
 		E724577227E11AE200F89F01 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		E724577727E11F5700F89F01 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +99,6 @@
 			isa = PBXGroup;
 			children = (
 				CB972CC527DBF2DB005AC0F1 /* Lost___FoundApp.swift */,
-				CB972CC727DBF2DB005AC0F1 /* ContentView.swift */,
 				E724577527E11D9A00F89F01 /* Views */,
 				E724577427E11D2700F89F01 /* ViewModel */,
 				E724577127E11AC700F89F01 /* Model */,
@@ -143,6 +144,7 @@
 		E724577427E11D2700F89F01 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E724577727E11F5700F89F01 /* ItemModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -150,6 +152,7 @@
 		E724577527E11D9A00F89F01 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CB972CC727DBF2DB005AC0F1 /* ContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 			files = (
 				CB972CC827DBF2DB005AC0F1 /* ContentView.swift in Sources */,
 				E724577327E11AE200F89F01 /* Item.swift in Sources */,
+				E724577827E11F5700F89F01 /* ItemModel.swift in Sources */,
 				CB972CC627DBF2DB005AC0F1 /* Lost___FoundApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
