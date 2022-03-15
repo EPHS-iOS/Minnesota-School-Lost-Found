@@ -98,6 +98,8 @@
 			children = (
 				CB972CC527DBF2DB005AC0F1 /* Lost___FoundApp.swift */,
 				CB972CC727DBF2DB005AC0F1 /* ContentView.swift */,
+				E724577527E11D9A00F89F01 /* Views */,
+				E724577427E11D2700F89F01 /* ViewModel */,
 				E724577127E11AC700F89F01 /* Model */,
 				CB972CC927DBF2DE005AC0F1 /* Assets.xcassets */,
 				CB972CCB27DBF2DE005AC0F1 /* Preview Content */,
@@ -136,6 +138,20 @@
 				E724577227E11AE200F89F01 /* Item.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E724577427E11D2700F89F01 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E724577527E11D9A00F89F01 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
