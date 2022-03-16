@@ -10,6 +10,8 @@ import Foundation
 class ItemModel : ObservableObject {
     @Published var items = [Item]()
     
+    static var itemGlobal : [Item] = []
+    
    // Using this init for test items before adding items is added.
     init() {
         items.append(Item(image: "bed.double.fill", title: "Hydroflask", addedDate: "03/15/2022", isClaimed: false, name: "max", description: "blue and white"))
