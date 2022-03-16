@@ -11,6 +11,10 @@
 		CB972D0027E26C07005AC0F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB972CFF27E26C07005AC0F1 /* ContentView.swift */; };
 		CB972D0227E26C0E005AC0F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB972D0127E26C0E005AC0F1 /* Assets.xcassets */; };
 		CB972D0527E26C0E005AC0F1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB972D0427E26C0E005AC0F1 /* Preview Assets.xcassets */; };
+		E7FE4B2B27E26D6500B0EE6A /* IndividualItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE4B2A27E26D6500B0EE6A /* IndividualItemView.swift */; };
+		E7FE4B2D27E26D8000B0EE6A /* AddLostItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE4B2C27E26D8000B0EE6A /* AddLostItemView.swift */; };
+		E7FE4B3127E26DF300B0EE6A /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE4B3027E26DF300B0EE6A /* ItemModel.swift */; };
+		E7FE4B3327E26DFE00B0EE6A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE4B3227E26DFE00B0EE6A /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,10 @@
 		CB972CFF27E26C07005AC0F1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CB972D0127E26C0E005AC0F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB972D0427E26C0E005AC0F1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E7FE4B2A27E26D6500B0EE6A /* IndividualItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualItemView.swift; sourceTree = "<group>"; };
+		E7FE4B2C27E26D8000B0EE6A /* AddLostItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLostItemView.swift; sourceTree = "<group>"; };
+		E7FE4B3027E26DF300B0EE6A /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
+		E7FE4B3227E26DFE00B0EE6A /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +60,9 @@
 			isa = PBXGroup;
 			children = (
 				CB972CFD27E26C07005AC0F1 /* LostFoundApp.swift */,
-				CB972CFF27E26C07005AC0F1 /* ContentView.swift */,
+				E7FE4B2927E26D4700B0EE6A /* View */,
+				E7FE4B2E27E26D8700B0EE6A /* ViewModel */,
+				E7FE4B2F27E26DB400B0EE6A /* Model */,
 				CB972D0127E26C0E005AC0F1 /* Assets.xcassets */,
 				CB972D0327E26C0E005AC0F1 /* Preview Content */,
 			);
@@ -65,6 +75,32 @@
 				CB972D0427E26C0E005AC0F1 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E7FE4B2927E26D4700B0EE6A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CB972CFF27E26C07005AC0F1 /* ContentView.swift */,
+				E7FE4B2A27E26D6500B0EE6A /* IndividualItemView.swift */,
+				E7FE4B2C27E26D8000B0EE6A /* AddLostItemView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E7FE4B2E27E26D8700B0EE6A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E7FE4B3027E26DF300B0EE6A /* ItemModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E7FE4B2F27E26DB400B0EE6A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E7FE4B3227E26DFE00B0EE6A /* Item.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +173,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7FE4B3127E26DF300B0EE6A /* ItemModel.swift in Sources */,
 				CB972D0027E26C07005AC0F1 /* ContentView.swift in Sources */,
+				E7FE4B2D27E26D8000B0EE6A /* AddLostItemView.swift in Sources */,
 				CB972CFE27E26C07005AC0F1 /* LostFoundApp.swift in Sources */,
+				E7FE4B3327E26DFE00B0EE6A /* Item.swift in Sources */,
+				E7FE4B2B27E26D6500B0EE6A /* IndividualItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
