@@ -1,18 +1,15 @@
 //
-//  ContentView.swift
+//  LostItemsView.swift
 //  Lost & Found
 //
-//  Created by 64008786 on 3/11/22.
+//  Created by 90305906 on 3/15/22.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct LostItemsView: View {
     
-    // Copy of LostItemsView here to view for testing
     @ObservedObject var model = ItemModel()
-    
-
     
     var body: some View {
         
@@ -47,8 +44,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct LostItemsView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        LostItemsView()
     }
 }

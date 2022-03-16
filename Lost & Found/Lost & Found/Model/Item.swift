@@ -8,11 +8,13 @@
 import Foundation
 import SwiftUI
 
-struct LostItem : Identifiable {
-    var id : UUID
-    var image : Image
+struct Item : Identifiable, Hashable {
+    var id = UUID()
+    //image is currently a String for testing. will mostly likely need to be switched back to Image once image importing is used
+    var image : String
     var title : String
-    var addedDate : Date
+    //may make addedDate a Date too, using String for testing
+    var addedDate : String
     var isClaimed : Bool
     var description : String
 }
