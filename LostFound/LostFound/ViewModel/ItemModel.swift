@@ -10,7 +10,7 @@ import Foundation
 class ItemModel : ObservableObject {
     @Published var items = [Item]()
     
-    static var itemGlobal : [Item] = []
+    //static var itemGlobal : [Item] = []
     
    // Using this init for test items before adding items is added.
     init() {

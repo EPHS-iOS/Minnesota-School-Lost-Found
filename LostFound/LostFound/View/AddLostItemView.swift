@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddLostItemView: View {
     
-    var itemModel = ItemModel()
+    @EnvironmentObject var itemModel: ItemModel
     
     @State private var enteredTitle : String = ""
     @State private var enteredDescription : String = ""

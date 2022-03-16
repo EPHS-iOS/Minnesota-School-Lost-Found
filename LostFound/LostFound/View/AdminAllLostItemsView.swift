@@ -9,10 +9,9 @@ import SwiftUI
 
 struct AdminAllLostItemsView: View {
     
-    // Copy of LostItemsView here to view for testing
-    @ObservedObject var model = ItemModel()
+    @StateObject var model = ItemModel()
     
-
+    
     
     var body: some View {
         
@@ -40,12 +39,11 @@ struct AdminAllLostItemsView: View {
                     }
                 }.navigationTitle(Text("Lost Items"))
                     .navigationBarTitleDisplayMode(.automatic)
-//                    .onAppear {
-//                        model.items = model.items
-//                    }
                 NavigationLink(destination: AddLostItemView(), label: { Text("Add item") })
             }
         }.navigationViewStyle(.stack)
+            .environmentObject(model)
+        
     }
 }
 
