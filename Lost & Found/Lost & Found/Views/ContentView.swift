@@ -40,8 +40,10 @@ struct ContentView: View {
                     }
                 }.navigationTitle(Text("Lost Items"))
                     .navigationBarTitleDisplayMode(.automatic)
-                
-                
+//                    .onAppear {
+//                        model.items = model.items
+//                    }
+                NavigationLink(destination: AddLostItemView(), label: { Text("Add item") })
             }
         }.navigationViewStyle(.stack)
     }

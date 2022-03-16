@@ -18,6 +18,7 @@
 		E724577827E11F5700F89F01 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E724577727E11F5700F89F01 /* ItemModel.swift */; };
 		E724577A27E1739A00F89F01 /* LostItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E724577927E1739A00F89F01 /* LostItemsView.swift */; };
 		E724577C27E179EC00F89F01 /* IndividualItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E724577B27E179EC00F89F01 /* IndividualItemView.swift */; };
+		E724577E27E2243D00F89F01 /* AddLostItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E724577D27E2243D00F89F01 /* AddLostItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		E724577727E11F5700F89F01 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		E724577927E1739A00F89F01 /* LostItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostItemsView.swift; sourceTree = "<group>"; };
 		E724577B27E179EC00F89F01 /* IndividualItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualItemView.swift; sourceTree = "<group>"; };
+		E724577D27E2243D00F89F01 /* AddLostItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLostItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 				CB972CC727DBF2DB005AC0F1 /* ContentView.swift */,
 				E724577927E1739A00F89F01 /* LostItemsView.swift */,
 				E724577B27E179EC00F89F01 /* IndividualItemView.swift */,
+				E724577D27E2243D00F89F01 /* AddLostItemView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				E724577C27E179EC00F89F01 /* IndividualItemView.swift in Sources */,
 				E724577327E11AE200F89F01 /* Item.swift in Sources */,
 				E724577827E11F5700F89F01 /* ItemModel.swift in Sources */,
+				E724577E27E2243D00F89F01 /* AddLostItemView.swift in Sources */,
 				CB972CC627DBF2DB005AC0F1 /* Lost___FoundApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

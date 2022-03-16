@@ -10,6 +10,7 @@ import SwiftUI
 struct LostItemsView: View {
     
     @ObservedObject var model = ItemModel()
+    //@State var items = model.items
     
     var body: some View {
         
@@ -37,8 +38,9 @@ struct LostItemsView: View {
                     }
                 }.navigationTitle(Text("Lost Items"))
                     .navigationBarTitleDisplayMode(.automatic)
-                
-                
+//                    .onAppear {
+//                        model.items = model.items
+//                    }
             }
         }.navigationViewStyle(.stack)
     }

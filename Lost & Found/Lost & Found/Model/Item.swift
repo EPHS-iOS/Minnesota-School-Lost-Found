@@ -16,5 +16,6 @@ struct Item : Identifiable, Hashable {
     //may make addedDate a Date too, using String for testing
     var addedDate : String
     var isClaimed : Bool
+    var name : String
     var description : String
 }
