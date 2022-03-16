@@ -1,13 +1,13 @@
 //
-//  ContentView.swift
+//  LoginView.swift
 //  LostFound
 //
-//  Created by 64008786 on 3/16/22.
+//  Created by 90305906 on 3/16/22.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct LoginView: View {
     var body: some View {
         Button("Enter") {
             /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
@@ -15,9 +15,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        LoginView()
     }
 }
-

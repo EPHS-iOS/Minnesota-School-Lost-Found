@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct AdminAllLostItemsView: View {
     
     // Copy of LostItemsView here to view for testing
     @ObservedObject var model = ItemModel()
@@ -49,9 +49,9 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct AdminAllLostItemsView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        AdminAllLostItemsView()
     }
 }
 

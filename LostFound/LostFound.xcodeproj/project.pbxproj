@@ -11,11 +11,12 @@
 		CB972D0027E26C07005AC0F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB972CFF27E26C07005AC0F1 /* ContentView.swift */; };
 		CB972D0227E26C0E005AC0F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB972D0127E26C0E005AC0F1 /* Assets.xcassets */; };
 		CB972D0527E26C0E005AC0F1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB972D0427E26C0E005AC0F1 /* Preview Assets.xcassets */; };
-		CB972D0E27E27432005AC0F1 /* AllLostItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB972D0D27E27432005AC0F1 /* AllLostItemsView.swift */; };
+		CB972D0E27E27432005AC0F1 /* AdminAllLostItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB972D0D27E27432005AC0F1 /* AdminAllLostItemsView.swift */; };
 		E7FE4B2B27E26D6500B0EE6A /* IndividualItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE4B2A27E26D6500B0EE6A /* IndividualItemView.swift */; };
 		E7FE4B2D27E26D8000B0EE6A /* AddLostItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE4B2C27E26D8000B0EE6A /* AddLostItemView.swift */; };
 		E7FE4B3127E26DF300B0EE6A /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE4B3027E26DF300B0EE6A /* ItemModel.swift */; };
 		E7FE4B3327E26DFE00B0EE6A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE4B3227E26DFE00B0EE6A /* Item.swift */; };
+		E7FE4B3527E2763200B0EE6A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE4B3427E2763200B0EE6A /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,11 +25,12 @@
 		CB972CFF27E26C07005AC0F1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CB972D0127E26C0E005AC0F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB972D0427E26C0E005AC0F1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		CB972D0D27E27432005AC0F1 /* AllLostItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllLostItemsView.swift; sourceTree = "<group>"; };
+		CB972D0D27E27432005AC0F1 /* AdminAllLostItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminAllLostItemsView.swift; sourceTree = "<group>"; };
 		E7FE4B2A27E26D6500B0EE6A /* IndividualItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualItemView.swift; sourceTree = "<group>"; };
 		E7FE4B2C27E26D8000B0EE6A /* AddLostItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLostItemView.swift; sourceTree = "<group>"; };
 		E7FE4B3027E26DF300B0EE6A /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		E7FE4B3227E26DFE00B0EE6A /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		E7FE4B3427E2763200B0EE6A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,9 +85,10 @@
 			isa = PBXGroup;
 			children = (
 				CB972CFF27E26C07005AC0F1 /* ContentView.swift */,
+				E7FE4B3427E2763200B0EE6A /* LoginView.swift */,
+				CB972D0D27E27432005AC0F1 /* AdminAllLostItemsView.swift */,
 				E7FE4B2A27E26D6500B0EE6A /* IndividualItemView.swift */,
 				E7FE4B2C27E26D8000B0EE6A /* AddLostItemView.swift */,
-				CB972D0D27E27432005AC0F1 /* AllLostItemsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -179,9 +182,10 @@
 				E7FE4B3127E26DF300B0EE6A /* ItemModel.swift in Sources */,
 				CB972D0027E26C07005AC0F1 /* ContentView.swift in Sources */,
 				E7FE4B2D27E26D8000B0EE6A /* AddLostItemView.swift in Sources */,
-				CB972D0E27E27432005AC0F1 /* AllLostItemsView.swift in Sources */,
+				CB972D0E27E27432005AC0F1 /* AdminAllLostItemsView.swift in Sources */,
 				CB972CFE27E26C07005AC0F1 /* LostFoundApp.swift in Sources */,
 				E7FE4B3327E26DFE00B0EE6A /* Item.swift in Sources */,
+				E7FE4B3527E2763200B0EE6A /* LoginView.swift in Sources */,
 				E7FE4B2B27E26D6500B0EE6A /* IndividualItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
