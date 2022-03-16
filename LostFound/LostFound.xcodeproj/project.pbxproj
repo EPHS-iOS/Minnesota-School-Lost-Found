@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		CB972CFE27E26C07005AC0F1 /* LostFoundApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB972CFD27E26C07005AC0F1 /* LostFoundApp.swift */; };
-		CB972D0027E26C07005AC0F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB972CFF27E26C07005AC0F1 /* ContentView.swift */; };
 		CB972D0227E26C0E005AC0F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB972D0127E26C0E005AC0F1 /* Assets.xcassets */; };
 		CB972D0527E26C0E005AC0F1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB972D0427E26C0E005AC0F1 /* Preview Assets.xcassets */; };
 		CB972D0E27E27432005AC0F1 /* AdminAllLostItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB972D0D27E27432005AC0F1 /* AdminAllLostItemsView.swift */; };
@@ -22,7 +21,6 @@
 /* Begin PBXFileReference section */
 		CB972CFA27E26C07005AC0F1 /* LostFound.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LostFound.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB972CFD27E26C07005AC0F1 /* LostFoundApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostFoundApp.swift; sourceTree = "<group>"; };
-		CB972CFF27E26C07005AC0F1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CB972D0127E26C0E005AC0F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB972D0427E26C0E005AC0F1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CB972D0D27E27432005AC0F1 /* AdminAllLostItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminAllLostItemsView.swift; sourceTree = "<group>"; };
@@ -84,7 +82,6 @@
 		E7FE4B2927E26D4700B0EE6A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CB972CFF27E26C07005AC0F1 /* ContentView.swift */,
 				E7FE4B3427E2763200B0EE6A /* LoginView.swift */,
 				CB972D0D27E27432005AC0F1 /* AdminAllLostItemsView.swift */,
 				E7FE4B2A27E26D6500B0EE6A /* IndividualItemView.swift */,
@@ -180,7 +177,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7FE4B3127E26DF300B0EE6A /* ItemModel.swift in Sources */,
-				CB972D0027E26C07005AC0F1 /* ContentView.swift in Sources */,
 				E7FE4B2D27E26D8000B0EE6A /* AddLostItemView.swift in Sources */,
 				CB972D0E27E27432005AC0F1 /* AdminAllLostItemsView.swift in Sources */,
 				CB972CFE27E26C07005AC0F1 /* LostFoundApp.swift in Sources */,
