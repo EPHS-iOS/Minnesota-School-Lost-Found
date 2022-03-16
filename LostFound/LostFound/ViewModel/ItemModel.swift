@@ -13,8 +13,8 @@ class ItemModel : ObservableObject {
    // Using this init for test items before adding items is added.
     init() {
         items.append(Item(image: "bed.double.fill", title: "Hydroflask", addedDate: "03/15/2022", isClaimed: false, name: "max", description: "blue and white"))
-        items.append(Item(image: "tram.fill", title: "Hydroflask", addedDate: "03/15/2022", isClaimed: false, name: "lucas", description: "blue and white"))
-        items.append(Item(image: "tv.music.note.fill", title: "Hydroflask", addedDate: "03/15/2022", isClaimed: false, name: "ariel", description: "blue and white"))
+        items.append(Item(image: "tram.fill", title: "Sweater", addedDate: "03/15/2022", isClaimed: false, name: "lucas", description: "blue"))
+        items.append(Item(image: "tv.music.note.fill", title: "Airpods", addedDate: "03/15/2022", isClaimed: false, name: "ariel", description: "white"))
         items.append(Item(image: "hare.fill", title: "Hydroflask", addedDate: "03/15/2022", isClaimed: false, name: "hello", description: "blue and white"))
     }
     

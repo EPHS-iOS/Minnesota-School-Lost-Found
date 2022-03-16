@@ -23,7 +23,7 @@ struct AddLostItemView: View {
             TextField("Item Lost", text: $enteredTitle)
                 .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             Spacer()
-            Text("Does it have a name in the inside?")
+            Text("Does it have a name on it?")
             TextField("Name", text: $enteredName)
                 .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             Spacer()
