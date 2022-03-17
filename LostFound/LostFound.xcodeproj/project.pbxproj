@@ -16,6 +16,7 @@
 		E7FE4B3127E26DF300B0EE6A /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE4B3027E26DF300B0EE6A /* ItemModel.swift */; };
 		E7FE4B3327E26DFE00B0EE6A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE4B3227E26DFE00B0EE6A /* Item.swift */; };
 		E7FE4B3527E2763200B0EE6A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE4B3427E2763200B0EE6A /* LoginView.swift */; };
+		E7FE4B3827E2D1D000B0EE6A /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE4B3727E2D1D000B0EE6A /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		E7FE4B3027E26DF300B0EE6A /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		E7FE4B3227E26DFE00B0EE6A /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		E7FE4B3427E2763200B0EE6A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		E7FE4B3727E2D1D000B0EE6A /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				E7FE4B2927E26D4700B0EE6A /* View */,
 				E7FE4B2E27E26D8700B0EE6A /* ViewModel */,
 				E7FE4B2F27E26DB400B0EE6A /* Model */,
+				E7FE4B3627E2D1BB00B0EE6A /* Image */,
 				CB972D0127E26C0E005AC0F1 /* Assets.xcassets */,
 				CB972D0327E26C0E005AC0F1 /* Preview Content */,
 			);
@@ -104,6 +107,14 @@
 				E7FE4B3227E26DFE00B0EE6A /* Item.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E7FE4B3627E2D1BB00B0EE6A /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				E7FE4B3727E2D1D000B0EE6A /* ImagePicker.swift */,
+			);
+			path = Image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +192,7 @@
 				CB972D0E27E27432005AC0F1 /* AdminAllLostItemsView.swift in Sources */,
 				CB972CFE27E26C07005AC0F1 /* LostFoundApp.swift in Sources */,
 				E7FE4B3327E26DFE00B0EE6A /* Item.swift in Sources */,
+				E7FE4B3827E2D1D000B0EE6A /* ImagePicker.swift in Sources */,
 				E7FE4B3527E2763200B0EE6A /* LoginView.swift in Sources */,
 				E7FE4B2B27E26D6500B0EE6A /* IndividualItemView.swift in Sources */,
 			);
@@ -316,6 +328,8 @@
 				DEVELOPMENT_TEAM = 8N476777C3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Allow Access to Camera";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Allow Access to Photo Library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -345,6 +359,8 @@
 				DEVELOPMENT_TEAM = 8N476777C3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Allow Access to Camera";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Allow Access to Photo Library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

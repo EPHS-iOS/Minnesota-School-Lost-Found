@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import UIKit
 
 struct Item : Identifiable, Hashable {
+    
     var id = UUID()
-    //image is currently a String for testing. will mostly likely need to be switched back to Image once image importing is used
-    var image : String
+    var image : UIImage?
     var title : String
     //may make addedDate a Date too, using String for testing
     var addedDate : String

@@ -27,7 +27,8 @@ struct AdminAllLostItemsView: View {
                         ], spacing: 3 ){
                             ForEach(model.items, id: \.self){ item in
                                 NavigationLink(destination: IndividualItemView(item: item), label: {
-                                    Image(systemName: item.image)
+                                    Image(uiImage: item.image!)
+                                        .resizable()
                                         .frame(width: geo.size.width/3, height: geo.size.width/3)
                                         .background(Color.blue)
                                         .foregroundColor(.white)

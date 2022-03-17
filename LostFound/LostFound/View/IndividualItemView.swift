@@ -9,9 +9,17 @@ import SwiftUI
 
 struct IndividualItemView: View {
     
+    
+    
     var item: Item
     
     var body: some View {
-        Text(item.title)
+        VStack {
+            Text(item.title)
+                .font(.title)
+            Image(uiImage: item.image!)
+                .resizable()
+                .frame(height: 300)
+        }
     }
 }
