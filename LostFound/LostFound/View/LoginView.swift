@@ -9,31 +9,42 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @State private var schoolCode : String = ""
+    @State var schoolCode : String = ""
+    @State private var response = ""
+    @State private var isCorrect = false
     
     var body: some View {
-        VStack {
-            Text("Minnesota Schools")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-              
-            
-            Image("MN")
-         
-            Text("Lost & Found")
-                .font(.largeTitle)
-            Text("Enter School Code")
-                .font(.headline)
-                .padding()
+        NavigationView {
+            VStack {
+                Text("Minnesota Schools")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
                 
-           
-            TextField("School Code", text: $schoolCode)
-                .textFieldStyle(.roundedBorder)
-            
-                .padding(.horizontal)
-            Button("Enter") {
-                /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
-            }
+                
+                Image("MN")
+                
+                Text("Lost & Found")
+                    .font(.largeTitle)
+                Text("Enter School Code")
+                    .font(.headline)
+                    .padding()
+                Text(response)
+                
+                
+                TextField("School Code", text: $schoolCode)
+                    .textFieldStyle(.roundedBorder)
+                
+                    .padding(.horizontal)
+                
+                NavigationLink(destination: AdminAllLostItemsView(), isActive: $isCorrect) {
+                    Text("Enter")
+                        .onTapGesture {
+                            if schoolCode == "EPAdmin" {
+                                self.isCorrect = true
+                            }
+                        }
+                }
+            }.navigationBarHidden(true)
         }
     }
 }

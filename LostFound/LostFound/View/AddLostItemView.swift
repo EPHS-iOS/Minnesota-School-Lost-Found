@@ -103,7 +103,7 @@ struct AddLostItemView: View {
                     
                 }
             }
-        }
+        }.navigationBarHidden(true)
         //change title to something else?
         //.navigationBarTitle("Add Item")
     }

@@ -44,6 +44,8 @@ struct AdminAllLostItemsView: View {
             }
         }.navigationViewStyle(.stack)
             .environmentObject(model)
+            .navigationBarHidden(true)
+        
         
     }
 }
