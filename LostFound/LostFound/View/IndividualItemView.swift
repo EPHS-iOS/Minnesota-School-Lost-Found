@@ -17,6 +17,7 @@ struct IndividualItemView: View {
         VStack {
             Text(item.title)
                 .font(.title)
+            Text(item.addedDate, format: .dateTime.day().month())
             Image(uiImage: item.image!)
                 .resizable()
                 .frame(height: 300)

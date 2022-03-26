@@ -87,7 +87,7 @@ struct AddLostItemView: View {
                 .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             //Spacer()
             Button {
-                itemModel.addItem(image: imageSelected, title: enteredTitle, addedDate: "03/16/2022", isClaimed: false, name: enteredName, description: enteredDescription)
+                itemModel.addItem(image: imageSelected, title: enteredTitle, addedDate: Date.now, isClaimed: false, name: enteredName, description: enteredDescription)
                 presentationMode.wrappedValue.dismiss()
             } label: {
                 Text("Add Item")

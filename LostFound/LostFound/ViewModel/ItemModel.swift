@@ -14,7 +14,7 @@ class ItemModel : ObservableObject {
     
 
     
-    func addItem(image: UIImage?, title: String, addedDate: String, isClaimed: Bool, name: String, description: String) {
+    func addItem(image: UIImage?, title: String, addedDate: Date, isClaimed: Bool, name: String, description: String) {
         items.append(Item(image: image, title: title, addedDate: addedDate, isClaimed: isClaimed, name: name, description: description))
     }
     

@@ -14,7 +14,7 @@ struct Item : Identifiable, Hashable {
     var image : UIImage?
     var title : String
     //may make addedDate a Date too, using String for testing
-    var addedDate : String
+    var addedDate : Date
     var isClaimed : Bool
     var name : String
     var description : String
