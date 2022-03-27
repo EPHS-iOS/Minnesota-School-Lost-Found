@@ -72,7 +72,7 @@ struct AddLostItemView: View {
             .toolbar {
                 ToolbarItemGroup {
                     Button {
-                        itemModel.addItem(image: imageSelected, title: enteredTitle, addedDate: Date.now, isClaimed: false, name: enteredName, description: enteredDescription)
+                        itemModel.addItem(image: imageSelected, title: enteredTitle, addedDate: Date.now, isClaimed: false, description: enteredDescription)
                         presentationMode.wrappedValue.dismiss()
                     } label: {
                         Text("Save")

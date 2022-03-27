@@ -21,7 +21,7 @@ struct StudentIndividualItemView: View {
             Spacer()
             
             Button {
-                item.isClaimed.toggle()
+                
                 print("success")
             } label: {
                 Text("Claim")

@@ -10,8 +10,10 @@ import SwiftUI
 struct AdminIndividualItemView: View {
     
     var item: Item
+    @EnvironmentObject var itemModel: ItemModel
     
     var body: some View {
+        
         VStack {
             Text(item.title)
                 .font(.title)
@@ -21,5 +23,19 @@ struct AdminIndividualItemView: View {
                 .frame(height: 300)
         }.navigationTitle(item.title)
             .navigationBarTitleDisplayMode(.automatic)
+            .toolbar {
+                ToolbarItemGroup {
+                    Button {
+                        itemModel.deleteItem(id: item.id)
+                    } label: {
+                        Label {
+                            Text("Delete")
+                        } icon: {
+                            Image(systemName: "trash")
+                        }
+
+                    }
+                }
+            }
     }
 }
