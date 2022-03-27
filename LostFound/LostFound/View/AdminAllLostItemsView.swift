@@ -11,6 +11,8 @@ struct AdminAllLostItemsView: View {
     
     @StateObject var model = ItemModel()
     
+    @State private var showingAddItem = false
+    
     
     
     var body: some View {
@@ -38,15 +40,30 @@ struct AdminAllLostItemsView: View {
                             }
                         }
                     }
-                }.navigationTitle(Text("Lost Items"))
+                }.navigationTitle("Lost Items")
                     .navigationBarTitleDisplayMode(.automatic)
-                NavigationLink(destination: AddLostItemView(), label: { Text("Add item") })
+//                NavigationLink(destination: AddLostItemView(), label: { Text("Add item") })
+                
+            }.toolbar {
+                ToolbarItemGroup {
+                    Button  {
+                        showingAddItem.toggle()
+                    } label: {
+                        Label {
+                            Text("Add Item")
+                        } icon: {
+                            Image(systemName: "plus")
+                        }
+
+                    }
+                    .popover(isPresented: $showingAddItem) {
+                        AddLostItemView()
+                    }
+                }
             }
         }.navigationViewStyle(.stack)
             .environmentObject(model)
             .navigationBarHidden(true)
-        
-        
     }
 }
 

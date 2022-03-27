@@ -9,8 +9,6 @@ import SwiftUI
 
 struct IndividualItemView: View {
     
-    
-    
     var item: Item
     
     var body: some View {
@@ -21,6 +19,7 @@ struct IndividualItemView: View {
             Image(uiImage: item.image!)
                 .resizable()
                 .frame(height: 300)
-        }.navigationBarHidden(true)
+        }.navigationTitle(item.title)
+            .navigationBarTitleDisplayMode(.automatic)
     }
 }
