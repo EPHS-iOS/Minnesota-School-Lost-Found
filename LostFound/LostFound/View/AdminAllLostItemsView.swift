@@ -28,7 +28,7 @@ struct AdminAllLostItemsView: View {
                             GridItem(.flexible())
                         ], spacing: 3 ){
                             ForEach(model.items, id: \.self){ item in
-                                NavigationLink(destination: IndividualItemView(item: item), label: {
+                                NavigationLink(destination: AdminIndividualItemView(item: item), label: {
                                     Image(uiImage: item.image!)
                                         .resizable()
                                         .frame(width: geo.size.width/3, height: geo.size.width/3)
