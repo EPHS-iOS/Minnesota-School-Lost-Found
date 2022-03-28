@@ -25,8 +25,18 @@ struct AdminAllLostItemsView: View {
             VStack(alignment: .leading){
                 
                 
-                SearchView(searchText: $searchText, isSearching: $isSearching, showResults: $showResults, loadSearch: $loadSearch)
-                    .padding(.top, 8)
+                HStack {
+                    SearchView(searchText: $searchText, isSearching: $isSearching, showResults: $showResults, loadSearch: $loadSearch)
+                        
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "line.3.horizontal.decrease.circle")
+                    }
+                    .padding([.top, .bottom, .trailing])
+                    .frame(width: 3.0, height: 3.0)
+
+                }.padding(.top, 8)
                     .padding(.bottom, 2)
                 
                 ScrollView{
