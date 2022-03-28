@@ -33,7 +33,6 @@ struct LoginView: View {
                 
                 TextField("School Code", text: $schoolCode)
                     .textFieldStyle(.roundedBorder)
-                
                     .padding(.horizontal)
                 
                 NavigationLink(destination: AdminAllLostItemsView(), isActive: $isCorrect) {
@@ -41,9 +40,12 @@ struct LoginView: View {
                         .onTapGesture {
                             if schoolCode == "EPAdmin" {
                                 self.isCorrect = true
+                            } else if schoolCode == "EPStudent" {
+                                self.isCorrect = true
                             }
                         }
                 }
+                
             }.navigationBarHidden(true)
         }
     }

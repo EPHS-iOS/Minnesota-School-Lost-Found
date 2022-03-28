@@ -13,6 +13,7 @@
 		CB972D0E27E27432005AC0F1 /* AdminAllLostItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB972D0D27E27432005AC0F1 /* AdminAllLostItemsView.swift */; };
 		E790A05A27F000CC004C6F86 /* StudentAllLostItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E790A05927F000CC004C6F86 /* StudentAllLostItemsView.swift */; };
 		E790A05C27F00102004C6F86 /* StudentIndividualItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E790A05B27F00102004C6F86 /* StudentIndividualItemView.swift */; };
+		E790A06027F14994004C6F86 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E790A05F27F14994004C6F86 /* SearchView.swift */; };
 		E7FE4B2B27E26D6500B0EE6A /* AdminIndividualItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE4B2A27E26D6500B0EE6A /* AdminIndividualItemView.swift */; };
 		E7FE4B2D27E26D8000B0EE6A /* AddLostItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE4B2C27E26D8000B0EE6A /* AddLostItemView.swift */; };
 		E7FE4B3127E26DF300B0EE6A /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE4B3027E26DF300B0EE6A /* ItemModel.swift */; };
@@ -30,6 +31,7 @@
 		CB972D0D27E27432005AC0F1 /* AdminAllLostItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminAllLostItemsView.swift; sourceTree = "<group>"; };
 		E790A05927F000CC004C6F86 /* StudentAllLostItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentAllLostItemsView.swift; sourceTree = "<group>"; };
 		E790A05B27F00102004C6F86 /* StudentIndividualItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentIndividualItemView.swift; sourceTree = "<group>"; };
+		E790A05F27F14994004C6F86 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		E7FE4B2A27E26D6500B0EE6A /* AdminIndividualItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminIndividualItemView.swift; sourceTree = "<group>"; };
 		E7FE4B2C27E26D8000B0EE6A /* AddLostItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLostItemView.swift; sourceTree = "<group>"; };
 		E7FE4B3027E26DF300B0EE6A /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
@@ -92,15 +94,32 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		E790A05D27F11E9E004C6F86 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				CB972D0D27E27432005AC0F1 /* AdminAllLostItemsView.swift */,
+				E7FE4B2A27E26D6500B0EE6A /* AdminIndividualItemView.swift */,
+				E7FE4B2C27E26D8000B0EE6A /* AddLostItemView.swift */,
+			);
+			path = Admin;
+			sourceTree = "<group>";
+		};
+		E790A05E27F11EA5004C6F86 /* Student */ = {
+			isa = PBXGroup;
+			children = (
+				E790A05927F000CC004C6F86 /* StudentAllLostItemsView.swift */,
+				E790A05B27F00102004C6F86 /* StudentIndividualItemView.swift */,
+			);
+			path = Student;
+			sourceTree = "<group>";
+		};
 		E7FE4B2927E26D4700B0EE6A /* View */ = {
 			isa = PBXGroup;
 			children = (
 				E7FE4B3427E2763200B0EE6A /* LoginView.swift */,
-				CB972D0D27E27432005AC0F1 /* AdminAllLostItemsView.swift */,
-				E7FE4B2A27E26D6500B0EE6A /* AdminIndividualItemView.swift */,
-				E7FE4B2C27E26D8000B0EE6A /* AddLostItemView.swift */,
-				E790A05927F000CC004C6F86 /* StudentAllLostItemsView.swift */,
-				E790A05B27F00102004C6F86 /* StudentIndividualItemView.swift */,
+				E790A05F27F14994004C6F86 /* SearchView.swift */,
+				E790A05D27F11E9E004C6F86 /* Admin */,
+				E790A05E27F11EA5004C6F86 /* Student */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -217,6 +236,7 @@
 				E7FE4B3527E2763200B0EE6A /* LoginView.swift in Sources */,
 				E790A05C27F00102004C6F86 /* StudentIndividualItemView.swift in Sources */,
 				E7FE4B2B27E26D6500B0EE6A /* AdminIndividualItemView.swift in Sources */,
+				E790A06027F14994004C6F86 /* SearchView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
