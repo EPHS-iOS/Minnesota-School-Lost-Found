@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+
 struct AddLostItemView: View {
     
     @EnvironmentObject var itemModel: ItemModel
@@ -28,20 +30,25 @@ struct AddLostItemView: View {
             Form {
                 Section {
                     Button (action: {
+                      
                         changeProfileImage = true
                         openCameraRoll = true
                     }, label: {
                         if changeProfileImage {
                             Image(uiImage: imageSelected)
+                                
+                                .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
                                 .frame(width: 300, height: 300)
-                                .foregroundColor(.white)
                                 .background(Color.gray)
-                            
+                      /*
+                                .alignmentGuide(<#T##g: HorizontalAlignment##HorizontalAlignment#>, computeValue: <#T##(ViewDimensions) -> CGFloat#>)
+                       */
                         } else {
                             Image(systemName: "photo")
                                 .frame(width: 300, height: 300)
                                 .foregroundColor(.white)
                                 .background(Color.gray)
+                            
                             
                         }
                     })
@@ -66,7 +73,11 @@ struct AddLostItemView: View {
                 }
                 
                 TextField("Item Lost", text: $enteredTitle)
-                TextField("Description", text: $enteredDescription)
+               // TextField("Description", text: $enteredDescription)
+               
+                //multi line textbook
+                TextEditor(text: $enteredDescription)
+                
                 
             }
             .toolbar {
@@ -76,6 +87,7 @@ struct AddLostItemView: View {
                         presentationMode.wrappedValue.dismiss()
                     } label: {
                         Text("Save")
+                            .font(.title)
                     }
                 }
             }
