@@ -52,7 +52,10 @@ struct AdminAllLostItemsView: View {
                                     Image(uiImage: item.image!)
                                         .resizable()
                                         .frame(width: geo.size.width/3, height: geo.size.width/3)
-                                        .background(Color.blue)
+                                        .background(Image(systemName: "photo")
+                                                        .foregroundColor(.white)
+                                                        .frame(width: geo.size.width/3, height: geo.size.width/3)
+                                                        .background(Color.gray))
                                         .foregroundColor(.white)
                                 })
                             }
