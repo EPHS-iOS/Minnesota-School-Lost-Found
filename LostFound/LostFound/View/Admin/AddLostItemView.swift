@@ -18,6 +18,7 @@ struct AddLostItemView: View {
     @State var changeProfileImage = false
     @State var openCameraRoll = false
     @State var imageSelected = UIImage()
+    @State var imagePicked = false
     
     @State private var enteredTitle : String = ""
     @State private var enteredDescription : String = ""
@@ -36,10 +37,10 @@ struct AddLostItemView: View {
                     }, label: {
                         if changeProfileImage {
                             Image(uiImage: imageSelected)
-                                
                                 .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
                                 .frame(width: 300, height: 300)
                                 .background(Color.gray)
+                                
                       /*
                                 .alignmentGuide(<#T##g: HorizontalAlignment##HorizontalAlignment#>, computeValue: <#T##(ViewDimensions) -> CGFloat#>)
                        */
@@ -88,7 +89,7 @@ struct AddLostItemView: View {
                     } label: {
                         Text("Save")
                             .font(.title)
-                    }
+                    }.disabled(!changeProfileImage)
                 }
             }
             
