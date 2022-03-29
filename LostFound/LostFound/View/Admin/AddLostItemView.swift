@@ -69,16 +69,16 @@ struct AddLostItemView: View {
                     //                    if useCamera {
                     //                        ImagePicker(selectedImage: $imageSelected, sourceType: .camera)
                     //                    } else {
-                    ImagePicker(selectedImage: $imageSelected, sourceType: .photoLibrary)
+                    ImagePicker(selectedImage: $imageSelected, sourceType: .camera)
                     //}
                 }
-                
+                Section (footer: Text("Please include info like names or brands")) {
                 TextField("Item Lost", text: $enteredTitle)
                // TextField("Description", text: $enteredDescription)
                
                 //multi line textbook
                 TextEditor(text: $enteredDescription)
-                
+                }
                 
             }
             .toolbar {
@@ -88,7 +88,7 @@ struct AddLostItemView: View {
                         presentationMode.wrappedValue.dismiss()
                     } label: {
                         Text("Save")
-                            .font(.title)
+                            .font(.title3)
                     }.disabled(!changeProfileImage)
                 }
             }
