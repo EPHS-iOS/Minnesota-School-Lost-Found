@@ -25,22 +25,11 @@ struct AdminAllLostItemsView: View {
             VStack(alignment: .leading){
                 
                 
-                HStack {
-                    //Spacer()
-                    SearchView(searchText: $searchText, isSearching: $isSearching, showResults: $showResults, loadSearch: $loadSearch)
-                    Spacer()
-                    //Spacer()
-                    Button {
-                        
-                    } label: {
-                        Image(systemName: "line.3.horizontal.decrease.circle")
-                    }
-                    .padding([.top, .bottom, .trailing])
-                    .frame(width: 3.0, height: 3.0)
-                    Spacer()
-                    Spacer()
-                }.padding(.top, 8)
-                    .padding(.bottom, 2)
+               
+                SearchView(searchText: $searchText, isSearching: $isSearching, showResults: $showResults, loadSearch: $loadSearch)
+                
+                
+                
                 ScrollView{
                     
                     GeometryReader{ geo in
