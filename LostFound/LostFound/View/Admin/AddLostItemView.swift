@@ -45,10 +45,14 @@ struct AddLostItemView: View {
                                 .alignmentGuide(<#T##g: HorizontalAlignment##HorizontalAlignment#>, computeValue: <#T##(ViewDimensions) -> CGFloat#>)
                        */
                         } else {
-                            Image(systemName: "photo")
-                                .frame(width: 300, height: 300)
-                                .foregroundColor(.white)
-                                .background(Color.gray)
+                            HStack {
+                                Spacer()
+                                Image(systemName: "photo")
+                                    .frame(width: 300, height: 300)
+                                    .foregroundColor(.white)
+                                    .background(Color.gray)
+                                Spacer()
+                            }
                             
                             
                         }
