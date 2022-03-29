@@ -26,8 +26,10 @@ struct AdminAllLostItemsView: View {
                 
                 
                 HStack {
+                    //Spacer()
                     SearchView(searchText: $searchText, isSearching: $isSearching, showResults: $showResults, loadSearch: $loadSearch)
                     Spacer()
+                    //Spacer()
                     Button {
                         
                     } label: {
@@ -36,9 +38,9 @@ struct AdminAllLostItemsView: View {
                     .padding([.top, .bottom, .trailing])
                     .frame(width: 3.0, height: 3.0)
                     Spacer()
+                    Spacer()
                 }.padding(.top, 8)
                     .padding(.bottom, 2)
-                
                 ScrollView{
                     
                     GeometryReader{ geo in

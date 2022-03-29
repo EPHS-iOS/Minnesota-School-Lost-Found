@@ -12,6 +12,7 @@ struct LoginView: View {
     @State var schoolCode : String = ""
     @State private var response = ""
     @State private var isCorrect = false
+
     
     var body: some View {
         NavigationView {
@@ -47,9 +48,12 @@ struct LoginView: View {
                 }
                 
             }.navigationBarHidden(true)
+            
         }
     }
 }
+
+
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView()
