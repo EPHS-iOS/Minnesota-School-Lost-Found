@@ -46,6 +46,15 @@ struct SearchView: View {
                     }
                         .foregroundColor(.gray)
                 )
+                .toolbar {
+                        ToolbarItem(placement: .keyboard) {
+                            Spacer()
+                            Button("Done") {
+                                //isFocused = false
+                                print("done")
+                            }
+                        }
+                    }
                 
                 
                 if isSearching {
