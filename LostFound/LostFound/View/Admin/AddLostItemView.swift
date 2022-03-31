@@ -89,13 +89,12 @@ struct AddLostItemView: View {
                         Text($0)
                     }
                 }//.pickerStyle(.wheel)
-                    .foregroundColor(.gray)
                 TextEditor(text: $enteredDescription)
                 }
                 
                 Section {
                     HStack {
-                        TextField("Tags", text: $enteredTag)
+                        TextField("Tags", text: $enteredTag).textInputAutocapitalization(.never)
                         Button {
                             tagArray.append(enteredTag)
                             enteredTag = ""
@@ -111,9 +110,13 @@ struct AddLostItemView: View {
                             } label: {
                                 HStack {
                                     Text(tag)
+                                        .padding(.horizontal)
                                     Image(systemName: "x.circle")
                                 }
-                            }
+                            }//.padding(.leading)
+                                .foregroundColor(.white)
+                                .background(Color.gray)
+                                .cornerRadius(.infinity)
                         }
                     }
                 }
@@ -122,7 +125,7 @@ struct AddLostItemView: View {
             .toolbar {
                 ToolbarItemGroup {
                     Button {
-                        itemModel.addItem(image: imageSelected, title: enteredTitle, addedDate: Date.now, isClaimed: false, description: enteredDescription, tags: tagArray)
+                        itemModel.addItem(image: imageSelected, title: enteredTitle, addedDate: Date.now, isClaimed: false, type: enteredType, description: enteredDescription, tags: tagArray)
                         presentationMode.wrappedValue.dismiss()
                     } label: {
                         Text("Save")

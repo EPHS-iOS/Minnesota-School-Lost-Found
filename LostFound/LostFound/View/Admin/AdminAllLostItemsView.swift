@@ -12,18 +12,8 @@ struct AdminAllLostItemsView: View {
     @StateObject var model = ItemModel()
     
     @State private var showingAddItem = false
-    @State var searchText = ""
-    @State var isSearching = false
-    @State var showResults = false
-    @State var loadSearch = false
-    
-    var searchResults: [Item] {
-        if searchText.isEmpty {
-            return model.items
-        } else {
-            return model.items.filter { $0.title.contains(searchText) || $0.description.contains(searchText) || $0.tags.contains(searchText) }
-        }
-    }
+    @State private var showingFilter = false
+
     
     
     var body: some View {
@@ -40,7 +30,7 @@ struct AdminAllLostItemsView: View {
                             GridItem(.flexible()),
                             GridItem(.flexible())
                         ], spacing: 3 ){
-                            ForEach(searchResults, id: \.self){ item in
+                            ForEach(model.searchResults, id: \.self){ item in
                                 NavigationLink(destination: AdminIndividualItemView(item: item), label: {
                                     Image(uiImage: item.image!)
                                         .resizable()
@@ -61,13 +51,15 @@ struct AdminAllLostItemsView: View {
                 ToolbarItemGroup {
                     HStack {
                         Button {
-                            
+                            showingFilter.toggle()
                         } label: {
                             Label {
                                 Text("Filter")
                             } icon: {
                                 Image(systemName: "line.3.horizontal.decrease.circle")
                             }
+                        }.popover(isPresented: $showingFilter) {
+                            FilterView()
                         }
                         Button  {
                             showingAddItem.toggle()
@@ -87,7 +79,7 @@ struct AdminAllLostItemsView: View {
         }.navigationViewStyle(.stack)
             .environmentObject(model)
             .navigationBarHidden(true)
-            .searchable(text: $searchText)
+            .searchable(text: $model.searchText)
         
     }
 }

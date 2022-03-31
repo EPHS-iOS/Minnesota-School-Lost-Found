@@ -12,10 +12,24 @@ import SwiftUI
 class ItemModel : ObservableObject {
     @Published var items = [Item]()
     
-
+    @Published var searchText = ""
+    //private var searchedText = searchText.lowercased()
     
-    func addItem(image: UIImage?, title: String, addedDate: Date, isClaimed: Bool, description: String, tags: [String]) {
-        items.append(Item(image: image, title: title, addedDate: addedDate, isClaimed: isClaimed, description: description, tags: tags))
+    var searchResults: [Item] {
+        if searchText.isEmpty {
+            return items
+        } else {
+            return items.filter { $0.title.localizedCaseInsensitiveContains(searchText) || $0.description.localizedCaseInsensitiveContains(searchText) || $0.tags.contains(searchText.lowercased()) || $0.type.localizedCaseInsensitiveContains(searchText) }
+        }
+    }
+    
+    
+    
+    
+    
+    
+    func addItem(image: UIImage?, title: String, addedDate: Date, isClaimed: Bool, type: String, description: String, tags: [String]) {
+        items.append(Item(image: image, title: title, addedDate: addedDate, isClaimed: isClaimed, type: type, description: description, tags: tags))
     }
     
     func claimItem(id: UUID) {
@@ -53,6 +67,8 @@ class ItemModel : ObservableObject {
             }
         }
     }
+    
+    
     
     
 }
