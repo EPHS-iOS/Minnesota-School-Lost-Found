@@ -50,7 +50,7 @@ struct FilterView: View {
                     }
                 }
                 Button {
-                    
+                    presentationMode.wrappedValue.dismiss()
                 } label: {
                     Text("Show Results")
                 }.frame(width: 250, height: 25)
@@ -83,9 +83,13 @@ struct FilterView: View {
         }
     }
     
-//    var filteredSearchResults: [Item] {
+//    var filteredSearchResult: [Item] {
 //        return model.searchResults.filter { _ in if showTShirt { model.items.type.contains("t-shirt") } || if showSweatshirt { $0.type.contains("sweatshirt") } }
 //    }
+    
+    func filteredSearchResults() {
+        
+    }
     
 }
 

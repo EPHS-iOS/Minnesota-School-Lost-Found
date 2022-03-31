@@ -35,20 +35,36 @@ struct AddLostItemView: View {
         NavigationView {
             Form {
                 Section {
-                    Button (action: {
-                      
-                        changeProfileImage = true
-                        openCameraRoll = true
-                    }, label: {
+                    
+                    Menu {
+                        Button {
+                            useCamera = true
+                            changeProfileImage = true
+                            openCameraRoll = true
+                        } label: {
+                            Label {
+                                Text("Camera")
+                            } icon: {
+                                Image(systemName: "camera")
+                            }
+                        }
+                        Button {
+                            useCamera = false
+                            changeProfileImage = true
+                            openCameraRoll = true
+                        } label: {
+                            Label {
+                                Text("Photo Library")
+                            } icon: {
+                                Image(systemName: "photo.on.rectangle")
+                            }
+                        }
+                    } label: {
                         if changeProfileImage {
                             Image(uiImage: imageSelected)
                                 .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
                                 .frame(width: 300, height: 300)
                                 .background(Color.gray)
-                                
-                      /*
-                                .alignmentGuide(<#T##g: HorizontalAlignment##HorizontalAlignment#>, computeValue: <#T##(ViewDimensions) -> CGFloat#>)
-                       */
                         } else {
                             HStack {
                                 Spacer()
@@ -58,28 +74,14 @@ struct AddLostItemView: View {
                                     .background(Color.gray)
                                 Spacer()
                             }
-                            
-                            
                         }
-                    })
-                    //                    ZStack {
-                    //                        Picker("Use Camera", selection: $useCamera, content: {
-                    //                            HStack {
-                    //                                Image(systemName: "camera")
-                    //                                Text("Camera")
-                    //                            }.tag(true)
-                    //                            HStack {
-                    //                                Image(systemName: "photo.on.rectangle")
-                    //                                Text("Photo Library")
-                    //                            }.tag(false)
-                    //                        }).labelsHidden()
-                    //                    }
+                    }
                 }.sheet(isPresented: $openCameraRoll) {
-                    //                    if useCamera {
-                    //                        ImagePicker(selectedImage: $imageSelected, sourceType: .camera)
-                    //                    } else {
-                    ImagePicker(selectedImage: $imageSelected, sourceType: .photoLibrary)
-                    //}
+                    if useCamera {
+                        ImagePicker(selectedImage: $imageSelected, sourceType: .camera)
+                    } else {
+                        ImagePicker(selectedImage: $imageSelected, sourceType: .photoLibrary)
+                    }
                 }
                 
                 Section (footer: Text("Please include info like names or brands")) {
@@ -88,7 +90,7 @@ struct AddLostItemView: View {
                     ForEach(types, id: \.self) {
                         Text($0)
                     }
-                }//.pickerStyle(.wheel)
+                }
                 TextEditor(text: $enteredDescription)
                 }
                 

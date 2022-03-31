@@ -68,7 +68,13 @@ class ItemModel : ObservableObject {
         }
     }
     
-    
+//    func deleteTag(name: String) {
+//        if let item = items.tags.first(where: {$0.name == name}) {
+//            let index = items.firstIndex(of: item)
+//
+//            items.remove(at: index!)
+//        }
+//    }
     
     
 }
