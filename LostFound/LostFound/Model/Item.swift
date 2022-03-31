@@ -16,4 +16,5 @@ struct Item : Identifiable, Hashable {
     var addedDate : Date
     var isClaimed : Bool
     var description : String
+    var tags : [String]
 }

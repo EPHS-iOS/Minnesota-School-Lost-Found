@@ -14,8 +14,8 @@ class ItemModel : ObservableObject {
     
 
     
-    func addItem(image: UIImage?, title: String, addedDate: Date, isClaimed: Bool, description: String) {
-        items.append(Item(image: image, title: title, addedDate: addedDate, isClaimed: isClaimed, description: description))
+    func addItem(image: UIImage?, title: String, addedDate: Date, isClaimed: Bool, description: String, tags: [String]) {
+        items.append(Item(image: image, title: title, addedDate: addedDate, isClaimed: isClaimed, description: description, tags: tags))
     }
     
     func claimItem(id: UUID) {
@@ -44,5 +44,15 @@ class ItemModel : ObservableObject {
             items.remove(at: index!)
         }
     }
+    
+    func findTags(searchText: String) {
+        var indexes : [Int] = []
+        for i in 0..<items.count {
+            if items[i].tags.contains(searchText) {
+                indexes.append(i)
+            }
+        }
+    }
+    
     
 }

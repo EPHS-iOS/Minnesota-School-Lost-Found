@@ -17,15 +17,20 @@ struct AdminAllLostItemsView: View {
     @State var showResults = false
     @State var loadSearch = false
     
+    var searchResults: [Item] {
+        if searchText.isEmpty {
+            return model.items
+        } else {
+            return model.items.filter { $0.title.contains(searchText) || $0.description.contains(searchText) || $0.tags.contains(searchText) }
+        }
+    }
+    
     
     var body: some View {
         
         NavigationView {
             
             VStack(alignment: .leading){
-               
-                SearchView(searchText: $searchText, isSearching: $isSearching, showResults: $showResults, loadSearch: $loadSearch)
-                
                 
                 ScrollView{
                     
@@ -35,7 +40,7 @@ struct AdminAllLostItemsView: View {
                             GridItem(.flexible()),
                             GridItem(.flexible())
                         ], spacing: 3 ){
-                            ForEach(model.items.filter({ searchText.isEmpty ? true : $0.title.contains(searchText) }), id: \.self){ item in
+                            ForEach(searchResults, id: \.self){ item in
                                 NavigationLink(destination: AdminIndividualItemView(item: item), label: {
                                     Image(uiImage: item.image!)
                                         .resizable()
@@ -54,16 +59,27 @@ struct AdminAllLostItemsView: View {
                 
             }.toolbar {
                 ToolbarItemGroup {
-                    Button  {
-                        showingAddItem.toggle()
-                    } label: {
-                        Label {
-                            Text("Add Item")
-                        } icon: {
-                            Image(systemName: "plus")
+                    HStack {
+                        Button {
+                            
+                        } label: {
+                            Label {
+                                Text("Filter")
+                            } icon: {
+                                Image(systemName: "line.3.horizontal.decrease.circle")
+                            }
                         }
-                    }.popover(isPresented: $showingAddItem) {
-                        AddLostItemView()
+                        Button  {
+                            showingAddItem.toggle()
+                        } label: {
+                            Label {
+                                Text("Add Item")
+                            } icon: {
+                                Image(systemName: "plus")
+                            }
+                        }.popover(isPresented: $showingAddItem) {
+                            AddLostItemView()
+                        }
                     }
                 }
             }
