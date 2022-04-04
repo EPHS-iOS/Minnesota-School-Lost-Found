@@ -12,11 +12,11 @@
 		CB972D0527E26C0E005AC0F1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB972D0427E26C0E005AC0F1 /* Preview Assets.xcassets */; };
 		CB972D0E27E27432005AC0F1 /* AdminAllLostItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB972D0D27E27432005AC0F1 /* AdminAllLostItemsView.swift */; };
 		E784FB0927F5561E00E35094 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E784FB0827F5561E00E35094 /* FilterView.swift */; };
-		E784FB0B27F567F700E35094 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E784FB0A27F567F700E35094 /* Filter.swift */; };
 		E784FB0D27F5687000E35094 /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E784FB0C27F5687000E35094 /* FilterModel.swift */; };
 		E790A05A27F000CC004C6F86 /* StudentAllLostItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E790A05927F000CC004C6F86 /* StudentAllLostItemsView.swift */; };
 		E790A05C27F00102004C6F86 /* StudentIndividualItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E790A05B27F00102004C6F86 /* StudentIndividualItemView.swift */; };
-		E790A06027F14994004C6F86 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E790A05F27F14994004C6F86 /* SearchView.swift */; };
+		E7B8960927F788C300774A69 /* CloudKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B8960827F788C300774A69 /* CloudKitHelper.swift */; };
+		E7B8960B27F967D000774A69 /* AddLostItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B8960A27F967D000774A69 /* AddLostItemModel.swift */; };
 		E7FE4B2B27E26D6500B0EE6A /* AdminIndividualItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE4B2A27E26D6500B0EE6A /* AdminIndividualItemView.swift */; };
 		E7FE4B2D27E26D8000B0EE6A /* AddLostItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE4B2C27E26D8000B0EE6A /* AddLostItemView.swift */; };
 		E7FE4B3127E26DF300B0EE6A /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE4B3027E26DF300B0EE6A /* ItemModel.swift */; };
@@ -33,11 +33,11 @@
 		CB972D0427E26C0E005AC0F1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CB972D0D27E27432005AC0F1 /* AdminAllLostItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminAllLostItemsView.swift; sourceTree = "<group>"; };
 		E784FB0827F5561E00E35094 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
-		E784FB0A27F567F700E35094 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		E784FB0C27F5687000E35094 /* FilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
 		E790A05927F000CC004C6F86 /* StudentAllLostItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentAllLostItemsView.swift; sourceTree = "<group>"; };
 		E790A05B27F00102004C6F86 /* StudentIndividualItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentIndividualItemView.swift; sourceTree = "<group>"; };
-		E790A05F27F14994004C6F86 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		E7B8960827F788C300774A69 /* CloudKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitHelper.swift; sourceTree = "<group>"; };
+		E7B8960A27F967D000774A69 /* AddLostItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLostItemModel.swift; sourceTree = "<group>"; };
 		E7FE4B2A27E26D6500B0EE6A /* AdminIndividualItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminIndividualItemView.swift; sourceTree = "<group>"; };
 		E7FE4B2C27E26D8000B0EE6A /* AddLostItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLostItemView.swift; sourceTree = "<group>"; };
 		E7FE4B3027E26DF300B0EE6A /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
@@ -88,6 +88,7 @@
 				E7FE4B3627E2D1BB00B0EE6A /* Image */,
 				CB972D0127E26C0E005AC0F1 /* Assets.xcassets */,
 				CB972D0327E26C0E005AC0F1 /* Preview Content */,
+				E7B8960827F788C300774A69 /* CloudKitHelper.swift */,
 			);
 			path = LostFound;
 			sourceTree = "<group>";
@@ -123,7 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				E7FE4B3427E2763200B0EE6A /* LoginView.swift */,
-				E790A05F27F14994004C6F86 /* SearchView.swift */,
 				E784FB0827F5561E00E35094 /* FilterView.swift */,
 				E790A05D27F11E9E004C6F86 /* Admin */,
 				E790A05E27F11EA5004C6F86 /* Student */,
@@ -134,6 +134,7 @@
 		E7FE4B2E27E26D8700B0EE6A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E7B8960A27F967D000774A69 /* AddLostItemModel.swift */,
 				E7FE4B3027E26DF300B0EE6A /* ItemModel.swift */,
 				E784FB0C27F5687000E35094 /* FilterModel.swift */,
 			);
@@ -144,7 +145,6 @@
 			isa = PBXGroup;
 			children = (
 				E7FE4B3227E26DFE00B0EE6A /* Item.swift */,
-				E784FB0A27F567F700E35094 /* Filter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -241,13 +241,13 @@
 				CB972CFE27E26C07005AC0F1 /* LostFoundApp.swift in Sources */,
 				E784FB0927F5561E00E35094 /* FilterView.swift in Sources */,
 				E7FE4B3327E26DFE00B0EE6A /* Item.swift in Sources */,
+				E7B8960B27F967D000774A69 /* AddLostItemModel.swift in Sources */,
 				E790A05A27F000CC004C6F86 /* StudentAllLostItemsView.swift in Sources */,
 				E7FE4B3827E2D1D000B0EE6A /* ImagePicker.swift in Sources */,
+				E7B8960927F788C300774A69 /* CloudKitHelper.swift in Sources */,
 				E7FE4B3527E2763200B0EE6A /* LoginView.swift in Sources */,
 				E790A05C27F00102004C6F86 /* StudentIndividualItemView.swift in Sources */,
-				E784FB0B27F567F700E35094 /* Filter.swift in Sources */,
 				E7FE4B2B27E26D6500B0EE6A /* AdminIndividualItemView.swift in Sources */,
-				E790A06027F14994004C6F86 /* SearchView.swift in Sources */,
 				E784FB0D27F5687000E35094 /* FilterModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

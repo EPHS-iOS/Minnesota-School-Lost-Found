@@ -7,13 +7,15 @@
 
 import Foundation
 import UIKit
-import SwiftUI
+import CloudKit
 
 class ItemModel : ObservableObject {
-    @Published var items = [Item]()
     
+    @Published var items = [Item]()
     @Published var searchText = ""
-    //private var searchedText = searchText.lowercased()
+    @Published var showingAddItem = false
+    @Published var showingFilter = false
+    
     
     var searchResults: [Item] {
         if searchText.isEmpty {
@@ -25,10 +27,49 @@ class ItemModel : ObservableObject {
     
     
     
+//    func addItemCloud(item: ) {
+//        let newItem = CKRecord(recordType: "Lost Items")
+//        saveItemCloud(record: newItem)
+//    }
     
+    func saveItem(record: CKRecord) {
+        CKContainer.default().publicCloudDatabase.save(record) { returnedRecord, returnedError in
+            print(returnedRecord)
+            print(returnedError)
+        }
+    }
+    
+//    func testAddItem(title: String) {
+//        let newItem = CKRecord(recordType: "Lost Items")
+//        newItem["Title"] = title
+//        saveItem(record: newItem)
+//    }
     
     
     func addItem(image: UIImage?, title: String, addedDate: Date, isClaimed: Bool, type: String, description: String, tags: [String]) {
+//        let newItem = CKRecord(recordType: "Lost Items")
+//        newItem["Title"] = title
+//        newItem["Date Added"] = addedDate
+//        newItem["Claimed?"] = isClaimed
+//        newItem["Type"] = type
+//        newItem["Description"] = description
+//        newItem["Tags"] = tags
+//
+//        guard
+//            let image = image,
+//            let url = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first?.appendingPathComponent("lostitem.jpg"),
+//            let data = image.jpegData(compressionQuality: 1.0) else { return }
+//
+//        do {
+//            try data.write(to: url)
+//            let asset = CKAsset(fileURL: url)
+//            newItem["Image"] = asset
+//            saveItem(record: newItem)
+//        } catch let error {
+//            print(error)
+//        }
+        
+        
         items.append(Item(image: image, title: title, addedDate: addedDate, isClaimed: isClaimed, type: type, description: description, tags: tags))
     }
     

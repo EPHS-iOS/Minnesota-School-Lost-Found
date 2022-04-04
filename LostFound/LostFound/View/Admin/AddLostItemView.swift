@@ -13,21 +13,7 @@ struct AddLostItemView: View {
     
     @EnvironmentObject var itemModel: ItemModel
     @Environment(\.presentationMode) var presentationMode
-    
-    @State var useCamera = true
-    @State var changeProfileImage = false
-    @State var openCameraRoll = false
-    @State var imageSelected = UIImage()
-    @State var imagePicked = false
-    
-    @State private var enteredTitle : String = ""
-    @State private var enteredDescription : String = ""
-    @State private var enteredName : String = ""
-    @State private var enteredType : String = ""
-    @State private var enteredTag : String = ""
-    @State private var tagArray : [String] = []
-    
-    private var types = ["t-shirt", "sweatshirt", "shorts", "pants", "hat", "water bottle", "jewelry", "other"]
+    @StateObject var aLIM = AddLostItemModel()
     
     
     var body: some View {
@@ -38,9 +24,9 @@ struct AddLostItemView: View {
                     
                     Menu {
                         Button {
-                            useCamera = true
-                            changeProfileImage = true
-                            openCameraRoll = true
+                            aLIM.useCamera = true
+                            aLIM.changeProfileImage = true
+                            aLIM.openCameraRoll = true
                         } label: {
                             Label {
                                 Text("Camera")
@@ -49,9 +35,9 @@ struct AddLostItemView: View {
                             }
                         }
                         Button {
-                            useCamera = false
-                            changeProfileImage = true
-                            openCameraRoll = true
+                            aLIM.useCamera = false
+                            aLIM.changeProfileImage = true
+                            aLIM.openCameraRoll = true
                         } label: {
                             Label {
                                 Text("Photo Library")
@@ -60,8 +46,8 @@ struct AddLostItemView: View {
                             }
                         }
                     } label: {
-                        if changeProfileImage {
-                            Image(uiImage: imageSelected)
+                        if aLIM.changeProfileImage {
+                            Image(uiImage: aLIM.imageSelected)
                                 .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
                                 .frame(width: 300, height: 300)
                                 .background(Color.gray)
@@ -76,37 +62,37 @@ struct AddLostItemView: View {
                             }
                         }
                     }
-                }.sheet(isPresented: $openCameraRoll) {
-                    if useCamera {
-                        ImagePicker(selectedImage: $imageSelected, sourceType: .camera)
+                }.sheet(isPresented: $aLIM.openCameraRoll) {
+                    if aLIM.useCamera {
+                        ImagePicker(selectedImage: $aLIM.imageSelected, sourceType: .camera)
                     } else {
-                        ImagePicker(selectedImage: $imageSelected, sourceType: .photoLibrary)
+                        ImagePicker(selectedImage: $aLIM.imageSelected, sourceType: .photoLibrary)
                     }
                 }
                 
                 Section (footer: Text("Please include info like names or brands")) {
-                TextField("Item Lost", text: $enteredTitle)
-                Picker("Item Type", selection: $enteredType) {
-                    ForEach(types, id: \.self) {
+                    TextField("Item Lost", text: $aLIM.enteredTitle)
+                    Picker("Item Type", selection: $aLIM.enteredType) {
+                        ForEach(aLIM.types, id: \.self) {
                         Text($0)
                     }
                 }
-                TextEditor(text: $enteredDescription)
+                    TextEditor(text: $aLIM.enteredDescription)
                 }
                 
                 Section {
                     HStack {
-                        TextField("Tags", text: $enteredTag).textInputAutocapitalization(.never)
+                        TextField("Tags", text: $aLIM.enteredTag).textInputAutocapitalization(.never)
                         Button {
-                            tagArray.append(enteredTag)
-                            enteredTag = ""
+                            aLIM.tagArray.append(aLIM.enteredTag)
+                            aLIM.enteredTag = ""
                         } label: {
                             Image(systemName: "plus.circle")
                         }
                     }
                     
                     HStack {
-                        ForEach(tagArray, id: \.self) { tag in
+                        ForEach(aLIM.tagArray, id: \.self) { tag in
                             Button {
                             
                             } label: {
@@ -127,12 +113,12 @@ struct AddLostItemView: View {
             .toolbar {
                 ToolbarItemGroup {
                     Button {
-                        itemModel.addItem(image: imageSelected, title: enteredTitle, addedDate: Date.now, isClaimed: false, type: enteredType, description: enteredDescription, tags: tagArray)
+                        itemModel.addItem(image: aLIM.imageSelected, title: aLIM.enteredTitle, addedDate: Date.now, isClaimed: false, type: aLIM.enteredType, description: aLIM.enteredDescription, tags: aLIM.tagArray)
+                        //itemModel.testAddItem(title: aLIM.enteredTitle)
                         presentationMode.wrappedValue.dismiss()
                     } label: {
                         Text("Save")
-                            .font(.title3)
-                    }.disabled(!changeProfileImage)
+                    }.disabled(!aLIM.changeProfileImage)
                 }
             }
             .navigationTitle("Add Item")

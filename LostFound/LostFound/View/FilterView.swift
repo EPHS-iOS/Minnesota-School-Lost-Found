@@ -12,18 +12,7 @@ struct FilterView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @StateObject var model = ItemModel()
-    //@StateObject var filter = FilterModel()
-    
-    @State var enteredSort: String = "Date- New to Old"
-    private var sortTypes: [String] = ["Date- New to Old", "Date- Old to New"]
-    @State var showTShirt = true
-    @State var showSweatshirt = true
-    @State var showShorts = true
-    @State var showPants = true
-    @State var showHat = true
-    @State var showWaterBottle = true
-    @State var showJewelry = true
-    @State var showOther = true
+    @StateObject var filter = FilterModel()
     
     var body: some View {
         
@@ -31,22 +20,22 @@ struct FilterView: View {
             VStack {
                 Form {
                     Section {
-                        Picker("Sort By", selection: $enteredSort) {
-                            ForEach(sortTypes, id: \.self) {
+                        Picker("Sort By", selection: $filter.enteredSort) {
+                            ForEach(filter.sortTypes, id: \.self) {
                                 Text($0)
                             }
                         }
                     }
                     
                     Section {
-                        Toggle("T-Shirt", isOn: $showTShirt)
-                        Toggle("Sweatshirt", isOn: $showSweatshirt)
-                        Toggle("Shorts", isOn: $showShorts)
-                        Toggle("Pants", isOn: $showPants)
-                        Toggle("Hat", isOn: $showHat)
-                        Toggle("Water Bottle", isOn: $showWaterBottle)
-                        Toggle("Jewelry", isOn: $showJewelry)
-                        Toggle("Other", isOn: $showOther)
+                        Toggle("T-Shirt", isOn: $filter.showTShirt)
+                        Toggle("Sweatshirt", isOn: $filter.showSweatshirt)
+                        Toggle("Shorts", isOn: $filter.showShorts)
+                        Toggle("Pants", isOn: $filter.showPants)
+                        Toggle("Hat", isOn: $filter.showHat)
+                        Toggle("Water Bottle", isOn: $filter.showWaterBottle)
+                        Toggle("Jewelry", isOn: $filter.showJewelry)
+                        Toggle("Other", isOn: $filter.showOther)
                     }
                 }
                 Button {
@@ -63,16 +52,7 @@ struct FilterView: View {
             }.toolbar {
                 ToolbarItemGroup {
                     Button {
-                        enteredSort = "Date- New to Old"
-                        showTShirt = true
-                        showSweatshirt = true
-                        showShorts = true
-                        showPants = true
-                        showHat = true
-                        showWaterBottle = true
-                        showJewelry = true
-                        showOther = true
-                        //filter.reset()
+                        filter.filterReset()
                     } label: {
                         Text("Reset")
                     }

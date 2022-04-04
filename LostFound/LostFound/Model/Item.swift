@@ -11,6 +11,7 @@ import UIKit
 struct Item : Identifiable, Hashable {
     
     var id = UUID()
+    //var imageURL : URL?
     var image : UIImage?
     var title : String
     var addedDate : Date

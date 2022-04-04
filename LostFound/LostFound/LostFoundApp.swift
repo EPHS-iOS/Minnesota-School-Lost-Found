@@ -12,6 +12,7 @@ struct LostFoundApp: App {
     var body: some Scene {
         WindowGroup {
             AdminAllLostItemsView()
+            //CloudUser()
         }
     }
 }

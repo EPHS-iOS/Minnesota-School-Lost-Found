@@ -11,11 +11,6 @@ struct AdminAllLostItemsView: View {
     
     @StateObject var model = ItemModel()
     
-    @State private var showingAddItem = false
-    @State private var showingFilter = false
-
-    
-    
     var body: some View {
         
         NavigationView {
@@ -51,25 +46,25 @@ struct AdminAllLostItemsView: View {
                 ToolbarItemGroup {
                     HStack {
                         Button {
-                            showingFilter.toggle()
+                            model.showingFilter.toggle()
                         } label: {
                             Label {
                                 Text("Filter")
                             } icon: {
                                 Image(systemName: "line.3.horizontal.decrease.circle")
                             }
-                        }.popover(isPresented: $showingFilter) {
+                        }.popover(isPresented: $model.showingFilter) {
                             FilterView()
                         }
                         Button  {
-                            showingAddItem.toggle()
+                            model.showingAddItem.toggle()
                         } label: {
                             Label {
                                 Text("Add Item")
                             } icon: {
                                 Image(systemName: "plus")
                             }
-                        }.popover(isPresented: $showingAddItem) {
+                        }.popover(isPresented: $model.showingAddItem) {
                             AddLostItemView()
                         }
                     }
