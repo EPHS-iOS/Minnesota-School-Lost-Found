@@ -11,7 +11,8 @@ struct LoginView: View {
     
     @State var schoolCode : String = ""
     @State private var response = ""
-    @State private var isCorrect = false
+    @State private var adminMove = false
+    @State private var studentMove = false
 
     
     var body: some View {
@@ -36,26 +37,30 @@ struct LoginView: View {
                     .textFieldStyle(.roundedBorder)
                     .padding(.horizontal)
                 
-                NavigationLink(destination: AdminAllLostItemsView(), isActive: $isCorrect) {
-                    Text("Enter")
-                        .onTapGesture {
-                            if schoolCode == "EPAdmin" {
-                                self.isCorrect = true
-                            } else if schoolCode == "EPStudent" {
-                                self.isCorrect = true
+                NavigationLink(destination: AdminAllLostItemsView(), isActive: $adminMove) {
+                    NavigationLink(destination: StudentAllLostItemsView(), isActive: $studentMove) {
+                        Text("Enter")
+                            .onTapGesture {
+                                if schoolCode == "EPAdmin" {
+                                    self.adminMove = true
+                                } else if schoolCode == "EPStudent" {
+                                    self.studentMove = true
+                                }
                             }
-                        }
+                    }
                 }
                 
             }.navigationBarHidden(true)
-            
+                .navigationBarBackButtonHidden(true)
         }
+        .navigationBarBackButtonHidden(true)
     }
-}
+
 
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView()
     }
+}
 }
