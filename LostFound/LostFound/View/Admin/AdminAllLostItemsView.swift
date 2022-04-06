@@ -10,6 +10,7 @@ import SwiftUI
 struct AdminAllLostItemsView: View {
     
     @StateObject var model = ItemModel()
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
     
     var body: some View {
         
@@ -18,13 +19,17 @@ struct AdminAllLostItemsView: View {
             VStack(alignment: .leading){
                 
                 ScrollView{
-                    
+                   
                     GeometryReader{ geo in
+                        Spacer()
                         LazyVGrid(columns: [
                             GridItem(.flexible()),
+                      
                             GridItem(.flexible()),
+                
                             GridItem(.flexible())
-                        ], spacing: 3 ){
+                          
+                        ], spacing: 6 ){
                             ForEach(model.searchResults, id: \.self){ item in
                                 NavigationLink(destination: AdminIndividualItemView(item: item), label: {
                                     Image(uiImage: item.image!)
@@ -35,16 +40,25 @@ struct AdminAllLostItemsView: View {
                                                         .frame(width: geo.size.width/3, height: geo.size.width/3)
                                                         .background(Color.gray))
                                         .foregroundColor(.white)
+                                        .border(LinearGradient(gradient: Gradient(colors: [colorScheme == .dark ? Color.white: Color.black, Color(red: 161/255, green: 32/255, blue: 22/255)]), startPoint: .bottom, endPoint: .top), width: 4)
                                 })
                             }
                         }
                     }
-                }.navigationTitle("Lost Items")
+                }.navigationTitle("EPHS Lost & Found")
                     .navigationBarTitleDisplayMode(.automatic)
+                
+                    
                 
             }.toolbar {
                 ToolbarItemGroup {
                     HStack {
+                        Image("EPLogoResized")
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
                         Button {
                             model.showingFilter.toggle()
                         } label: {
