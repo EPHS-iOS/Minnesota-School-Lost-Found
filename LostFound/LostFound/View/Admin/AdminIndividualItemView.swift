@@ -17,6 +17,7 @@ struct AdminIndividualItemView: View {
         VStack {
             Text(item.title)
                 .font(.title)
+            Text("Date added: ")
             Text(item.addedDate, format: .dateTime.day().month())
             Image(uiImage: item.image!)
                 .resizable()

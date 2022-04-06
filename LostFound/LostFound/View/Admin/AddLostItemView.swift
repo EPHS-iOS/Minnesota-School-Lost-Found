@@ -15,6 +15,8 @@ struct AddLostItemView: View {
     @Environment(\.presentationMode) var presentationMode
     @StateObject var aLIM = AddLostItemModel()
     
+    @State var currentScale: CGFloat = 0
+    @State var finalScale: CGFloat = 1
     
     var body: some View {
         
@@ -58,6 +60,17 @@ struct AddLostItemView: View {
                                     .frame(width: 300, height: 300)
                                     .foregroundColor(.white)
                                     .background(Color.gray)
+                                    //for zooming in/out, not done but this is a start
+                                    .scaleEffect(finalScale + currentScale)
+                                    .gesture(MagnificationGesture()
+                                                .onChanged {
+                                        newScale in currentScale = newScale
+                                    }
+                                                .onEnded {
+                                        scale in finalScale = scale
+                                        currentScale = 0
+                                    }
+                                    )
                                 Spacer()
                             }
                         }
@@ -70,7 +83,7 @@ struct AddLostItemView: View {
                     }
                 }
                 
-                Section (footer: Text("Please include info like names or brands")) {
+                Section (footer: Text("Please include information like brands, size, and names on item")) {
                     TextField("Item Lost", text: $aLIM.enteredTitle)
                     Picker("Item Type", selection: $aLIM.enteredType) {
                         ForEach(aLIM.types, id: \.self) {
