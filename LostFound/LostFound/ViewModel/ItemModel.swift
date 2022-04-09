@@ -16,72 +16,120 @@ class ItemModel : ObservableObject {
     @Published var showingAddItem = false
     @Published var showingFilter = false
     
+    let publicDB = CKContainer.default().publicCloudDatabase
     
     var searchResults: [Item] {
         if searchText.isEmpty {
             return items
         } else {
-            return items.filter { $0.title.localizedCaseInsensitiveContains(searchText) || $0.description.localizedCaseInsensitiveContains(searchText) || $0.tags.contains(searchText.lowercased()) || $0.type.localizedCaseInsensitiveContains(searchText) }
+            return items.filter { $0.title.localizedCaseInsensitiveContains(searchText) || $0.description.localizedCaseInsensitiveContains(searchText) || $0.type.localizedCaseInsensitiveContains(searchText) }
         }
     }
     
+    init() {
+        fetchItems()
+    }
     
-    
-//    func addItemCloud(item: ) {
-//        let newItem = CKRecord(recordType: "Lost Items")
-//        saveItemCloud(record: newItem)
-//    }
     
     func saveItem(record: CKRecord) {
-        CKContainer.default().publicCloudDatabase.save(record) { returnedRecord, returnedError in
+        publicDB.save(record) { [weak self] returnedRecord, returnedError in
             print(returnedRecord)
             print(returnedError)
+            DispatchQueue.main.async {
+                self?.fetchItems()
+            }
         }
     }
     
-//    func testAddItem(title: String) {
-//        let newItem = CKRecord(recordType: "Lost Items")
-//        newItem["Title"] = title
-//        saveItem(record: newItem)
-//    }
     
-    
-    func addItem(image: UIImage?, title: String, addedDate: Date, isClaimed: Bool, type: String, description: String, tags: [String]) {
-//        let newItem = CKRecord(recordType: "Lost Items")
-//        newItem["Title"] = title
-//        newItem["Date Added"] = addedDate
-//        newItem["Claimed?"] = isClaimed
-//        newItem["Type"] = type
-//        newItem["Description"] = description
-//        newItem["Tags"] = tags
-//
-//        guard
-//            let image = image,
-//            let url = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first?.appendingPathComponent("lostitem.jpg"),
-//            let data = image.jpegData(compressionQuality: 1.0) else { return }
-//
-//        do {
-//            try data.write(to: url)
-//            let asset = CKAsset(fileURL: url)
-//            newItem["Image"] = asset
-//            saveItem(record: newItem)
-//        } catch let error {
-//            print(error)
+    func addItem(image: UIImage?, title: String, isClaimed: Int64, type: String, description: String) {
+        let newItem = CKRecord(recordType: "LostItems")
+        newItem["Title"] = title
+        //newItem["Date Added"] = addedDate
+        newItem["IsClaimed"] = isClaimed
+        newItem["Type"] = type
+        newItem["Description"] = description
+//        if tags.count != 0 {
+//            newItem["Tags"] = tags
 //        }
         
+        guard
+            let image = image,
+            let url = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first?.appendingPathComponent("tempimage\(UUID().uuidString).jpg"),
+            let data = image.jpegData(compressionQuality: 1.0) else { return }
+
+        do {
+            try data.write(to: url)
+            let asset = CKAsset(fileURL: url)
+            newItem["Image"] = asset
+            saveItem(record: newItem)
+        } catch let error {
+            print(error)
+        }
         
-        items.append(Item(image: image, title: title, addedDate: addedDate, isClaimed: isClaimed, type: type, description: description, tags: tags))
+        //items.append(Item(image: image, title: title, isClaimed: isClaimed, type: type, description: description, tags: tags))
     }
+    
+    
+    func fetchItems() {
+        
+        let predicate = NSPredicate(value: true)
+        let query = CKQuery(recordType: "LostItems", predicate: predicate)
+        query.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        let queryOperation = CKQueryOperation(query: query)
+        
+        var returnedItems = [Item]()
+        
+        queryOperation.recordMatchedBlock = { (returnedRecordID, returnedResult) in
+            switch returnedResult {
+            case .success(let record):
+                guard
+                    let imageAsset = record["Image"] as? CKAsset,
+                    let title = record["Title"] as? String,
+                    let isClaimed = record["IsClaimed"] as? Int64,
+                    let type = record["Type"] as? String,
+                    let description = record["Description"] as? String,
+                    //let tags = record["Tags"] as? [String],
+                    let imageURL = imageAsset.fileURL
+                else { return }
+                returnedItems.append(Item(image: imageURL, title: title, isClaimed: isClaimed, type: type, description: description, record: record))
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+        queryOperation.queryResultBlock = { [weak self] returnedResult in
+            print("Returned Result: \(returnedResult)")
+            DispatchQueue.main.async {
+                self?.items = returnedItems
+            }
+            
+        }
+        addOperation(operation: queryOperation)
+    }
+    
+    
+    func addOperation(operation: CKDatabaseOperation) {
+        publicDB.add(operation)
+    }
+    
+    
+    func updateItem(item: Item) {
+        let record = item.record
+        record["Title"] = "Editted Title"
+        saveItem(record: record)
+    }
+    
     
     func claimItem(id: UUID) {
         if let item = items.first(where: {$0.id == id}) {
             let index = items.firstIndex(of: item)
             
-            items[index!].isClaimed = true
+            items[index!].isClaimed = 1
         }
     }
     
-    func editItem(id: UUID, image: UIImage?, title: String, isClaimed: Bool, description: String) {
+    func editItem(id: UUID, image: URL?, title: String, isClaimed: Int64, description: String) {
         if let item = items.first(where: {$0.id == id}) {
             let index = items.firstIndex(of: item)
             
@@ -95,27 +143,9 @@ class ItemModel : ObservableObject {
     func deleteItem(id: UUID) {
         if let item = items.first(where: {$0.id == id}) {
             let index = items.firstIndex(of: item)
-         
+            
             items.remove(at: index!)
         }
     }
-    
-    func findTags(searchText: String) {
-        var indexes : [Int] = []
-        for i in 0..<items.count {
-            if items[i].tags.contains(searchText) {
-                indexes.append(i)
-            }
-        }
-    }
-    
-//    func deleteTag(name: String) {
-//        if let item = items.tags.first(where: {$0.name == name}) {
-//            let index = items.firstIndex(of: item)
-//
-//            items.remove(at: index!)
-//        }
-//    }
-    
     
 }

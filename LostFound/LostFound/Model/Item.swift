@@ -7,16 +7,17 @@
 
 import Foundation
 import UIKit
+import CloudKit
 
 struct Item : Identifiable, Hashable {
     
     var id = UUID()
-    //var imageURL : URL?
-    var image : UIImage?
+    var image : URL?
     var title : String
-    var addedDate : Date
-    var isClaimed : Bool
+    //var addedDate : Date
+    var isClaimed : Int64
     var type : String
     var description : String
-    var tags : [String]
+    //var tags : [String]
+    var record : CKRecord
 }

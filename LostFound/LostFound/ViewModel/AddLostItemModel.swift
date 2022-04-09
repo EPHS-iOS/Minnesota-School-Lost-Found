@@ -18,8 +18,8 @@ class AddLostItemModel: ObservableObject {
     @Published var enteredTitle : String = ""
     @Published var enteredDescription : String = ""
     @Published var enteredType : String = ""
-    @Published var enteredTag : String = ""
-    @Published var tagArray : [String] = []
+    //@Published var enteredTag : String = ""
+    //@Published var tagArray : [String] = []
     
     @Published var types = ["T-Shirt", "Sweatshirt", "Shorts", "Pants", "Hat", "Gloves/Mittens", "Water Bottle", "Jewelry", "Shoes", "Electronics", "other"]
     

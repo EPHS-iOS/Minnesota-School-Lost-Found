@@ -14,10 +14,13 @@ struct StudentIndividualItemView: View {
         VStack {
             Text(item.title)
                 .font(.title)
-            Text(item.addedDate, format: .dateTime.day().month())
-            Image(uiImage: item.image!)
-                .resizable()
-                .frame(height: 300)
+            //Text(item.addedDate, format: .dateTime.day().month())
+            if let url = item.image, let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
+                Image(uiImage: image)
+                    .resizable()
+                    .frame(height: 300)
+            }
+            
             Spacer()
             
             Button {

@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  AdminAllLostItemsView.swift
 //  LostFound
 //
 //  Created by 64008786 on 3/16/22.
@@ -32,16 +32,23 @@ struct AdminAllLostItemsView: View {
                         ], spacing: 6 ){
                             ForEach(model.searchResults, id: \.self){ item in
                                 NavigationLink(destination: AdminIndividualItemView(item: item), label: {
-                                    Image(uiImage: item.image!)
-                                        .resizable()
-                                        .frame(width: geo.size.width/3, height: geo.size.width/3)
-                                        .background(Image(systemName: "photo")
-                                                        .foregroundColor(.white)
-                                                        .frame(width: geo.size.width/3, height: geo.size.width/3)
-                                                        .background(Color.gray))
-                                        .foregroundColor(.white)
-                                        .border(LinearGradient(gradient: Gradient(colors: [colorScheme == .dark ? Color.white: Color.black, Color(red: 161/255, green: 32/255, blue: 22/255)]), startPoint: .bottom, endPoint: .top), width: 4)
+                                    
+                                    if let url = item.image, let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
+                                        Image(uiImage: image)
+                                            .resizable()
+                                            .frame(width: geo.size.width/3, height: geo.size.width/3)
+                                            .background(Image(systemName: "photo")
+                                                            .foregroundColor(.white)
+                                                            .frame(width: geo.size.width/3, height: geo.size.width/3)
+                                                            .background(Color.gray))
+                                            .foregroundColor(.white)
+                                            .border(LinearGradient(gradient: Gradient(colors: [colorScheme == .dark ? Color.white: Color.black, Color(red: 161/255, green: 32/255, blue: 22/255)]), startPoint: .bottom, endPoint: .top), width: 4)
+                                    }
+                                    
                                 })
+                            }.refreshable {
+                                await DispatchQueue.main.async {model.fetchItems()}
+                                
                             }
                         }
                     }
@@ -49,6 +56,7 @@ struct AdminAllLostItemsView: View {
                     .navigationBarTitleDisplayMode(.automatic)
                     .font(Font.system(size:46, weight: .bold))
                     //.foregroundStyle(LinearGradient(gradient: Gradient(colors: [colorScheme == .dark ? Color.white: Color.black, Color(red: 161/255, green: 32/255, blue: 22/255)]), startPoint: .bottom, endPoint: .top))
+                
                 
                 
                     
@@ -88,10 +96,12 @@ struct AdminAllLostItemsView: View {
                 }
             }
             
+            
         }.navigationViewStyle(.stack)
             .environmentObject(model)
             .navigationBarHidden(true)
             .searchable(text: $model.searchText)
+            
         
     }
 }

@@ -93,41 +93,43 @@ struct AddLostItemView: View {
                     TextEditor(text: $aLIM.enteredDescription)
                 }
                 
-                Section {
-                    HStack {
-                        TextField("Tags", text: $aLIM.enteredTag).textInputAutocapitalization(.never)
-                        Button {
-                            aLIM.tagArray.append(aLIM.enteredTag)
-                            aLIM.enteredTag = ""
-                        } label: {
-                            Image(systemName: "plus.circle")
-                        }
-                    }
-                    
-                    HStack {
-                        ForEach(aLIM.tagArray, id: \.self) { tag in
-                            Button {
-                            
-                            } label: {
-                                HStack {
-                                    Text(tag)
-                                        .padding(.horizontal)
-                                    Image(systemName: "x.circle")
-                                }
-                            }//.padding(.leading)
-                                .foregroundColor(.white)
-                                .background(Color.gray)
-                                .cornerRadius(.infinity)
-                        }
-                    }
-                }
+//                Section {
+//                    HStack {
+//                        TextField("Tags", text: $aLIM.enteredTag).textInputAutocapitalization(.never)
+//                        Button {
+//                            aLIM.tagArray.append(aLIM.enteredTag)
+//                            aLIM.enteredTag = ""
+//                        } label: {
+//                            Image(systemName: "plus.circle")
+//                        }
+//                    }
+//
+//                    HStack {
+//                        ForEach(aLIM.tagArray, id: \.self) { tag in
+//                            Button {
+//
+//                            } label: {
+//                                HStack {
+//                                    Text(tag)
+//                                        .padding(.horizontal)
+//                                    Image(systemName: "x.circle")
+//                                }
+//                            }//.padding(.leading)
+//                                .foregroundColor(.white)
+//                                .background(Color.gray)
+//                                .cornerRadius(.infinity)
+//                        }
+//                    }
+//                }
                 
             }
             .toolbar {
                 ToolbarItemGroup {
                     Button {
-                        itemModel.addItem(image: aLIM.imageSelected, title: aLIM.enteredTitle, addedDate: Date.now, isClaimed: false, type: aLIM.enteredType, description: aLIM.enteredDescription, tags: aLIM.tagArray)
-                        //itemModel.testAddItem(title: aLIM.enteredTitle)
+                        itemModel.addItem(image: aLIM.imageSelected, title: aLIM.enteredTitle, isClaimed: 0, type: aLIM.enteredType, description: aLIM.enteredDescription)
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                            self.itemModel.fetchItems()
+                        }
                         presentationMode.wrappedValue.dismiss()
                     } label: {
                         Text("Save")
