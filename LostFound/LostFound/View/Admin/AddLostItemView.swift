@@ -127,8 +127,8 @@ struct AddLostItemView: View {
                 ToolbarItemGroup {
                     Button {
                         itemModel.addItem(image: aLIM.imageSelected, title: aLIM.enteredTitle, isClaimed: 0, type: aLIM.enteredType, description: aLIM.enteredDescription)
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                            self.itemModel.fetchItems()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                            self.itemModel.sortData(sortBy: itemModel.enteredSort)
                         }
                         presentationMode.wrappedValue.dismiss()
                     } label: {

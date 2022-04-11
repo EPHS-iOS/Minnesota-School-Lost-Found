@@ -11,6 +11,7 @@ struct AdminIndividualItemView: View {
     
     var item: Item
     @EnvironmentObject var itemModel: ItemModel
+    @StateObject var model = ItemModel()
     
     var body: some View {
         
@@ -25,22 +26,55 @@ struct AdminIndividualItemView: View {
                     .resizable()
                     .frame(height: 300)
             }
+//            if let intVal = isClaimed, let boolVal = (intVal != 0) {
+//                Text(boolVal ? "Yes" : "No")
+//            }
+            //Text(model.isClaimed)
+            
+            Button {
+                model.claimItem(item: item)
+                //model.isClaimed = item.isClaimed
+            } label: {
+                Text("Claim Item")
+            }.frame(width: 250, height: 25)
+                .padding()
+                .foregroundColor(.white)
+                .background(Color.blue)
+                .cornerRadius(20)
             
         }.navigationTitle(item.title)
             .navigationBarTitleDisplayMode(.automatic)
             .toolbar {
                 ToolbarItemGroup {
-                    Button {
-                        itemModel.deleteItem(id: item.id)
-                    } label: {
-                        Label {
-                            Text("Delete")
-                        } icon: {
-                            Image(systemName: "trash")
+                    HStack {
+                        Button {
+                            model.showingEditItem.toggle()
+                        } label: {
+                            Label {
+                                Text("Edit")
+                            } icon: {
+                                Image(systemName: "pencil")
+                            }
+                            
+                        }.popover(isPresented: $model.showingEditItem) {
+                            EditLostItemView(item: item)
                         }
-
+                        Button {
+                            itemModel.deleteItem(id: item.id)
+                        } label: {
+                            Label {
+                                Text("Delete")
+                            } icon: {
+                                Image(systemName: "trash")
+                            }
+                            
+                        }
+                        
                     }
                 }
+            }
+            .onAppear {
+                model.isClaimed = item.isClaimed
             }
     }
 }

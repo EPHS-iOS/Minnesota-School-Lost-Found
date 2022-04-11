@@ -11,8 +11,9 @@ struct FilterView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
-    @StateObject var model = ItemModel()
-    @StateObject var filter = FilterModel()
+    @EnvironmentObject var model: ItemModel
+    
+    
     
     var body: some View {
         
@@ -20,26 +21,28 @@ struct FilterView: View {
             VStack {
                 Form {
                     Section {
-                        Picker("Sort By", selection: $filter.enteredSort) {
-                            ForEach(filter.sortTypes, id: \.self) {
+                        Picker("Sort By", selection: $model.enteredSort) {
+                            ForEach(model.sortTypes, id: \.self) {
                                 Text($0)
                             }
                         }
                     }
                     
                     Section {
-                        Toggle("T-Shirt", isOn: $filter.showTShirt)
-                        Toggle("Sweatshirt", isOn: $filter.showSweatshirt)
-                        Toggle("Shorts", isOn: $filter.showShorts)
-                        Toggle("Pants", isOn: $filter.showPants)
-                        Toggle("Hat", isOn: $filter.showHat)
-                        Toggle("Water Bottle", isOn: $filter.showWaterBottle)
-                        Toggle("Jewelry", isOn: $filter.showJewelry)
-                        Toggle("Other", isOn: $filter.showOther)
+                        Toggle("T-Shirt", isOn: $model.showTShirt)
+                        Toggle("Sweatshirt", isOn: $model.showSweatshirt)
+                        Toggle("Shorts", isOn: $model.showShorts)
+                        Toggle("Pants", isOn: $model.showPants)
+                        Toggle("Hat", isOn: $model.showHat)
+                        Toggle("Water Bottle", isOn: $model.showWaterBottle)
+                        Toggle("Jewelry", isOn: $model.showJewelry)
+                        Toggle("Other", isOn: $model.showOther)
                     }
                 }
                 Button {
+                    model.sortData(sortBy: model.enteredSort)
                     presentationMode.wrappedValue.dismiss()
+                    
                 } label: {
                     Text("Show Results")
                 }.frame(width: 250, height: 25)
@@ -52,7 +55,7 @@ struct FilterView: View {
             }.toolbar {
                 ToolbarItemGroup {
                     Button {
-                        filter.filterReset()
+                        model.filterReset()
                     } label: {
                         Text("Reset")
                     }

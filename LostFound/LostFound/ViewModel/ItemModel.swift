@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import CloudKit
+import SwiftUI
 
 class ItemModel : ObservableObject {
     
@@ -15,6 +16,21 @@ class ItemModel : ObservableObject {
     @Published var searchText = ""
     @Published var showingAddItem = false
     @Published var showingFilter = false
+    @Published var showingEditItem = false
+    
+    @Published var enteredSort: String = "Date- New to Old"
+    @Published var sortTypes: [String] = ["Date- New to Old", "Date- Old to New"]
+    @Published var showTShirt = true
+    @Published var showSweatshirt = true
+    @Published var showShorts = true
+    @Published var showPants = true
+    @Published var showHat = true
+    @Published var showWaterBottle = true
+    @Published var showJewelry = true
+    @Published var showOther = true
+    
+    @Published var isClaimed : Int64 = 0
+    
     
     let publicDB = CKContainer.default().publicCloudDatabase
     
@@ -25,19 +41,18 @@ class ItemModel : ObservableObject {
             return items.filter { $0.title.localizedCaseInsensitiveContains(searchText) || $0.description.localizedCaseInsensitiveContains(searchText) || $0.type.localizedCaseInsensitiveContains(searchText) }
         }
     }
+
     
     init() {
-        fetchItems()
+        sortData(sortBy: enteredSort)
     }
     
     
     func saveItem(record: CKRecord) {
-        publicDB.save(record) { [weak self] returnedRecord, returnedError in
+        publicDB.save(record) { returnedRecord, returnedError in
             print(returnedRecord)
             print(returnedError)
-            DispatchQueue.main.async {
-                self?.fetchItems()
-            }
+            self.sortData(sortBy: self.enteredSort)
         }
     }
     
@@ -66,16 +81,14 @@ class ItemModel : ObservableObject {
         } catch let error {
             print(error)
         }
-        
-        //items.append(Item(image: image, title: title, isClaimed: isClaimed, type: type, description: description, tags: tags))
     }
     
     
-    func fetchItems() {
+    func fetchItems(sortBy: String, isAscending: Bool) {
         
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: "LostItems", predicate: predicate)
-        query.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        query.sortDescriptors = [NSSortDescriptor(key: sortBy, ascending: isAscending)]
         let queryOperation = CKQueryOperation(query: query)
         
         var returnedItems = [Item]()
@@ -108,36 +121,61 @@ class ItemModel : ObservableObject {
         addOperation(operation: queryOperation)
     }
     
-    
     func addOperation(operation: CKDatabaseOperation) {
         publicDB.add(operation)
     }
     
     
-    func updateItem(item: Item) {
+    func updateItem(item: Item, image: UIImage?, title: String, type: String, description: String) {
         let record = item.record
-        record["Title"] = "Editted Title"
+        record["Title"] = title
+        record["Type"] = type
+        record["Description"] = description
+        guard
+            let image = image,
+            let url = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first?.appendingPathComponent("tempimage\(UUID().uuidString).jpg"),
+            let data = image.jpegData(compressionQuality: 1.0) else { return }
+
+        do {
+            try data.write(to: url)
+            let asset = CKAsset(fileURL: url)
+            record["Image"] = asset
+            saveItem(record: record)
+        } catch let error {
+            print(error)
+        }
+        
+        sortData(sortBy: enteredSort)
+    }
+    
+    func sortData(sortBy: String) {
+        switch sortBy {
+        case "Date- New to Old":
+            fetchItems(sortBy: "creationDate", isAscending: false)
+        case "Date- Old to New":
+            fetchItems(sortBy: "creationDate", isAscending: true)
+        default:
+            print("sort type not found")
+        }
+    }
+    
+    func filterReset() {
+        enteredSort = "Date- New to Old"
+        showTShirt = true
+        showSweatshirt = true
+        showShorts = true
+        showPants = true
+        showHat = true
+        showWaterBottle = true
+        showJewelry = true
+        showOther = true
+    }
+    
+    func claimItem(item: Item) {
+        let record = item.record
+        record["IsClaimed"] = -1
         saveItem(record: record)
-    }
-    
-    
-    func claimItem(id: UUID) {
-        if let item = items.first(where: {$0.id == id}) {
-            let index = items.firstIndex(of: item)
-            
-            items[index!].isClaimed = 1
-        }
-    }
-    
-    func editItem(id: UUID, image: URL?, title: String, isClaimed: Int64, description: String) {
-        if let item = items.first(where: {$0.id == id}) {
-            let index = items.firstIndex(of: item)
-            
-            items[index!].image = image
-            items[index!].title = title
-            items[index!].isClaimed = isClaimed
-            items[index!].description = description
-        }
+        sortData(sortBy: enteredSort)
     }
     
     func deleteItem(id: UUID) {

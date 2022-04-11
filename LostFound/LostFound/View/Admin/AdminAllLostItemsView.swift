@@ -46,9 +46,6 @@ struct AdminAllLostItemsView: View {
                                     }
                                     
                                 })
-                            }.refreshable {
-                                await DispatchQueue.main.async {model.fetchItems()}
-                                
                             }
                         }
                     }
