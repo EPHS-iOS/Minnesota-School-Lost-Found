@@ -93,35 +93,6 @@ struct AddLostItemView: View {
                     TextEditor(text: $aLIM.enteredDescription)
                 }
                 
-//                Section {
-//                    HStack {
-//                        TextField("Tags", text: $aLIM.enteredTag).textInputAutocapitalization(.never)
-//                        Button {
-//                            aLIM.tagArray.append(aLIM.enteredTag)
-//                            aLIM.enteredTag = ""
-//                        } label: {
-//                            Image(systemName: "plus.circle")
-//                        }
-//                    }
-//
-//                    HStack {
-//                        ForEach(aLIM.tagArray, id: \.self) { tag in
-//                            Button {
-//
-//                            } label: {
-//                                HStack {
-//                                    Text(tag)
-//                                        .padding(.horizontal)
-//                                    Image(systemName: "x.circle")
-//                                }
-//                            }//.padding(.leading)
-//                                .foregroundColor(.white)
-//                                .background(Color.gray)
-//                                .cornerRadius(.infinity)
-//                        }
-//                    }
-//                }
-                
             }
             .toolbar {
                 ToolbarItemGroup {
@@ -133,7 +104,7 @@ struct AddLostItemView: View {
                         presentationMode.wrappedValue.dismiss()
                     } label: {
                         Text("Save")
-                    }.disabled(!aLIM.changeProfileImage)
+                    }//.disabled(!aLIM.changeProfileImage)
                 }
             }
             .navigationTitle("Add Item")

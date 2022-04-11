@@ -64,14 +64,11 @@ class ItemModel : ObservableObject {
         newItem["IsClaimed"] = isClaimed
         newItem["Type"] = type
         newItem["Description"] = description
-//        if tags.count != 0 {
-//            newItem["Tags"] = tags
-//        }
         
         guard
             let image = image,
             let url = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first?.appendingPathComponent("tempimage\(UUID().uuidString).jpg"),
-            let data = image.jpegData(compressionQuality: 1.0) else { return }
+            let data = image.jpegData(compressionQuality: 0.5) else { return }
 
         do {
             try data.write(to: url)
@@ -148,6 +145,25 @@ class ItemModel : ObservableObject {
         sortData(sortBy: enteredSort)
     }
     
+    func deleteItem(input: Item) {
+        guard let item = items.first(where: {$0.id == input.id}) else { return }
+        let index = items.firstIndex(of: item)
+        let record = input.record
+            
+        publicDB.delete(withRecordID: record.recordID) { [weak self] returnedRecordID, returnedError in
+            DispatchQueue.main.async {
+                self?.items.remove(at: index!)
+            }
+        }
+    }
+    
+    func claimItem(item: Item) {
+        let record = item.record
+        record["IsClaimed"] = -1
+        saveItem(record: record)
+        sortData(sortBy: enteredSort)
+    }
+    
     func sortData(sortBy: String) {
         switch sortBy {
         case "Date- New to Old":
@@ -169,21 +185,6 @@ class ItemModel : ObservableObject {
         showWaterBottle = true
         showJewelry = true
         showOther = true
-    }
-    
-    func claimItem(item: Item) {
-        let record = item.record
-        record["IsClaimed"] = -1
-        saveItem(record: record)
-        sortData(sortBy: enteredSort)
-    }
-    
-    func deleteItem(id: UUID) {
-        if let item = items.first(where: {$0.id == id}) {
-            let index = items.firstIndex(of: item)
-            
-            items.remove(at: index!)
-        }
     }
     
 }

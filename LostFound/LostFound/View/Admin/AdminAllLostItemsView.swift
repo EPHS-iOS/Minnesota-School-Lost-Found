@@ -18,7 +18,7 @@ struct AdminAllLostItemsView: View {
             
             VStack(alignment: .leading){
                 
-                ScrollView{
+                ScrollView {
                    
                     GeometryReader{ geo in
                         Spacer()

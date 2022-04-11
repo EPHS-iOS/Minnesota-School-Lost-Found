@@ -30,7 +30,7 @@ struct AdminIndividualItemView: View {
 //                Text(boolVal ? "Yes" : "No")
 //            }
             //Text(model.isClaimed)
-            
+            Text(item.description)
             Button {
                 model.claimItem(item: item)
                 //model.isClaimed = item.isClaimed
@@ -60,7 +60,7 @@ struct AdminIndividualItemView: View {
                             EditLostItemView(item: item)
                         }
                         Button {
-                            itemModel.deleteItem(id: item.id)
+                            itemModel.deleteItem(input: item)
                         } label: {
                             Label {
                                 Text("Delete")
