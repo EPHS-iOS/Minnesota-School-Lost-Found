@@ -20,7 +20,7 @@ struct AdminAllLostItemsView: View {
                 
                 ScrollView {
                    
-                    //GeometryReader{ geo in
+                    GeometryReader{ geo in
                         Spacer()
                         LazyVGrid(columns: [
                             GridItem(.flexible()),
@@ -36,12 +36,12 @@ struct AdminAllLostItemsView: View {
                                     if let url = item.image, let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
                                         Image(uiImage: image)
                                             .resizable()
-                                            //.frame(width: geo.size.width/3, height: geo.size.width/3)
-                                            .frame(maxWidth: .infinity)
+                                            .frame(width: geo.size.width/3, height: geo.size.width/3)
+                                            //.frame(maxWidth: .infinity)
                                             .background(Image(systemName: "photo")
                                                             .foregroundColor(.white)
-                                                            //.frame(width: geo.size.width/3, height: geo.size.width/3)
-                                                            .frame(maxWidth: .infinity)
+                                                            .frame(width: geo.size.width/3, height: geo.size.width/3)
+                                                            //.frame(maxWidth: .infinity)
                                                             .background(Color.gray))
                                             .foregroundColor(.white)
                                             .border(LinearGradient(gradient: Gradient(colors: [colorScheme == .dark ? Color.white: Color.black, Color(red: 161/255, green: 32/255, blue: 22/255)]), startPoint: .bottom, endPoint: .top), width: 4)
@@ -50,7 +50,7 @@ struct AdminAllLostItemsView: View {
                                 })
                             }
                         }
-                    //}
+                    }
                     
                 }.navigationTitle("EPHS Lost & Found")
                     
