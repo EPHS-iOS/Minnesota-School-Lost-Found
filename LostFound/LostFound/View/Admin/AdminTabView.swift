@@ -14,20 +14,20 @@ struct AdminTabView: View {
                 .tabItem() {
                     Image(systemName: "house.circle")
                     Text("Items")
-                }
+                }.padding()
             
             MessageView()
                 .tabItem() {
                     Image(systemName: "message.circle")
                     Text("Message")
-                }
+                }.padding()
 
             SettingsView()
                 .tabItem() {
                     Image(systemName: "gear.circle")
                     Text("Settings")
-                }
-        }
+                }.padding()
+        }//.tabViewStyle(PageTabViewStyle())
     }
 }
 

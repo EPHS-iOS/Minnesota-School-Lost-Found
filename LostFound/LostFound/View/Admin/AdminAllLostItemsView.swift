@@ -20,15 +20,15 @@ struct AdminAllLostItemsView: View {
                 
                 ScrollView {
                    
-                    GeometryReader{ geo in
+                    //GeometryReader{ geo in
                         Spacer()
                         LazyVGrid(columns: [
                             GridItem(.flexible()),
-                      
+
                             GridItem(.flexible()),
-                
+
                             GridItem(.flexible())
-                          
+
                         ], spacing: 6 ){
                             ForEach(model.searchResults, id: \.self){ item in
                                 NavigationLink(destination: AdminIndividualItemView(item: item), label: {
@@ -36,10 +36,12 @@ struct AdminAllLostItemsView: View {
                                     if let url = item.image, let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
                                         Image(uiImage: image)
                                             .resizable()
-                                            .frame(width: geo.size.width/3, height: geo.size.width/3)
+                                            //.frame(width: geo.size.width/3, height: geo.size.width/3)
+                                            .frame(maxWidth: .infinity)
                                             .background(Image(systemName: "photo")
                                                             .foregroundColor(.white)
-                                                            .frame(width: geo.size.width/3, height: geo.size.width/3)
+                                                            //.frame(width: geo.size.width/3, height: geo.size.width/3)
+                                                            .frame(maxWidth: .infinity)
                                                             .background(Color.gray))
                                             .foregroundColor(.white)
                                             .border(LinearGradient(gradient: Gradient(colors: [colorScheme == .dark ? Color.white: Color.black, Color(red: 161/255, green: 32/255, blue: 22/255)]), startPoint: .bottom, endPoint: .top), width: 4)
@@ -48,15 +50,17 @@ struct AdminAllLostItemsView: View {
                                 })
                             }
                         }
-                    }
+                    //}
+                    
                 }.navigationTitle("EPHS Lost & Found")
+                    
                     .navigationBarTitleDisplayMode(.automatic)
                     .font(Font.system(size:46, weight: .bold))
                     //.foregroundStyle(LinearGradient(gradient: Gradient(colors: [colorScheme == .dark ? Color.white: Color.black, Color(red: 161/255, green: 32/255, blue: 22/255)]), startPoint: .bottom, endPoint: .top))
                 
                 
                 
-                    
+                 
                 
             }.toolbar {
                 ToolbarItemGroup {
