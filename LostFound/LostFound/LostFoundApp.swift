@@ -11,7 +11,8 @@ import SwiftUI
 struct LostFoundApp: App {
     var body: some Scene {
         WindowGroup {
-            AdminAllLostItemsView()
+            //AdminAllLostItemsView()
+            AdminTabView()
             //LoginView()
             //CloudUser()
         }
