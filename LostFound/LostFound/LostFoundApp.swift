@@ -12,8 +12,8 @@ struct LostFoundApp: App {
     var body: some Scene {
         WindowGroup {
             //AdminAllLostItemsView()
-            AdminTabView()
-            //LoginView()
+            //AdminTabView()
+            LoginView()
             //CloudUser()
         }
     }

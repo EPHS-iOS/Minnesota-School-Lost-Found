@@ -18,28 +18,26 @@ struct LoginView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("Minnesota Schools")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .foregroundStyle(LinearGradient(gradient: Gradient(colors: [colorScheme == .dark ? Color.white: Color.black, Color.red]), startPoint: .bottom, endPoint: .top))
+                Spacer()
                 
+                Image("lightLogo")
                 
-                Image("EPLogo200x100")
+                Text(" ")
                 
-                Text("Lost & Found")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .foregroundStyle(LinearGradient(gradient: Gradient(colors: [colorScheme == .dark ? Color.white: Color.black, Color.red]), startPoint: .top, endPoint: .bottom))
-                Text("Enter School Code")
-                    .font(.headline)
-                    .padding()
-                Text(response)
-                
-                
-                TextField("School Code", text: $schoolCode)
-                    .textFieldStyle(.roundedBorder)
-                    .padding(.horizontal)
-                    .border(LinearGradient(gradient: Gradient(colors: [colorScheme == .dark ? Color.white: Color.black, Color(red: 161/255, green: 32/255, blue: 22/255)]), startPoint: .bottom, endPoint: .top), width: 4)
+                HStack {
+                    
+                    Spacer(minLength: 50)
+                    
+                    TextField("School Code", text: $schoolCode)
+                        .textFieldStyle(.roundedBorder)
+                        .cornerRadius(50)
+                        .padding(.horizontal)
+                        .font(.title3)
+                    
+                    Spacer(minLength: 50)
+                    
+                }
+
                 
                 NavigationLink(destination: AdminAllLostItemsView(), isActive: $adminMove) {
                     NavigationLink(destination: StudentAllLostItemsView(), isActive: $studentMove) {
@@ -53,8 +51,12 @@ struct LoginView: View {
                             }
                     }
                 }
+                Spacer()
             }.navigationBarHidden(true)
                 .navigationBarBackButtonHidden(true)
+                .background(Rectangle()
+                                .foregroundStyle(LinearGradient(gradient: Gradient(colors: [colorScheme == .dark ? Color.white: Color.white, Color.blue]), startPoint: .bottom, endPoint: .top)))
+                .ignoresSafeArea()
         }
         .navigationBarBackButtonHidden(true)
     }
