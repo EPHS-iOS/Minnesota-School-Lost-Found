@@ -50,6 +50,7 @@ struct AddLostItemView: View {
                     } label: {
                         if aLIM.changeProfileImage {
                             Image(uiImage: aLIM.imageSelected)
+                                .resizable()
                                 .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
                                 .frame(width: 300, height: 300)
                                 .background(Color.gray)

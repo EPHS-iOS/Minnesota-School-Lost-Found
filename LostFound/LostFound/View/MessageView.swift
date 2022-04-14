@@ -8,8 +8,27 @@
 import SwiftUI
 
 struct MessageView: View {
+    
+    @StateObject var model = ItemModel()
+    
     var body: some View {
-        Text("Messages")
+        
+        VStack{
+            List {
+                Text("Messages here")
+            }
+            HStack{
+                TextField("Enter Text", text: $model.enteredText)
+                Button {
+                    model.sendMessage(text: model.enteredText)
+                    model.enteredText = ""
+                } label: {
+                    Label("send", systemImage: "paperplane")
+                        .labelStyle(IconOnlyLabelStyle())
+                }
+            }
+        }
+        
     }
 }
 

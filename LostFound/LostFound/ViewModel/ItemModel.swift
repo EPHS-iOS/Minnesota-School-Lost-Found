@@ -31,6 +31,9 @@ class ItemModel : ObservableObject {
     
     @Published var isClaimed : Int64 = 0
     
+    @Published var messages = [Message]()
+    @Published var enteredText: String = ""
+    
     
     let publicDB = CKContainer.default().publicCloudDatabase
     
@@ -45,6 +48,7 @@ class ItemModel : ObservableObject {
     
     init() {
         sortData(sortBy: enteredSort)
+        fetchMessages()
     }
     
     
@@ -86,6 +90,7 @@ class ItemModel : ObservableObject {
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: "LostItems", predicate: predicate)
         query.sortDescriptors = [NSSortDescriptor(key: sortBy, ascending: isAscending)]
+        
         let queryOperation = CKQueryOperation(query: query)
         
         var returnedItems = [Item]()
@@ -99,9 +104,15 @@ class ItemModel : ObservableObject {
                     let isClaimed = record["IsClaimed"] as? Int64,
                     let type = record["Type"] as? String,
                     let description = record["Description"] as? String,
-                    //let tags = record["Tags"] as? [String],
+//                    let date = record["createdTimestamp"] as? Date,
                     let imageURL = imageAsset.fileURL
                 else { return }
+//                guard
+//                    let numberOfDays = dateComponents([.day], from: date, to: Date.now),
+//                    if numberOfDays.day! + 1 > 30 {
+//
+//                    }
+//                else { return }
                 returnedItems.append(Item(image: imageURL, title: title, isClaimed: isClaimed, type: type, description: description, record: record))
             case .failure(let error):
                 print(error)
@@ -173,6 +184,40 @@ class ItemModel : ObservableObject {
         default:
             print("sort type not found")
         }
+    }
+    
+    func sendMessage(text: String) {
+        let messages = CKRecord(recordType: "Messages")
+        messages["Message"] = text
+        saveItem(record: messages)
+    }
+    
+    func fetchMessages() {
+        let predicate = NSPredicate(value: true)
+        let query = CKQuery(recordType: "Messages", predicate: predicate)
+        
+        let queryOperation = CKQueryOperation(query: query)
+        
+        var returnedMessages = [Message]()
+        
+        queryOperation.recordMatchedBlock = { (returnedRecordID, returnedResult) in
+            switch returnedResult {
+            case .success(let record):
+                guard let message = record["Message"] as? String else { return }
+                returnedMessages.append(Message(message: message, record: record))
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+        queryOperation.queryResultBlock = { [weak self] returnedResult in
+            print("Returned Result: \(returnedResult)")
+            DispatchQueue.main.async {
+                self?.messages = returnedMessages
+            }
+            
+        }
+        addOperation(operation: queryOperation)
     }
     
     func filterReset() {

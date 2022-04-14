@@ -18,6 +18,5 @@ struct Item : Identifiable, Hashable {
     var isClaimed : Int64
     var type : String
     var description : String
-    //var tags : [String]
     var record : CKRecord
 }
