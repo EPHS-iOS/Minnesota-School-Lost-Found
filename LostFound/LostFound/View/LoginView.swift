@@ -17,41 +17,61 @@ struct LoginView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                Spacer()
+            ZStack{
                 
-                Image("lightLogo")
-                
-                Text(" ")
-                
-                HStack {
+                Rectangle()
+                    .fill(Color.white)
+                    .frame(width: 350, height: 500)
+                    .cornerRadius(30)
+               
+                VStack {
                     
-                    Spacer(minLength: 50)
+                    Spacer()
                     
-                    TextField("School Code", text: $schoolCode)
-                        .textFieldStyle(.roundedBorder)
-                        .cornerRadius(50)
-                        .padding(.horizontal)
-                        .font(.title3)
+                    Image("lightLogo")
                     
-                    Spacer(minLength: 50)
+                    Text(" ")
                     
-                }
-
-                
-                NavigationLink(destination: AdminAllLostItemsView(), isActive: $adminMove) {
-                    NavigationLink(destination: StudentAllLostItemsView(), isActive: $studentMove) {
-                        Text("Enter")
-                            .onTapGesture {
-                                if schoolCode == "EPAdmin" {
-                                    self.adminMove = true
-                                } else if schoolCode == "EPStudent" {
-                                    self.studentMove = true
-                                }
-                            }
+                    HStack {
+                        
+                        Spacer(minLength: 50)
+                        
+                        TextField("School Code", text: $schoolCode)
+                            .textFieldStyle(.roundedBorder)
+                            .cornerRadius(50)
+                            .padding(.horizontal)
+                            .font(.title3)
+                        
+                        Spacer(minLength: 50)
+                        
                     }
+                    
+                    
+                    NavigationLink(destination: AdminAllLostItemsView(), isActive: $adminMove) {
+                        NavigationLink(destination: StudentAllLostItemsView(), isActive: $studentMove) {
+                            Text("Enter").padding()
+                                .foregroundColor(.white)
+                                .background(Rectangle()
+                                                .foregroundStyle(LinearGradient(gradient: Gradient(colors: [Color.cyan, Color.blue]), startPoint: .bottom, endPoint: .top)))
+                                .cornerRadius(20)
+                            
+                                .onTapGesture {
+                                    if schoolCode == "EPAdmin" {
+                                        self.adminMove = true
+                                    } else if schoolCode == "EPStudent" {
+                                        self.studentMove = true
+                                    }
+                             
+                             
+                                }
+                             
+                        }
+                    }
+                   Spacer()
                 }
                 Spacer()
+                
+                
             }.navigationBarHidden(true)
                 .navigationBarBackButtonHidden(true)
                 .background(Rectangle()
@@ -60,12 +80,12 @@ struct LoginView: View {
         }
         .navigationBarBackButtonHidden(true)
     }
-
-
-
-struct LoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginView()
+    
+    
+    
+    struct LoginView_Previews: PreviewProvider {
+        static var previews: some View {
+            LoginView()
+        }
     }
-}
 }
