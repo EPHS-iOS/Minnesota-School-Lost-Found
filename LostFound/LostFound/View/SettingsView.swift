@@ -7,10 +7,39 @@
 
 import SwiftUI
 
+
 struct SettingsView: View {
+    @State private var move = false
+
+    
     var body: some View {
-        Text("Settings")
+        NavigationView {
+            HStack {
+                Spacer()
+                Text("Settings")
+                    .font(.title)
+                Spacer()
+                NavigationLink(destination: LoginView(), isActive: $move) {
+                        Text("Log Out").padding()
+                            .foregroundColor(.white)
+                            .background(Rectangle()
+                                            .foregroundStyle(LinearGradient(gradient: Gradient(colors: [Color.cyan, Color.blue]), startPoint: .bottom, endPoint: .top)))
+                            .cornerRadius(20)
+                        
+                            .onTapGesture {
+                                    self.move = true
+                            }
+                         
+                    
+                }
+                Spacer()
+                         
+            }
+            Spacer()
+        }
+        
     }
+  
 }
 
 struct SettingsView_Previews: PreviewProvider {
@@ -18,3 +47,4 @@ struct SettingsView_Previews: PreviewProvider {
         SettingsView()
     }
 }
+    
