@@ -16,9 +16,10 @@ struct SettingsView: View {
         NavigationView {
             HStack {
                 Spacer()
-                Text("Settings")
-                    .font(.title)
+                //Text("Settings")
+                   // .font(.title)
                 Spacer()
+                //log out button
                 NavigationLink(destination: LoginView(), isActive: $move) {
                         Text("Log Out").padding()
                             .foregroundColor(.white)
@@ -36,7 +37,8 @@ struct SettingsView: View {
                          
             }
             Spacer()
-        }
+            Spacer()
+        }//.navigationTitle("Settings")
         
     }
   
