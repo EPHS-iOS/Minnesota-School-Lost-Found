@@ -59,8 +59,8 @@ struct LoginView: View {
                         
                         Spacer(minLength: 10)
                                             
-                                            NavigationLink(destination: AdminAllLostItemsView(), isActive: $adminMove) {
-                                                NavigationLink(destination: StudentAllLostItemsView(), isActive: $studentMove) {
+                                            NavigationLink(destination: AdminTabView(), isActive: $adminMove) {
+                                                NavigationLink(destination: StudentTabView(), isActive: $studentMove) {
                                                     Text("Enter").padding()
                                                         .foregroundColor(.white)
                                                         .background(Rectangle()
