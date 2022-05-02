@@ -77,17 +77,6 @@ struct StudentAllLostItemsView: View {
                         }.popover(isPresented: $model.showingFilter) {
                             FilterView()
                         }
-                        Button  {
-                            model.showingAddItem.toggle()
-                        } label: {
-                            Label {
-                                Text("Add Item")
-                            } icon: {
-                                Image(systemName: "plus")
-                            }
-                        }.popover(isPresented: $model.showingAddItem) {
-                            AddLostItemView()
-                        }
                     }
                 }
             }

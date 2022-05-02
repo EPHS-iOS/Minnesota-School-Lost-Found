@@ -9,12 +9,21 @@ import SwiftUI
 
 @main
 struct LostFoundApp: App {
+    @StateObject var globalVar = globalVariable()
     var body: some Scene {
         WindowGroup {
             //AdminAllLostItemsView()
             //AdminTabView()
-            LoginView()
+            //LoginView()
             //CloudUser()
-        }
+            if globalVar.loginViewChange{
+                LoginView().environmentObject(globalVar)
+            
+            }else{
+            AnimationStart().environmentObject(globalVar)
+            }
+            }
+
     }
 }
+
