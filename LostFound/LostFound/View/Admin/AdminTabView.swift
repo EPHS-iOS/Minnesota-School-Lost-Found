@@ -30,7 +30,7 @@ struct AdminTabView: View {
                     Text("Settings")
                 }.padding()
                 .navigationBarHidden(true)
-        }//.tabViewStyle(PageTabViewStyle())
+        }.navigationBarHidden(true)
         
     }
 }

@@ -37,7 +37,7 @@ struct MessageView: View {
                         .labelStyle(IconOnlyLabelStyle())
                 }.disabled(model.username == "")
             }
-        }
+        }.navigationBarHidden(true)
         
     }
 }
