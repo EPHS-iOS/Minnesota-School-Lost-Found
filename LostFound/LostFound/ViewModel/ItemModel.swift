@@ -34,6 +34,9 @@ class ItemModel : ObservableObject {
     @Published var messages = [Message]()
     @Published var enteredText: String = ""
     
+    @Published var username: String = ""
+    @Published var permissionStatus: Bool = false
+    
     
     let publicDB = CKContainer.default().publicCloudDatabase
     
@@ -47,8 +50,10 @@ class ItemModel : ObservableObject {
 
     
     init() {
+        requestPermission()
         sortData(sortBy: enteredSort)
         fetchMessages()
+        fetchRecordID()
     }
     
     
@@ -204,7 +209,7 @@ class ItemModel : ObservableObject {
             switch returnedResult {
             case .success(let record):
                 guard let message = record["Message"] as? String else { return }
-                returnedMessages.append(Message(message: message, record: record))
+                returnedMessages.append(Message(username: self.username, message: message, record: record))
             case .failure(let error):
                 print(error)
             }
@@ -230,6 +235,34 @@ class ItemModel : ObservableObject {
         showWaterBottle = true
         showJewelry = true
         showOther = true
+    }
+    
+    func requestPermission() {
+        CKContainer.default().requestApplicationPermission([.userDiscoverability]) { returnedStatus, returnedError in
+            DispatchQueue.main.async {
+                if returnedStatus == .granted {
+                    self.permissionStatus = true
+                }
+            }
+        }
+    }
+    
+    func fetchUserData(id: CKRecord.ID) {
+        CKContainer.default().discoverUserIdentity(withUserRecordID: id) { [weak self] returnedID, returnedError in
+            DispatchQueue.main.async {
+                if let firstName = returnedID?.nameComponents?.givenName, let lastName = returnedID?.nameComponents?.familyName {
+                    self?.username = firstName + " " + lastName
+                }
+            }
+        }
+    }
+    
+    func fetchRecordID() {
+        CKContainer.default().fetchUserRecordID { [weak self] returnedID, returnedError in
+            if let id = returnedID {
+                self?.fetchUserData(id: id)
+            }
+        }
     }
     
 }

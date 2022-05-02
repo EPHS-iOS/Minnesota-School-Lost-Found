@@ -15,19 +15,23 @@ struct AdminTabView: View {
                     Image(systemName: "house.circle")
                     Text("Items")
                 }.padding()
+                .navigationBarHidden(true)
             
             MessageView()
                 .tabItem() {
                     Image(systemName: "message.circle")
                     Text("Message")
                 }.padding()
+                .navigationBarHidden(true)
 
             SettingsView()
                 .tabItem() {
                     Image(systemName: "gear.circle")
                     Text("Settings")
                 }.padding()
+                .navigationBarHidden(true)
         }//.tabViewStyle(PageTabViewStyle())
+        
     }
 }
 

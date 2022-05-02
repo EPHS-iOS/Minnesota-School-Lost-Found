@@ -15,7 +15,7 @@ struct AdminAllLostItemsView: View {
     var body: some View {
         
         NavigationView {
-            
+            ScrollView{
             VStack(alignment: .leading){
                 
                 ScrollView {
@@ -57,8 +57,6 @@ struct AdminAllLostItemsView: View {
                     .navigationBarTitleDisplayMode(.automatic)
                     .font(Font.system(size:46, weight: .bold))
                     //.foregroundStyle(LinearGradient(gradient: Gradient(colors: [colorScheme == .dark ? Color.white: Color.black, Color(red: 161/255, green: 32/255, blue: 22/255)]), startPoint: .bottom, endPoint: .top))
-                
-                
                 
                  
                 
@@ -103,7 +101,7 @@ struct AdminAllLostItemsView: View {
             .navigationBarHidden(true)
             .searchable(text: $model.searchText)
             
-        
+        }
     }
 }
 
