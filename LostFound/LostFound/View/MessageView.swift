@@ -14,8 +14,18 @@ struct MessageView: View {
     var body: some View {
         
         VStack{
-            List {
-                Text("Messages here")
+            List(model.messages, id: \.self) { msg in
+                HStack {
+                    Text(msg.username)
+                    Spacer()
+                    Text("\(msg.message)")
+                }
+            }.refreshable {
+                DispatchQueue.main.async {
+                    model.requestPermission()
+                    model.fetchMessages()
+                    model.fetchRecordID()
+                }
             }
             HStack{
                 TextField("Enter Text", text: $model.enteredText)
@@ -25,7 +35,7 @@ struct MessageView: View {
                 } label: {
                     Label("send", systemImage: "paperplane")
                         .labelStyle(IconOnlyLabelStyle())
-                }
+                }.disabled(model.username == "")
             }
         }
         

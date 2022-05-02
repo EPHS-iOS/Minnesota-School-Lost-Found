@@ -11,6 +11,7 @@ import CloudKit
 
 struct Message : Identifiable, Hashable {
     var id = UUID()
+    var username : String
     var message : String
     var record : CKRecord
 }

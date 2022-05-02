@@ -47,7 +47,7 @@ struct LoginView: View {
                     }
                     
                     
-                    NavigationLink(destination: AdminAllLostItemsView(), isActive: $adminMove) {
+                    NavigationLink(destination: AdminTabView(), isActive: $adminMove) {
                         NavigationLink(destination: StudentAllLostItemsView(), isActive: $studentMove) {
                             Text("Enter").padding()
                                 .foregroundColor(.white)
