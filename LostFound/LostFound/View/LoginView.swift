@@ -17,67 +17,74 @@ struct LoginView: View {
     
     var body: some View {
         NavigationView {
-            ZStack{
-                
-                Rectangle()
-                    .fill(Color.white)
-                    .frame(width: 350, height: 500)
-                    .cornerRadius(30)
+        
+            //ScrollView {
+          
+                ZStack{
+                   // ScrollView{
+                    Rectangle()
+                        .fill(Color.white)
+                        .frame(width: 350, height: 500)
+                        .cornerRadius(30)
                
-                VStack {
-                    
+                   // ScrollView {
+                    VStack {
+                        
+                        Spacer()
+                        
+                        Image("lightLogo")
+                        
+                        Text(" ")
+                        
+                        HStack {
+                            
+                            Spacer(minLength: 50)
+                            
+                            TextField("School Code", text: $schoolCode)
+                                .textFieldStyle(.roundedBorder)
+                                .cornerRadius(50)
+                                .padding(.horizontal)
+                                .font(.title3)
+                                .foregroundColor(.white)
+                            
+                            Spacer(minLength: 50)
+                            
+                        }
+                        
+                        
+                        NavigationLink(destination: AdminAllLostItemsView(), isActive: $adminMove) {
+                            NavigationLink(destination: StudentAllLostItemsView(), isActive: $studentMove) {
+                                Text("Enter").padding()
+                                    .foregroundColor(.white)
+                                    .background(Rectangle()
+                                                    .foregroundStyle(LinearGradient(gradient: Gradient(colors: [Color.cyan, Color.blue]), startPoint: .bottom, endPoint: .top)))
+                                    .cornerRadius(20)
+                                
+                                    .onTapGesture {
+                                        if schoolCode == "EPAdmin" {
+                                            self.adminMove = true
+                                        } else if schoolCode == "EPStudent" {
+                                            self.studentMove = true
+                                        }
+                                 
+                                 
+                                    }
+                                 
+                            }
+                        }
+                       Spacer()
+                    }
                     Spacer()
                     
-                    Image("lightLogo")
-                    
-                    Text(" ")
-                    
-                    HStack {
-                        
-                        Spacer(minLength: 50)
-                        
-                        TextField("School Code", text: $schoolCode)
-                            .textFieldStyle(.roundedBorder)
-                            .cornerRadius(50)
-                            .padding(.horizontal)
-                            .font(.title3)
-                        
-                        Spacer(minLength: 50)
-                        
-                    }
-                    
-                    
-                    NavigationLink(destination: AdminAllLostItemsView(), isActive: $adminMove) {
-                        NavigationLink(destination: StudentAllLostItemsView(), isActive: $studentMove) {
-                            Text("Enter").padding()
-                                .foregroundColor(.white)
-                                .background(Rectangle()
-                                                .foregroundStyle(LinearGradient(gradient: Gradient(colors: [Color.cyan, Color.blue]), startPoint: .bottom, endPoint: .top)))
-                                .cornerRadius(20)
-                            
-                                .onTapGesture {
-                                    if schoolCode == "EPAdmin" {
-                                        self.adminMove = true
-                                    } else if schoolCode == "EPStudent" {
-                                        self.studentMove = true
-                                    }
-                             
-                             
-                                }
-                             
-                        }
-                    }
-                   Spacer()
+                  //  }
+                }.navigationBarHidden(true)
+                    .navigationBarBackButtonHidden(true)
+                    .background(Rectangle()
+                                    .foregroundStyle(LinearGradient(gradient: Gradient(colors: [colorScheme == .dark ? Color.white: Color.white, Color.blue]), startPoint: .bottom, endPoint: .top)))
+                    .ignoresSafeArea()
                 }
-                Spacer()
-                
-                
-            }.navigationBarHidden(true)
-                .navigationBarBackButtonHidden(true)
-                .background(Rectangle()
-                                .foregroundStyle(LinearGradient(gradient: Gradient(colors: [colorScheme == .dark ? Color.white: Color.white, Color.blue]), startPoint: .bottom, endPoint: .top)))
-                .ignoresSafeArea()
-        }
+           // }
+       // }
         .navigationBarBackButtonHidden(true)
     }
     

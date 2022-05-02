@@ -15,7 +15,7 @@ struct AdminAllLostItemsView: View {
     var body: some View {
         
         NavigationView {
-            
+            ScrollView{
             VStack(alignment: .leading){
                 
                 ScrollView {
@@ -101,7 +101,7 @@ struct AdminAllLostItemsView: View {
             .navigationBarHidden(true)
             .searchable(text: $model.searchText)
             
-        
+        }
     }
 }
 
