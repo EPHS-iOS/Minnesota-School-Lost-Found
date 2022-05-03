@@ -27,12 +27,17 @@ struct StudentTabView: View {
                     Image(systemName: "gear.circle")
                     Text("Settings")
                 }.padding()
+            
         }//.tabViewStyle(PageTabViewStyle())
+        .navigationBarBackButtonHidden(true)
     }
+    
 }
 
-    var previews: some View {
+
+struct TabView_Previews: PreviewProvider {
+    static var previews: some View {
         StudentTabView()
     }
-
+}
 

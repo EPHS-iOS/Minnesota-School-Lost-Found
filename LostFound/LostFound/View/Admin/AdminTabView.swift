@@ -30,12 +30,11 @@ struct AdminTabView: View {
                     Text("Settings")
                 }.padding()
                 .navigationBarHidden(true)
-        }.navigationBarHidden(true)
-        
+        }
+        .navigationBarBackButtonHidden(true)
     }
 }
-
-struct TabView_Previews: PreviewProvider {
+struct oTabView_Previews: PreviewProvider {
     static var previews: some View {
         AdminTabView()
     }

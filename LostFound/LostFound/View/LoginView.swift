@@ -91,7 +91,8 @@ struct LoginView: View {
             .background(Color (red: 29/255.0,green: 161/255.0,blue: 242/25.0))
             .ignoresSafeArea()
         }
-
+        .navigationBarBackButtonHidden(true)
+        
     }
 }
 

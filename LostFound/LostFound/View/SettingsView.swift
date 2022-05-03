@@ -23,19 +23,34 @@ struct SettingsView: View {
                     // .font(.title)
                     Spacer()
                     //log out button
-                    NavigationLink(destination: LoginView(), isActive: $move) {
-                        Text("Log Out").padding()
-                            .foregroundColor(.white)
-                            .background(Rectangle()
-                                .foregroundStyle(LinearGradient(gradient: Gradient(colors: [Color.cyan, Color.blue]), startPoint: .bottom, endPoint: .top)))
-                            .cornerRadius(20)
-                        
-                            .onTapGesture {
-                                self.move = true
-                            }
-                        
-                        
-                    }
+                    
+                        NavigationLink(destination: LoginView(), isActive: $move) {
+                            Text("Logout").padding()
+                                .foregroundColor(.white)
+                                .background(Rectangle()
+                                                .foregroundStyle(LinearGradient(gradient: Gradient(colors: [Color.cyan, Color.blue]), startPoint: .bottom, endPoint: .top)))
+                                .cornerRadius(20)
+                            
+                                .onTapGesture {
+                                        self.move = true
+                                }
+                            
+                        }
+                    
+                    
+//                    NavigationLink(destination: LoginView(), isActive: $move) {
+//                        Text("Log Out").padding()
+//                            .foregroundColor(.white)
+//                            .background(Rectangle()
+//                                .foregroundStyle(LinearGradient(gradient: Gradient(colors: [Color.cyan, Color.blue]), startPoint: .bottom, endPoint: .top)))
+//                            .cornerRadius(20)
+//
+//                            .onTapGesture {
+//                                self.move = true
+//                            }
+//
+//
+//                    }
                     Spacer()
                     
                 }
