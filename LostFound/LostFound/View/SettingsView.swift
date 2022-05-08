@@ -22,7 +22,7 @@ struct SettingsView: View {
                     //Text("Settings")
                     // .font(.title)
                     Spacer()
-                    //log out button
+                    //log out button does not work!!
                     
                         NavigationLink(destination: LoginView(), isActive: $move) {
                             Text("Logout").padding()
