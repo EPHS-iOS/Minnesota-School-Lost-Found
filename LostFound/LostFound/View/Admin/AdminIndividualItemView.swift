@@ -10,8 +10,7 @@ import SwiftUI
 struct AdminIndividualItemView: View {
     
     var item: Item
-    @EnvironmentObject var itemModel: ItemModel
-    @StateObject var model = ItemModel()
+    @EnvironmentObject var model : ItemModel
     
     var body: some View {
         ScrollView {
@@ -82,7 +81,7 @@ struct AdminIndividualItemView: View {
                             EditLostItemView(item: item)
                         }
                         Button {
-                            itemModel.deleteItem(input: item)
+                            model.deleteItem(input: item)
                         } label: {
                             Label {
                                 Text("Delete")

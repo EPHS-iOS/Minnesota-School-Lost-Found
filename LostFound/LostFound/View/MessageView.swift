@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MessageView: View {
     
-    @StateObject var model = ItemModel()
+    @EnvironmentObject var model : ItemModel
     
     var body: some View {
         

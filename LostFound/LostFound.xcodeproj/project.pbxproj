@@ -23,6 +23,7 @@
 		E790A05A27F000CC004C6F86 /* StudentAllLostItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E790A05927F000CC004C6F86 /* StudentAllLostItemsView.swift */; };
 		E790A05C27F00102004C6F86 /* StudentIndividualItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E790A05B27F00102004C6F86 /* StudentIndividualItemView.swift */; };
 		E7B8960B27F967D000774A69 /* AddLostItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B8960A27F967D000774A69 /* AddLostItemModel.swift */; };
+		E7E62C5C2821E7D000023BFD /* testtabview.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E62C5B2821E7D000023BFD /* testtabview.swift */; };
 		E7FE4B2B27E26D6500B0EE6A /* AdminIndividualItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE4B2A27E26D6500B0EE6A /* AdminIndividualItemView.swift */; };
 		E7FE4B2D27E26D8000B0EE6A /* AddLostItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE4B2C27E26D8000B0EE6A /* AddLostItemView.swift */; };
 		E7FE4B3127E26DF300B0EE6A /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE4B3027E26DF300B0EE6A /* ItemModel.swift */; };
@@ -50,6 +51,7 @@
 		E790A05927F000CC004C6F86 /* StudentAllLostItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentAllLostItemsView.swift; sourceTree = "<group>"; };
 		E790A05B27F00102004C6F86 /* StudentIndividualItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentIndividualItemView.swift; sourceTree = "<group>"; };
 		E7B8960A27F967D000774A69 /* AddLostItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLostItemModel.swift; sourceTree = "<group>"; };
+		E7E62C5B2821E7D000023BFD /* testtabview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testtabview.swift; sourceTree = "<group>"; };
 		E7FE4B2A27E26D6500B0EE6A /* AdminIndividualItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminIndividualItemView.swift; sourceTree = "<group>"; };
 		E7FE4B2C27E26D8000B0EE6A /* AddLostItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLostItemView.swift; sourceTree = "<group>"; };
 		E7FE4B3027E26DF300B0EE6A /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				E7FE4B2A27E26D6500B0EE6A /* AdminIndividualItemView.swift */,
 				E7FE4B2C27E26D8000B0EE6A /* AddLostItemView.swift */,
 				E78FCA81280165B7009A9309 /* EditLostItemView.swift */,
+				E7E62C5B2821E7D000023BFD /* testtabview.swift */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				E78FCA82280165B7009A9309 /* EditLostItemView.swift in Sources */,
 				E790A05C27F00102004C6F86 /* StudentIndividualItemView.swift in Sources */,
 				CB9A4A592819CE2E003DF0D0 /* AnimationStart.swift in Sources */,
+				E7E62C5C2821E7D000023BFD /* testtabview.swift in Sources */,
 				E7FE4B2B27E26D6500B0EE6A /* AdminIndividualItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

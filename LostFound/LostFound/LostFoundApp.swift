@@ -18,12 +18,12 @@ struct LostFoundApp: App {
             //CloudUser()
             if globalVar.loginViewChange{
                 LoginView().environmentObject(globalVar)
-            
-            }else{
-            AnimationStart().environmentObject(globalVar)
-            }
-            }
 
+            }else{
+                AnimationStart().environmentObject(globalVar)
+            }
+        }
+        
     }
 }
 

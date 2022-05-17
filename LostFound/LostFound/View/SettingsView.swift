@@ -9,6 +9,8 @@ import SwiftUI
 
 
 struct SettingsView: View {
+    
+    @EnvironmentObject var model : ItemModel
     @State private var move = false
     
     
@@ -67,7 +69,7 @@ struct SettingsView: View {
                     }
                 }
                 Spacer()
-            }
+            }.navigationBarHidden(true)
         }//.navigationTitle("Settings")
         .navigationBarHidden(true)
         
