@@ -12,9 +12,19 @@ struct StudentIndividualItemView: View {
     
     var body: some View {
         VStack {
-            Text(item.title)
-                .font(.title)
+            //Text(item.title)
+                //.font(.title)
             //Text(item.addedDate, format: .dateTime.day().month())
+            Rectangle()
+                .fill(Color.white)
+                .frame(width: 350, height: 200)
+                .cornerRadius(30)
+                .foregroundColor(.red)
+            HStack {
+                Text("Expires in: ")
+                Text("...date..")
+                Text(" days")
+            }
             if let url = item.image, let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
                 Image(uiImage: image)
                     .resizable()

@@ -9,6 +9,8 @@ import SwiftUI
 
 
 struct SettingsView: View {
+    
+    @EnvironmentObject var model : ItemModel
     @State private var move = false
     
     
@@ -22,7 +24,7 @@ struct SettingsView: View {
                     //Text("Settings")
                     // .font(.title)
                     Spacer()
-                    //log out button
+                    //log out button does not work!!
                     
                         NavigationLink(destination: LoginView(), isActive: $move) {
                             Text("Logout").padding()
@@ -53,7 +55,7 @@ struct SettingsView: View {
                     }
                 }
                 Spacer()
-            }
+            }.navigationBarHidden(true)
         }//.navigationTitle("Settings")
         .navigationBarHidden(true)
         

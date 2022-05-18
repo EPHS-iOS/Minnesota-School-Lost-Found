@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     
-    
+    @StateObject var model = ItemModel()
     @State var schoolCode : String = ""
     @State private var response = ""
     @State private var adminMove = false
@@ -54,7 +54,7 @@ struct LoginView: View {
                         
                         Spacer(minLength: 10)
                                             
-                                            NavigationLink(destination: AdminTabView(), isActive: $adminMove) {
+                                            NavigationLink(destination: AdminAllLostItemsView().environmentObject(model), isActive: $adminMove) {
                                                 NavigationLink(destination: StudentTabView(), isActive: $studentMove) {
                                                     Text("Enter").padding()
                                                         .foregroundColor(.white)

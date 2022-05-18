@@ -13,7 +13,7 @@ struct EditLostItemView: View {
     
     var item: Item
     
-    @EnvironmentObject var itemModel: ItemModel
+    @EnvironmentObject var model: ItemModel
     @Environment(\.presentationMode) var presentationMode
     @StateObject var aLIM = AddLostItemModel()
     
@@ -104,7 +104,7 @@ struct EditLostItemView: View {
             .toolbar {
                 ToolbarItemGroup {
                     Button {
-                        itemModel.updateItem(item: item, image: aLIM.imageSelected, title: aLIM.enteredTitle, type: aLIM.enteredType, description: aLIM.enteredDescription)
+                        model.updateItem(item: item, image: aLIM.imageSelected, title: aLIM.enteredTitle, type: aLIM.enteredType, description: aLIM.enteredDescription)
                         presentationMode.wrappedValue.dismiss()
                     } label: {
                         Text("Save")

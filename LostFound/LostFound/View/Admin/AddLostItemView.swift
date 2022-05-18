@@ -11,7 +11,7 @@ import SwiftUI
 
 struct AddLostItemView: View {
     
-    @EnvironmentObject var itemModel: ItemModel
+    @EnvironmentObject var model: ItemModel
     @Environment(\.presentationMode) var presentationMode
     @StateObject var aLIM = AddLostItemModel()
     
@@ -98,9 +98,9 @@ struct AddLostItemView: View {
             .toolbar {
                 ToolbarItemGroup {
                     Button {
-                        itemModel.addItem(image: aLIM.imageSelected, title: aLIM.enteredTitle, isClaimed: 0, type: aLIM.enteredType, description: aLIM.enteredDescription)
+                        model.addItem(image: aLIM.imageSelected, title: aLIM.enteredTitle, isClaimed: 0, type: aLIM.enteredType, description: aLIM.enteredDescription)
                         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-                            self.itemModel.sortData(sortBy: itemModel.enteredSort)
+                            self.model.sortData(sortBy: model.enteredSort)
                         }
                         presentationMode.wrappedValue.dismiss()
                     } label: {

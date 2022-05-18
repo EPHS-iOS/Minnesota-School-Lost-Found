@@ -9,66 +9,64 @@ import SwiftUI
 
 struct AdminAllLostItemsView: View {
     
-    @StateObject var model = ItemModel()
+    @EnvironmentObject var model : ItemModel
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     
     var body: some View {
         
         NavigationView {
-            ScrollView{
+            
             VStack(alignment: .leading){
                 
                 ScrollView {
                    
-                    GeometryReader{ geo in
-                        Spacer()
+                    
+                        //Spacer()
                         LazyVGrid(columns: [
                             GridItem(.flexible()),
-
                             GridItem(.flexible()),
-
                             GridItem(.flexible())
-
-                        ], spacing: 6 ){
+                        ], spacing: 3 ){
                             ForEach(model.searchResults, id: \.self){ item in
                                 NavigationLink(destination: AdminIndividualItemView(item: item), label: {
                                     
                                     if let url = item.image, let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
                                         Image(uiImage: image)
                                             .resizable()
-                                            .frame(width: geo.size.width/3, height: geo.size.width/3)
-                                            //.frame(maxWidth: .infinity)
+                                            .frame(width: UIScreen.main.bounds.width/3, height: UIScreen.main.bounds.width/3)
                                             .background(Image(systemName: "photo")
                                                             .foregroundColor(.white)
-                                                            .frame(width: geo.size.width/3, height: geo.size.width/3)
+                                                            .frame(width: UIScreen.main.bounds.width/3, height: UIScreen.main.bounds.width/3)
                                                             //.frame(maxWidth: .infinity)
                                                             .background(Color.gray))
                                             .foregroundColor(.white)
-                                            .border(LinearGradient(gradient: Gradient(colors: [colorScheme == .dark ? Color.white: Color.black, Color(red: 161/255, green: 32/255, blue: 22/255)]), startPoint: .bottom, endPoint: .top), width: 4)
+                                            //.border(LinearGradient(gradient: Gradient(colors: [colorScheme == .dark ? Color.white: Color.black, Color(red: 161/255, green: 32/255, blue: 22/255)]), startPoint: .bottom, endPoint: .top), width: 4)
                                     }
                                     
                                 })
                             }
                         }
-                    }
+                    
                     
                 }.navigationTitle("EPHS Lost & Found")
-                    
                     .navigationBarTitleDisplayMode(.automatic)
+                    
                     .font(Font.system(size:46, weight: .bold))
                     //.foregroundStyle(LinearGradient(gradient: Gradient(colors: [colorScheme == .dark ? Color.white: Color.black, Color(red: 161/255, green: 32/255, blue: 22/255)]), startPoint: .bottom, endPoint: .top))
+                
+                
                 
                  
                 
             }.toolbar {
                 ToolbarItemGroup {
                     HStack {
-                        Image("EPLogoResized")
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
+//                        Image("EPLogoResized")
+//                        Spacer()
+//                        Spacer()
+//                        Spacer()
+//                        Spacer()
+//                        Spacer()
                         Button {
                             model.showingFilter.toggle()
                         } label: {
@@ -101,7 +99,7 @@ struct AdminAllLostItemsView: View {
             .navigationBarHidden(true)
             .searchable(text: $model.searchText)
             
-        }
+        
     }
 }
 

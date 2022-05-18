@@ -10,27 +10,48 @@ import SwiftUI
 struct AdminIndividualItemView: View {
     
     var item: Item
-    @EnvironmentObject var itemModel: ItemModel
-    @StateObject var model = ItemModel()
+    @EnvironmentObject var model : ItemModel
     
     var body: some View {
-        
+        ScrollView {
         VStack {
-            Text(item.title)
-                .font(.title)
-            Text("Date added: ")
-            //Text(item.addedDate, format: .dateTime.day().month())
             
+            //Text(item.title)
+                //.font(.title)
+            ZStack {
+                Rectangle()
+                    .fill(Color.cyan)
+                    .frame(width: 350, height: 100)
+                    .cornerRadius(30)
+                  
+        
+                HStack {
+                    Text("Expires in: ")
+                        .font(.title)
+                    //make this a var
+                    Text("00")
+                        font(.title)
+                    Text(" days")
+                    Image("calendar1")
+                
+                }
+            }
+         
             if let url = item.image, let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
                 Image(uiImage: image)
                     .resizable()
                     .frame(height: 300)
+                    .border((LinearGradient(gradient: Gradient(colors: [Color.cyan, Color.blue]), startPoint: .bottom, endPoint: .top)), width: 4)
             }
 //            if let intVal = isClaimed, let boolVal = (intVal != 0) {
 //                Text(boolVal ? "Yes" : "No")
 //            }
-            //Text(model.isClaimed)
-            Text(item.description)
+            VStack {
+                Text("Description: ")
+                    
+                Text(item.description)
+            }
+           
             Button {
                 model.claimItem(item: item)
                 //model.isClaimed = item.isClaimed
@@ -60,7 +81,7 @@ struct AdminIndividualItemView: View {
                             EditLostItemView(item: item)
                         }
                         Button {
-                            itemModel.deleteItem(input: item)
+                            model.deleteItem(input: item)
                         } label: {
                             Label {
                                 Text("Delete")
@@ -76,5 +97,6 @@ struct AdminIndividualItemView: View {
             .onAppear {
                 model.isClaimed = item.isClaimed
             }
+        }
     }
 }
