@@ -11,9 +11,9 @@
 		CB972D0227E26C0E005AC0F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB972D0127E26C0E005AC0F1 /* Assets.xcassets */; };
 		CB972D0527E26C0E005AC0F1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB972D0427E26C0E005AC0F1 /* Preview Assets.xcassets */; };
 		CB972D0E27E27432005AC0F1 /* AdminAllLostItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB972D0D27E27432005AC0F1 /* AdminAllLostItemsView.swift */; };
-		CB9A4A51280F39A0003DF0D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB9A4A50280F39A0003DF0D0 /* LaunchScreen.storyboard */; };
 		CB9A4A592819CE2E003DF0D0 /* AnimationStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A4A582819CE2E003DF0D0 /* AnimationStart.swift */; };
 		CB9A4A5D28206A5D003DF0D0 /* StudentTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A4A5C28206A5C003DF0D0 /* StudentTabView.swift */; };
+		CBA92D122835797E0051A311 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBA92D112835797E0051A311 /* LaunchScreen.storyboard */; };
 		E784FB0927F5561E00E35094 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E784FB0827F5561E00E35094 /* FilterView.swift */; };
 		E78FCA82280165B7009A9309 /* EditLostItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78FCA81280165B7009A9309 /* EditLostItemView.swift */; };
 		E78FCA842804BD32009A9309 /* AdminTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78FCA832804BD32009A9309 /* AdminTabView.swift */; };
@@ -38,9 +38,9 @@
 		CB972D0127E26C0E005AC0F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB972D0427E26C0E005AC0F1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CB972D0D27E27432005AC0F1 /* AdminAllLostItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminAllLostItemsView.swift; sourceTree = "<group>"; };
-		CB9A4A50280F39A0003DF0D0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB9A4A582819CE2E003DF0D0 /* AnimationStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationStart.swift; sourceTree = "<group>"; };
 		CB9A4A5C28206A5C003DF0D0 /* StudentTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTabView.swift; sourceTree = "<group>"; };
+		CBA92D112835797E0051A311 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E784FB0827F5561E00E35094 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		E78FCA81280165B7009A9309 /* EditLostItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLostItemView.swift; sourceTree = "<group>"; };
 		E78FCA832804BD32009A9309 /* AdminTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminTabView.swift; sourceTree = "<group>"; };
@@ -137,7 +137,7 @@
 		E7FE4B2927E26D4700B0EE6A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CB9A4A50280F39A0003DF0D0 /* LaunchScreen.storyboard */,
+				CBA92D112835797E0051A311 /* LaunchScreen.storyboard */,
 				CB9A4A582819CE2E003DF0D0 /* AnimationStart.swift */,
 				E7FE4B3427E2763200B0EE6A /* LoginView.swift */,
 				E784FB0827F5561E00E35094 /* FilterView.swift */,
@@ -241,7 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB9A4A51280F39A0003DF0D0 /* LaunchScreen.storyboard in Resources */,
+				CBA92D122835797E0051A311 /* LaunchScreen.storyboard in Resources */,
 				CB972D0527E26C0E005AC0F1 /* Preview Assets.xcassets in Resources */,
 				CB972D0227E26C0E005AC0F1 /* Assets.xcassets in Resources */,
 			);
@@ -415,7 +415,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeRight UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -450,7 +450,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeRight UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -14,7 +14,7 @@ struct LoginView: View {
     @State private var response = ""
     @State private var adminMove = false
     @State private var studentMove = false
-    let color: UIColor = UIColor(red: 29/255.0,green: 161/255.0,blue: 242/25.0,alpha: 1)
+    let color: UIColor = UIColor(red: 29/255.0,green: 161/255.0,blue: 242/255.0,alpha: 1)
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     
     
@@ -22,7 +22,6 @@ struct LoginView: View {
         NavigationView {
             
             ZStack{
-                
                 
                 Rectangle()
                     .fill(Color.white)
@@ -36,11 +35,7 @@ struct LoginView: View {
                     Spacer(minLength: 200)
                     
                     
-                    Image("lightLogo")
-                    
-                    
-                    Text(" ")
-                    
+                    Image("LostLogo")
                     
                     VStack {
                         

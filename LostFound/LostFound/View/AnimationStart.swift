@@ -40,10 +40,10 @@ struct AnimationStart: View {
         
         .edgesIgnoringSafeArea(.all)
         .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now()+0.3) {
+            DispatchQueue.main.asyncAfter(deadline: .now()+0.1) {
                 animate.toggle()
             }
-            DispatchQueue.main.asyncAfter(deadline: .now()+0.9) {
+            DispatchQueue.main.asyncAfter(deadline: .now()+0.6) {
                 globalVar.loginViewChange.toggle()
                 
             }

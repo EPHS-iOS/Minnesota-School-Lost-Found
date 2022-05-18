@@ -15,19 +15,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="darkLogo" translatesAutoresizingMaskIntoConstraints="NO" id="h4p-Ms-RLw">
-                                <rect key="frame" x="107" y="348" width="200" height="200"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="darkLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Vg4-la-gwA">
+                                <rect key="frame" x="108" y="317" width="198" height="262"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="WbO-tm-ytT"/>
-                                    <constraint firstAttribute="height" constant="200" id="uZh-yF-Ke5"/>
+                                    <constraint firstAttribute="width" constant="224" id="bOA-h4-O1F"/>
+                                    <constraint firstAttribute="height" constant="292" id="ctk-6Y-a1H"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
-                        <color key="backgroundColor" red="0.11372549019607843" green="0.64313725490196072" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.26175323128700256" green="0.64544105529785156" blue="0.92229139804840088" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="h4p-Ms-RLw" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="wf3-ea-oJC"/>
-                            <constraint firstItem="h4p-Ms-RLw" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="zvB-AS-oEv"/>
+                            <constraint firstItem="Vg4-la-gwA" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="aiB-B6-MkU"/>
+                            <constraint firstItem="Vg4-la-gwA" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="dKD-GG-kO1"/>
+                            <constraint firstItem="Vg4-la-gwA" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="hcb-N1-eOQ"/>
+                            <constraint firstItem="Vg4-la-gwA" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="sSV-Br-eCn"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -37,6 +39,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="darkLogo" width="300" height="300"/>
+        <image name="darkLogo" width="224" height="292"/>
     </resources>
 </document>

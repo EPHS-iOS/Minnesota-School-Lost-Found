@@ -37,20 +37,6 @@ struct SettingsView: View {
                             
                         }
                     
-                    
-//                    NavigationLink(destination: LoginView(), isActive: $move) {
-//                        Text("Log Out").padding()
-//                            .foregroundColor(.white)
-//                            .background(Rectangle()
-//                                .foregroundStyle(LinearGradient(gradient: Gradient(colors: [Color.cyan, Color.blue]), startPoint: .bottom, endPoint: .top)))
-//                            .cornerRadius(20)
-//
-//                            .onTapGesture {
-//                                self.move = true
-//                            }
-//
-//
-//                    }
                     Spacer()
                     
                 }
