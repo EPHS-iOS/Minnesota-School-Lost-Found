@@ -17,13 +17,16 @@ struct AddLostItemView: View {
     
     @State var currentScale: CGFloat = 0
     @State var finalScale: CGFloat = 1
+    let color: UIColor = UIColor(red: 29/255.0,green: 161/255.0,blue: 242/25.0,alpha: 1)
+    
+    init() {
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.init(Color(color))]
+    }
     
     var body: some View {
-        
         NavigationView {
             Form {
                 Section {
-                    
                     Menu {
                         Button {
                             aLIM.useCamera = true
@@ -53,14 +56,15 @@ struct AddLostItemView: View {
                                 .resizable()
                                 .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
                                 .frame(width: 300, height: 300)
-                                .background(Color.gray)
+                                .background(Color.white)
                         } else {
                             HStack {
                                 Spacer()
-                                Image(systemName: "photo")
+                                Image("Camera")
                                     .frame(width: 300, height: 300)
                                     .foregroundColor(.white)
-                                    .background(Color.gray)
+                                    .background(Color.white)
+                                    .cornerRadius(150)
                                     //for zooming in/out, not done but this is a start
                                     .scaleEffect(finalScale + currentScale)
                                     .gesture(MagnificationGesture()
@@ -84,7 +88,8 @@ struct AddLostItemView: View {
                     }
                 }
                 
-                Section (footer: Text("Please include information like brands, size, and names on item")) {
+                Section (footer: Text("Please include information like brands, size, and names on item").foregroundColor(.white))
+                {
                     TextField("Item Lost", text: $aLIM.enteredTitle)
                     Picker("Item Type", selection: $aLIM.enteredType) {
                         ForEach(aLIM.types, id: \.self) {
@@ -94,6 +99,9 @@ struct AddLostItemView: View {
                     TextEditor(text: $aLIM.enteredDescription)
                 }
                 
+            }
+            .onAppear {
+               UITableView.appearance().backgroundColor = color
             }
             .toolbar {
                 ToolbarItemGroup {
@@ -105,6 +113,7 @@ struct AddLostItemView: View {
                         presentationMode.wrappedValue.dismiss()
                     } label: {
                         Text("Save")
+                            .foregroundColor(.white)
                     }//.disabled(!aLIM.changeProfileImage)
                 }
             }
@@ -113,7 +122,6 @@ struct AddLostItemView: View {
         }
     }
 }
-
 struct AddLostItemView_Previews: PreviewProvider {
     static var previews: some View {
         AddLostItemView()

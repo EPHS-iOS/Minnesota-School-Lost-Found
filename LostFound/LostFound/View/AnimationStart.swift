@@ -31,7 +31,7 @@ struct AnimationStart: View {
             Image("darkLogo")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 200, height: 200)
+                .frame(width: 198, height: 262)
                 .scaleEffect(animate ? 1000 : 1)
                 .animation(Animation.easeIn(duration: 1))
                 
