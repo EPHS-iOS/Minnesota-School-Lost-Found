@@ -10,21 +10,27 @@
 		CB972CFE27E26C07005AC0F1 /* LostFoundApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB972CFD27E26C07005AC0F1 /* LostFoundApp.swift */; };
 		CB972D0227E26C0E005AC0F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB972D0127E26C0E005AC0F1 /* Assets.xcassets */; };
 		CB972D0527E26C0E005AC0F1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB972D0427E26C0E005AC0F1 /* Preview Assets.xcassets */; };
-		CB972D0E27E27432005AC0F1 /* AdminAllLostItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB972D0D27E27432005AC0F1 /* AdminAllLostItemsView.swift */; };
+		CB972D0E27E27432005AC0F1 /* AdminAllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB972D0D27E27432005AC0F1 /* AdminAllView.swift */; };
 		CB9A4A51280F39A0003DF0D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB9A4A50280F39A0003DF0D0 /* LaunchScreen.storyboard */; };
 		CB9A4A592819CE2E003DF0D0 /* AnimationStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A4A582819CE2E003DF0D0 /* AnimationStart.swift */; };
-		CB9A4A5D28206A5D003DF0D0 /* StudentTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A4A5C28206A5C003DF0D0 /* StudentTabView.swift */; };
 		E784FB0927F5561E00E35094 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E784FB0827F5561E00E35094 /* FilterView.swift */; };
 		E78FCA82280165B7009A9309 /* EditLostItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78FCA81280165B7009A9309 /* EditLostItemView.swift */; };
-		E78FCA842804BD32009A9309 /* AdminTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78FCA832804BD32009A9309 /* AdminTabView.swift */; };
-		E78FCA862804C238009A9309 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78FCA852804C238009A9309 /* MessageView.swift */; };
-		E78FCA882804C24C009A9309 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78FCA872804C24C009A9309 /* SettingsView.swift */; };
-		E78FCA8A28088290009A9309 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78FCA892808828F009A9309 /* Message.swift */; };
-		E790A05A27F000CC004C6F86 /* StudentAllLostItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E790A05927F000CC004C6F86 /* StudentAllLostItemsView.swift */; };
-		E790A05C27F00102004C6F86 /* StudentIndividualItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E790A05B27F00102004C6F86 /* StudentIndividualItemView.swift */; };
-		E7B8960B27F967D000774A69 /* AddLostItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B8960A27F967D000774A69 /* AddLostItemModel.swift */; };
-		E7E62C5C2821E7D000023BFD /* testtabview.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E62C5B2821E7D000023BFD /* testtabview.swift */; };
-		E7FE4B2B27E26D6500B0EE6A /* AdminIndividualItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE4B2A27E26D6500B0EE6A /* AdminIndividualItemView.swift */; };
+		E7E62C6A28342B0000023BFD /* AdminNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E62C6928342B0000023BFD /* AdminNavBarView.swift */; };
+		E7E62C6D28342BC100023BFD /* StrokeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E62C6C28342BC100023BFD /* StrokeStyle.swift */; };
+		E7E62C6F28342BF800023BFD /* AnimatableFontMod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E62C6E28342BF800023BFD /* AnimatableFontMod.swift */; };
+		E7E62C7128342D2900023BFD /* StudentAllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E62C7028342D2900023BFD /* StudentAllView.swift */; };
+		E7E62C73283450A700023BFD /* PreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E62C72283450A600023BFD /* PreferenceKey.swift */; };
+		E7E62C75283484B300023BFD /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E62C74283484B300023BFD /* Animations.swift */; };
+		E7E62C7728353C6A00023BFD /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E62C7628353C6A00023BFD /* TabView.swift */; };
+		E7E62C7928353CBD00023BFD /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E62C7828353CBD00023BFD /* Tab.swift */; };
+		E7E62C7B28353D7800023BFD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E62C7A28353D7800023BFD /* ContentView.swift */; };
+		E7E62C7D2835468D00023BFD /* StudentNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E62C7C2835468D00023BFD /* StudentNavBarView.swift */; };
+		E7E62C7F2835472600023BFD /* StudentItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E62C7E2835472600023BFD /* StudentItemView.swift */; };
+		E7E62C81283568EF00023BFD /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E62C80283568EE00023BFD /* ProfileView.swift */; };
+		E7E62C8328357CBB00023BFD /* NavBarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E62C8228357CBB00023BFD /* NavBarItemView.swift */; };
+		E7E62C8528368A5000023BFD /* StudentFeaturedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E62C8428368A5000023BFD /* StudentFeaturedView.swift */; };
+		E7E62C872836D19600023BFD /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E62C862836D19600023BFD /* Category.swift */; };
+		E7FE4B2B27E26D6500B0EE6A /* AdminItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE4B2A27E26D6500B0EE6A /* AdminItemView.swift */; };
 		E7FE4B2D27E26D8000B0EE6A /* AddLostItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE4B2C27E26D8000B0EE6A /* AddLostItemView.swift */; };
 		E7FE4B3127E26DF300B0EE6A /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE4B3027E26DF300B0EE6A /* ItemModel.swift */; };
 		E7FE4B3327E26DFE00B0EE6A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE4B3227E26DFE00B0EE6A /* Item.swift */; };
@@ -38,21 +44,27 @@
 		CB972CFD27E26C07005AC0F1 /* LostFoundApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostFoundApp.swift; sourceTree = "<group>"; };
 		CB972D0127E26C0E005AC0F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB972D0427E26C0E005AC0F1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		CB972D0D27E27432005AC0F1 /* AdminAllLostItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminAllLostItemsView.swift; sourceTree = "<group>"; };
+		CB972D0D27E27432005AC0F1 /* AdminAllView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminAllView.swift; sourceTree = "<group>"; };
 		CB9A4A50280F39A0003DF0D0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB9A4A582819CE2E003DF0D0 /* AnimationStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationStart.swift; sourceTree = "<group>"; };
-		CB9A4A5C28206A5C003DF0D0 /* StudentTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTabView.swift; sourceTree = "<group>"; };
 		E784FB0827F5561E00E35094 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		E78FCA81280165B7009A9309 /* EditLostItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLostItemView.swift; sourceTree = "<group>"; };
-		E78FCA832804BD32009A9309 /* AdminTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminTabView.swift; sourceTree = "<group>"; };
-		E78FCA852804C238009A9309 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
-		E78FCA872804C24C009A9309 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		E78FCA892808828F009A9309 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		E790A05927F000CC004C6F86 /* StudentAllLostItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentAllLostItemsView.swift; sourceTree = "<group>"; };
-		E790A05B27F00102004C6F86 /* StudentIndividualItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentIndividualItemView.swift; sourceTree = "<group>"; };
-		E7B8960A27F967D000774A69 /* AddLostItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLostItemModel.swift; sourceTree = "<group>"; };
-		E7E62C5B2821E7D000023BFD /* testtabview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testtabview.swift; sourceTree = "<group>"; };
-		E7FE4B2A27E26D6500B0EE6A /* AdminIndividualItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminIndividualItemView.swift; sourceTree = "<group>"; };
+		E7E62C6928342B0000023BFD /* AdminNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminNavBarView.swift; sourceTree = "<group>"; };
+		E7E62C6C28342BC100023BFD /* StrokeStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeStyle.swift; sourceTree = "<group>"; };
+		E7E62C6E28342BF800023BFD /* AnimatableFontMod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableFontMod.swift; sourceTree = "<group>"; };
+		E7E62C7028342D2900023BFD /* StudentAllView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentAllView.swift; sourceTree = "<group>"; };
+		E7E62C72283450A600023BFD /* PreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKey.swift; sourceTree = "<group>"; };
+		E7E62C74283484B300023BFD /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
+		E7E62C7628353C6A00023BFD /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
+		E7E62C7828353CBD00023BFD /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		E7E62C7A28353D7800023BFD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E7E62C7C2835468D00023BFD /* StudentNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentNavBarView.swift; sourceTree = "<group>"; };
+		E7E62C7E2835472600023BFD /* StudentItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentItemView.swift; sourceTree = "<group>"; };
+		E7E62C80283568EE00023BFD /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		E7E62C8228357CBB00023BFD /* NavBarItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarItemView.swift; sourceTree = "<group>"; };
+		E7E62C8428368A5000023BFD /* StudentFeaturedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentFeaturedView.swift; sourceTree = "<group>"; };
+		E7E62C862836D19600023BFD /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		E7FE4B2A27E26D6500B0EE6A /* AdminItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminItemView.swift; sourceTree = "<group>"; };
 		E7FE4B2C27E26D8000B0EE6A /* AddLostItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLostItemView.swift; sourceTree = "<group>"; };
 		E7FE4B3027E26DF300B0EE6A /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		E7FE4B3227E26DFE00B0EE6A /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -100,6 +112,7 @@
 				E7FE4B2E27E26D8700B0EE6A /* ViewModel */,
 				E7FE4B2F27E26DB400B0EE6A /* Model */,
 				E7FE4B3627E2D1BB00B0EE6A /* Image */,
+				E7E62C6B28342BB200023BFD /* Style */,
 				CB972D0127E26C0E005AC0F1 /* Assets.xcassets */,
 				CB972D0327E26C0E005AC0F1 /* Preview Content */,
 			);
@@ -117,12 +130,11 @@
 		E790A05D27F11E9E004C6F86 /* Admin */ = {
 			isa = PBXGroup;
 			children = (
-				E78FCA832804BD32009A9309 /* AdminTabView.swift */,
-				CB972D0D27E27432005AC0F1 /* AdminAllLostItemsView.swift */,
-				E7FE4B2A27E26D6500B0EE6A /* AdminIndividualItemView.swift */,
+				CB972D0D27E27432005AC0F1 /* AdminAllView.swift */,
+				E7E62C6928342B0000023BFD /* AdminNavBarView.swift */,
+				E7FE4B2A27E26D6500B0EE6A /* AdminItemView.swift */,
 				E7FE4B2C27E26D8000B0EE6A /* AddLostItemView.swift */,
 				E78FCA81280165B7009A9309 /* EditLostItemView.swift */,
-				E7E62C5B2821E7D000023BFD /* testtabview.swift */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -130,11 +142,23 @@
 		E790A05E27F11EA5004C6F86 /* Student */ = {
 			isa = PBXGroup;
 			children = (
-				E790A05927F000CC004C6F86 /* StudentAllLostItemsView.swift */,
-				E790A05B27F00102004C6F86 /* StudentIndividualItemView.swift */,
-				CB9A4A5C28206A5C003DF0D0 /* StudentTabView.swift */,
+				E7E62C7028342D2900023BFD /* StudentAllView.swift */,
+				E7E62C8428368A5000023BFD /* StudentFeaturedView.swift */,
+				E7E62C7C2835468D00023BFD /* StudentNavBarView.swift */,
+				E7E62C7E2835472600023BFD /* StudentItemView.swift */,
+				E7E62C80283568EE00023BFD /* ProfileView.swift */,
 			);
 			path = Student;
+			sourceTree = "<group>";
+		};
+		E7E62C6B28342BB200023BFD /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				E7E62C6C28342BC100023BFD /* StrokeStyle.swift */,
+				E7E62C6E28342BF800023BFD /* AnimatableFontMod.swift */,
+				E7E62C74283484B300023BFD /* Animations.swift */,
+			);
+			path = Style;
 			sourceTree = "<group>";
 		};
 		E7FE4B2927E26D4700B0EE6A /* View */ = {
@@ -144,10 +168,11 @@
 				CB9A4A582819CE2E003DF0D0 /* AnimationStart.swift */,
 				E7FE4B3427E2763200B0EE6A /* LoginView.swift */,
 				E784FB0827F5561E00E35094 /* FilterView.swift */,
-				E78FCA852804C238009A9309 /* MessageView.swift */,
-				E78FCA872804C24C009A9309 /* SettingsView.swift */,
+				E7E62C8228357CBB00023BFD /* NavBarItemView.swift */,
 				E790A05D27F11E9E004C6F86 /* Admin */,
 				E790A05E27F11EA5004C6F86 /* Student */,
+				E7E62C7628353C6A00023BFD /* TabView.swift */,
+				E7E62C7A28353D7800023BFD /* ContentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -155,8 +180,9 @@
 		E7FE4B2E27E26D8700B0EE6A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				E7B8960A27F967D000774A69 /* AddLostItemModel.swift */,
 				E7FE4B3027E26DF300B0EE6A /* ItemModel.swift */,
+				E7E62C72283450A600023BFD /* PreferenceKey.swift */,
+				E7E62C7828353CBD00023BFD /* Tab.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -165,7 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				E7FE4B3227E26DFE00B0EE6A /* Item.swift */,
-				E78FCA892808828F009A9309 /* Message.swift */,
+				E7E62C862836D19600023BFD /* Category.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -258,25 +284,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7FE4B3127E26DF300B0EE6A /* ItemModel.swift in Sources */,
+				E7E62C81283568EF00023BFD /* ProfileView.swift in Sources */,
 				E7FE4B2D27E26D8000B0EE6A /* AddLostItemView.swift in Sources */,
-				CB972D0E27E27432005AC0F1 /* AdminAllLostItemsView.swift in Sources */,
-				E78FCA8A28088290009A9309 /* Message.swift in Sources */,
+				E7E62C8328357CBB00023BFD /* NavBarItemView.swift in Sources */,
+				CB972D0E27E27432005AC0F1 /* AdminAllView.swift in Sources */,
+				E7E62C6A28342B0000023BFD /* AdminNavBarView.swift in Sources */,
 				CB972CFE27E26C07005AC0F1 /* LostFoundApp.swift in Sources */,
-				E78FCA842804BD32009A9309 /* AdminTabView.swift in Sources */,
 				E784FB0927F5561E00E35094 /* FilterView.swift in Sources */,
+				E7E62C6F28342BF800023BFD /* AnimatableFontMod.swift in Sources */,
+				E7E62C872836D19600023BFD /* Category.swift in Sources */,
+				E7E62C7F2835472600023BFD /* StudentItemView.swift in Sources */,
+				E7E62C8528368A5000023BFD /* StudentFeaturedView.swift in Sources */,
+				E7E62C73283450A700023BFD /* PreferenceKey.swift in Sources */,
 				E7FE4B3327E26DFE00B0EE6A /* Item.swift in Sources */,
-				E7B8960B27F967D000774A69 /* AddLostItemModel.swift in Sources */,
-				E790A05A27F000CC004C6F86 /* StudentAllLostItemsView.swift in Sources */,
-				E78FCA882804C24C009A9309 /* SettingsView.swift in Sources */,
-				E78FCA862804C238009A9309 /* MessageView.swift in Sources */,
+				E7E62C7128342D2900023BFD /* StudentAllView.swift in Sources */,
 				E7FE4B3827E2D1D000B0EE6A /* ImagePicker.swift in Sources */,
-				CB9A4A5D28206A5D003DF0D0 /* StudentTabView.swift in Sources */,
+				E7E62C6D28342BC100023BFD /* StrokeStyle.swift in Sources */,
 				E7FE4B3527E2763200B0EE6A /* LoginView.swift in Sources */,
+				E7E62C75283484B300023BFD /* Animations.swift in Sources */,
 				E78FCA82280165B7009A9309 /* EditLostItemView.swift in Sources */,
-				E790A05C27F00102004C6F86 /* StudentIndividualItemView.swift in Sources */,
 				CB9A4A592819CE2E003DF0D0 /* AnimationStart.swift in Sources */,
-				E7E62C5C2821E7D000023BFD /* testtabview.swift in Sources */,
-				E7FE4B2B27E26D6500B0EE6A /* AdminIndividualItemView.swift in Sources */,
+				E7E62C7D2835468D00023BFD /* StudentNavBarView.swift in Sources */,
+				E7E62C7728353C6A00023BFD /* TabView.swift in Sources */,
+				E7E62C7B28353D7800023BFD /* ContentView.swift in Sources */,
+				E7FE4B2B27E26D6500B0EE6A /* AdminItemView.swift in Sources */,
+				E7E62C7928353CBD00023BFD /* Tab.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

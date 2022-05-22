@@ -15,7 +15,6 @@ struct EditLostItemView: View {
     
     @EnvironmentObject var model: ItemModel
     @Environment(\.presentationMode) var presentationMode
-    @StateObject var aLIM = AddLostItemModel()
     
     @State var currentScale: CGFloat = 0
     @State var finalScale: CGFloat = 1
@@ -29,9 +28,9 @@ struct EditLostItemView: View {
                     
                     Menu {
                         Button {
-                            aLIM.useCamera = true
-                            aLIM.changeProfileImage = true
-                            aLIM.openCameraRoll = true
+                            model.useCamera = true
+                            model.changeProfileImage = true
+                            model.openCameraRoll = true
                         } label: {
                             Label {
                                 Text("Camera")
@@ -40,9 +39,9 @@ struct EditLostItemView: View {
                             }
                         }
                         Button {
-                            aLIM.useCamera = false
-                            aLIM.changeProfileImage = true
-                            aLIM.openCameraRoll = true
+                            model.useCamera = false
+                            model.changeProfileImage = true
+                            model.openCameraRoll = true
                         } label: {
                             Label {
                                 Text("Photo Library")
@@ -51,8 +50,8 @@ struct EditLostItemView: View {
                             }
                         }
                     } label: {
-                        if aLIM.changeProfileImage {
-                            Image(uiImage: aLIM.imageSelected)
+                        if model.changeProfileImage {
+                            Image(uiImage: model.imageSelected)
                                 .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
                                 .frame(width: 300, height: 300)
                                 .background(Color.gray)
@@ -80,23 +79,23 @@ struct EditLostItemView: View {
                             }
                         }
                     }
-                }.sheet(isPresented: $aLIM.openCameraRoll) {
-                    if aLIM.useCamera {
-                        ImagePicker(selectedImage: $aLIM.imageSelected, sourceType: .camera)
+                }.sheet(isPresented: $model.openCameraRoll) {
+                    if model.useCamera {
+                        ImagePicker(selectedImage: $model.imageSelected, sourceType: .camera)
                     } else {
-                        ImagePicker(selectedImage: $aLIM.imageSelected, sourceType: .photoLibrary)
+                        ImagePicker(selectedImage: $model.imageSelected, sourceType: .photoLibrary)
                     }
                 }
                 
                 Section (footer: Text("Please include information like brands, size, and names on item")) {
                     
-                    TextField("Item Lost", text: $aLIM.enteredTitle)
-                    Picker("Item Type", selection: $aLIM.enteredType) {
-                        ForEach(aLIM.types, id: \.self) {
-                            Text($0)
+                    TextField("Item Lost", text: $model.enteredTitle)
+                    Picker("Item Type", selection: $model.enteredType) {
+                        ForEach(model.types, id: \.self) {
+                            Text($0.category)
                         }
                     }
-                    TextEditor(text: $aLIM.enteredDescription)
+                    TextEditor(text: $model.enteredDescription)
                     
                 }
             
@@ -104,7 +103,7 @@ struct EditLostItemView: View {
             .toolbar {
                 ToolbarItemGroup {
                     Button {
-                        model.updateItem(item: item, image: aLIM.imageSelected, title: aLIM.enteredTitle, type: aLIM.enteredType, description: aLIM.enteredDescription)
+                        model.updateItem(item: item, image: model.imageSelected, title: model.enteredTitle, type: model.enteredType, description: model.enteredDescription)
                         presentationMode.wrappedValue.dismiss()
                     } label: {
                         Text("Save")
@@ -115,11 +114,11 @@ struct EditLostItemView: View {
             .navigationBarTitleDisplayMode(.inline)
         }.onAppear {
             if let url = item.image, let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
-                aLIM.imageSelected = image
+                model.imageSelected = image
             }
-            aLIM.enteredTitle = item.title
-            aLIM.enteredType = item.type
-            aLIM.enteredDescription = item.description
+            model.enteredTitle = item.title
+            model.enteredType = item.type
+            model.enteredDescription = item.description
         }
     }
 }

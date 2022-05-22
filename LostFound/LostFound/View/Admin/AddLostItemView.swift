@@ -13,7 +13,6 @@ struct AddLostItemView: View {
     
     @EnvironmentObject var model: ItemModel
     @Environment(\.presentationMode) var presentationMode
-    @StateObject var aLIM = AddLostItemModel()
     
     @State var currentScale: CGFloat = 0
     @State var finalScale: CGFloat = 1
@@ -26,9 +25,9 @@ struct AddLostItemView: View {
                     
                     Menu {
                         Button {
-                            aLIM.useCamera = true
-                            aLIM.changeProfileImage = true
-                            aLIM.openCameraRoll = true
+                            model.useCamera = true
+                            model.changeProfileImage = true
+                            model.openCameraRoll = true
                         } label: {
                             Label {
                                 Text("Camera")
@@ -37,9 +36,9 @@ struct AddLostItemView: View {
                             }
                         }
                         Button {
-                            aLIM.useCamera = false
-                            aLIM.changeProfileImage = true
-                            aLIM.openCameraRoll = true
+                            model.useCamera = false
+                            model.changeProfileImage = true
+                            model.openCameraRoll = true
                         } label: {
                             Label {
                                 Text("Photo Library")
@@ -48,8 +47,8 @@ struct AddLostItemView: View {
                             }
                         }
                     } label: {
-                        if aLIM.changeProfileImage {
-                            Image(uiImage: aLIM.imageSelected)
+                        if model.changeProfileImage {
+                            Image(uiImage: model.imageSelected)
                                 .resizable()
                                 .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
                                 .frame(width: 300, height: 300)
@@ -61,51 +60,63 @@ struct AddLostItemView: View {
                                     .frame(width: 300, height: 300)
                                     .foregroundColor(.white)
                                     .background(Color.gray)
-                                    //for zooming in/out, not done but this is a start
+                                //for zooming in/out, not done but this is a start
                                     .scaleEffect(finalScale + currentScale)
                                     .gesture(MagnificationGesture()
-                                                .onChanged {
-                                        newScale in currentScale = newScale
-                                    }
-                                                .onEnded {
-                                        scale in finalScale = scale
-                                        currentScale = 0
-                                    }
+                                        .onChanged {
+                                            newScale in currentScale = newScale
+                                        }
+                                        .onEnded {
+                                            scale in finalScale = scale
+                                            currentScale = 0
+                                        }
                                     )
                                 Spacer()
                             }
                         }
                     }
-                }.sheet(isPresented: $aLIM.openCameraRoll) {
-                    if aLIM.useCamera {
-                        ImagePicker(selectedImage: $aLIM.imageSelected, sourceType: .camera)
+                }.sheet(isPresented: $model.openCameraRoll) {
+                    if model.useCamera {
+                        ImagePicker(selectedImage: $model.imageSelected, sourceType: .camera)
                     } else {
-                        ImagePicker(selectedImage: $aLIM.imageSelected, sourceType: .photoLibrary)
+                        ImagePicker(selectedImage: $model.imageSelected, sourceType: .photoLibrary)
                     }
                 }
                 
                 Section (footer: Text("Please include information like brands, size, and names on item")) {
-                    TextField("Item Lost", text: $aLIM.enteredTitle)
-                    Picker("Item Type", selection: $aLIM.enteredType) {
-                        ForEach(aLIM.types, id: \.self) {
-                        Text($0)
+                    ZStack {
+                        TextField("Item Lost", text: $model.enteredTitle)
+                            .font(.headline)
+                            .disabled(model.enteredTitle.count >= 20)
+
+                        HStack {
+                            Spacer()
+                            Text("\(model.enteredTitle.count)/20")
+                                .foregroundColor(.gray)
+                        }
                     }
-                }
-                    TextEditor(text: $aLIM.enteredDescription)
+                    
+                    
+                    Picker("Item Type", selection: $model.enteredType) {
+                        ForEach(model.types, id: \.self) {
+                            Text($0.category)
+                        }
+                    }
+                    TextEditor(text: $model.enteredDescription)
                 }
                 
             }
             .toolbar {
                 ToolbarItemGroup {
                     Button {
-                        model.addItem(image: aLIM.imageSelected, title: aLIM.enteredTitle, isClaimed: 0, type: aLIM.enteredType, description: aLIM.enteredDescription)
+                        model.addItem(image: model.imageSelected, title: model.enteredTitle, isClaimed: 0, type: model.enteredType, description: model.enteredDescription)
                         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
                             self.model.sortData(sortBy: model.enteredSort)
                         }
                         presentationMode.wrappedValue.dismiss()
                     } label: {
                         Text("Save")
-                    }//.disabled(!aLIM.changeProfileImage)
+                    }//.disabled(!model.changeProfileImage)
                 }
             }
             .navigationTitle("Add Item")

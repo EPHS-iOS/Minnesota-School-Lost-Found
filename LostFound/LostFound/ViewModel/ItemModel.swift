@@ -14,9 +14,12 @@ class ItemModel : ObservableObject {
     
     @Published var items = [Item]()
     @Published var searchText = ""
+    @Published var selectedCategory = ""
     @Published var showingAddItem = false
     @Published var showingFilter = false
     @Published var showingEditItem = false
+    @Published var newLength = 0
+    @Published var newItems : [Item] = []
     
     @Published var enteredSort: String = "Date- New to Old"
     @Published var sortTypes: [String] = ["Date- New to Old", "Date- Old to New"]
@@ -31,29 +34,88 @@ class ItemModel : ObservableObject {
     
     @Published var isClaimed : Int64 = 0
     
-    @Published var messages = [Message]()
-    @Published var enteredText: String = ""
-    
     @Published var username: String = ""
     @Published var permissionStatus: Bool = false
+    
+    @Published var showDetail: Bool = false
+    @Published var showInd = false
+    @Published var hasScrolled = false
+    @Published var showAll = false
+    @Published var showSearch = false
+    @Published var navHeight: CGFloat = 70
+    
+    @Published var useCamera = true
+    @Published var changeProfileImage = false
+    @Published var openCameraRoll = false
+    @Published var imageSelected = UIImage()
+    
+    @Published var enteredTitle : String = "" {
+        didSet {
+            if enteredTitle.count > 20 && oldValue.count <= 20 {
+                enteredTitle = oldValue
+            }
+        }
+    }
+    @Published var enteredDescription : String = ""
+    @Published var enteredType : String = ""
+    
+    @Published var types: [type] = [
+        type(category: "T-Shirt", image: "tshirt"),
+        type(category: "Sweatshirt", image: "sweatshirt"),
+        type(category: "Shorts", image: "shorts"),
+        type(category: "Pants", image: "pants"),
+        type(category: "Hat", image: "tshirt"),
+        type(category: "Gloves/Mittens", image: "tshirt"),
+        type(category: "Water Bottle", image: "tshirt"),
+        type(category: "Jewelry", image: "jewelry"),
+        type(category: "Shoes", image: "shoes"),
+        type(category: "Electronics", image: "electronics"),
+        type(category: "Other", image: "other")
+        ]
+    
     
     
     let publicDB = CKContainer.default().publicCloudDatabase
     
     var searchResults: [Item] {
-        if searchText.isEmpty {
-            return items
+        if selectedCategory.isEmpty {
+            if searchText.isEmpty {
+                return items
+            } else {
+                return items.filter { $0.title.localizedCaseInsensitiveContains(searchText) || $0.description.localizedCaseInsensitiveContains(searchText) || $0.type.localizedCaseInsensitiveContains(searchText) }
+            }
         } else {
-            return items.filter { $0.title.localizedCaseInsensitiveContains(searchText) || $0.description.localizedCaseInsensitiveContains(searchText) || $0.type.localizedCaseInsensitiveContains(searchText) }
+            if searchText.isEmpty {
+                return items.filter { $0.type.localizedCaseInsensitiveContains(selectedCategory) }
+            } else {
+                return items.filter {
+                    ($0.type.localizedCaseInsensitiveContains(selectedCategory) && $0.title.localizedCaseInsensitiveContains(searchText))
+                    || ($0.type.localizedCaseInsensitiveContains(selectedCategory) && $0.description.localizedCaseInsensitiveContains(searchText))
+                    || ($0.type.localizedCaseInsensitiveContains(selectedCategory) && $0.type.localizedCaseInsensitiveContains(searchText))
+                }
+            }
         }
+        
+        
     }
+    
+    
 
     
     init() {
         requestPermission()
         sortData(sortBy: enteredSort)
-        fetchMessages()
         fetchRecordID()
+        if items.count > 0 {
+            newLength = min(items.count, 5)
+            newItems = Array(items[0..<newLength])
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 6.0) {
+                self.newLength = min(self.items.count, 5)
+                self.newItems = Array(self.items[0..<self.newLength])
+            }
+        }
+        
     }
     
     
@@ -128,6 +190,8 @@ class ItemModel : ObservableObject {
             print("Returned Result: \(returnedResult)")
             DispatchQueue.main.async {
                 self?.items = returnedItems
+                self?.newLength = min((self?.items.count)!, 5)
+                self?.newItems = Array((self?.items[0..<self!.newLength])!)
             }
             
         }
@@ -177,7 +241,6 @@ class ItemModel : ObservableObject {
         let record = item.record
         record["IsClaimed"] = -1
         saveItem(record: record)
-        sortData(sortBy: enteredSort)
     }
     
     func sortData(sortBy: String) {
@@ -190,41 +253,7 @@ class ItemModel : ObservableObject {
             print("sort type not found")
         }
     }
-    
-    func sendMessage(text: String) {
-        let messages = CKRecord(recordType: "Messages")
-        messages["Message"] = text
-        saveItem(record: messages)
-    }
-    
-    func fetchMessages() {
-        let predicate = NSPredicate(value: true)
-        let query = CKQuery(recordType: "Messages", predicate: predicate)
-        
-        let queryOperation = CKQueryOperation(query: query)
-        
-        var returnedMessages = [Message]()
-        
-        queryOperation.recordMatchedBlock = { (returnedRecordID, returnedResult) in
-            switch returnedResult {
-            case .success(let record):
-                guard let message = record["Message"] as? String else { return }
-                returnedMessages.append(Message(username: self.username, message: message, record: record))
-            case .failure(let error):
-                print(error)
-            }
-        }
-        
-        queryOperation.queryResultBlock = { [weak self] returnedResult in
-            print("Returned Result: \(returnedResult)")
-            DispatchQueue.main.async {
-                self?.messages = returnedMessages
-            }
-            
-        }
-        addOperation(operation: queryOperation)
-    }
-    
+  
     func filterReset() {
         enteredSort = "Date- New to Old"
         showTShirt = true
