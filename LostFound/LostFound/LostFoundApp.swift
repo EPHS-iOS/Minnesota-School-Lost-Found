@@ -15,14 +15,14 @@ struct LostFoundApp: App {
         WindowGroup {
             //ContentView().environmentObject(model)
             //AdminAllView().environmentObject(model)
-            StudentFeaturedView().environmentObject(model)
+            //StudentFeaturedView().environmentObject(model)
             //StudentAllView().environmentObject(model)
-//            if globalVar.loginViewChange{
-//                LoginView().environmentObject(globalVar)
-//
-//            }else{
-//                AnimationStart().environmentObject(globalVar)
-//            }
+            if globalVar.loginViewChange{
+                LoginView().environmentObject(globalVar)
+
+            }else{
+                AnimationStart().environmentObject(globalVar)
+            }
         }
         
     }

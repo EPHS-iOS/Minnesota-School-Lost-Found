@@ -56,7 +56,7 @@ struct AdminAllView: View {
             if model.showInd {
                 individualItem
             }
-        }
+        }.navigationBarHidden(true)
         
         
     }
