@@ -31,7 +31,7 @@ struct AnimationStart: View {
             Image("darkLogo")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 200, height: 200)
+                .frame(width: 198, height: 262)
                 .scaleEffect(animate ? 1000 : 1)
                 .animation(Animation.easeIn(duration: 1))
                 
@@ -40,10 +40,10 @@ struct AnimationStart: View {
         
         .edgesIgnoringSafeArea(.all)
         .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now()+0.3) {
+            DispatchQueue.main.asyncAfter(deadline: .now()+0.1) {
                 animate.toggle()
             }
-            DispatchQueue.main.asyncAfter(deadline: .now()+0.9) {
+            DispatchQueue.main.asyncAfter(deadline: .now()+0.6) {
                 globalVar.loginViewChange.toggle()
                 
             }
