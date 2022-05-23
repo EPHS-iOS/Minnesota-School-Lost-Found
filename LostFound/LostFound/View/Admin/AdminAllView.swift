@@ -32,7 +32,7 @@ struct AdminAllView: View {
             
             
             ScrollView {
-                //scrollDetection
+                scrollDetection
                 
                 LazyVGrid(columns: [
                     GridItem(.flexible()),

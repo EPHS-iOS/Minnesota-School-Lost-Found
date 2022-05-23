@@ -72,6 +72,7 @@ class ItemModel : ObservableObject {
         type(category: "Electronics", image: "electronics"),
         type(category: "Other", image: "other")
         ]
+    @Published var categories: [String] = ["T-Shirt", "Sweatshirt", "Shorts", "Pants", "Hat", "Gloves/Mittens", "Water Bottle", "Jewelry", "Shoes", "Electronics", "Other"]
     
     
     
