@@ -98,10 +98,11 @@ struct AddLostItemView: View {
                     
                     
                     Picker("Item Type", selection: $model.enteredType) {
-                        ForEach(model.types, id: \.self) {
-                            Text($0.category)
+                        ForEach(model.categories, id: \.self) {
+                            Text($0)
                         }
                     }
+                    
                     TextEditor(text: $model.enteredDescription)
                 }
                 

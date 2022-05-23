@@ -13,8 +13,14 @@ struct StudentAllView: View {
     @State var showStatusBar = true
     @State var selectedId = UUID()
     @EnvironmentObject var model : ItemModel
+    //gets the color scheme
     @Environment(\.colorScheme) var colorScheme: ColorScheme
-    
+    /*
+     first color is dark
+     
+     LinearGradient(gradient: Gradient(colors: colorScheme == .dark ? [Color(red: 173/255, green: 14/255, blue: 14/255), colorScheme == .dark ? Color(red: 205/255, green: 149/255, blue: 149/255): Color.black] : [Color.red, Color.black]), startPoint: .top, endPoint: .bottom)
+     
+     */
     var navTitle: String {
         if model.selectedCategory.isEmpty {
             return "Lost & Found"
