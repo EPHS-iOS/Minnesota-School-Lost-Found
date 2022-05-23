@@ -14,6 +14,7 @@ struct StudentFeaturedView : View {
     @State var selectedCat = ""
     @State var selectedId = UUID()
     @EnvironmentObject var model: ItemModel
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
     
     
     var body: some View {
@@ -167,6 +168,7 @@ struct StudentFeaturedView : View {
 struct NewItem : View {
     
     var item: Item
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
     
     var body: some View {
         
@@ -206,7 +208,7 @@ struct NewItem : View {
                         .lineLimit(2)
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }.padding(10)
-                    .background(LinearGradient(gradient: Gradient(colors: [Color.white, Color.white.opacity(0.85)]), startPoint: .bottom, endPoint: .top))
+                    .background(LinearGradient(gradient: Gradient(colors: colorScheme == .dark ? [Color(red: 91/255, green: 107/255, blue: 116/255), Color(red: 91/255, green: 107/255, blue: 116/255).opacity(0.85)] : [Color.white, Color.white.opacity(0.85)]), startPoint: .bottom, endPoint: .top))
                     .cornerRadius(10)
                     .shadow(radius: 5)
             })
