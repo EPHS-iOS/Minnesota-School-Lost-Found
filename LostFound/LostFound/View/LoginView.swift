@@ -68,9 +68,9 @@ struct LoginView: View {
                                                         .cornerRadius(20)
                                                     
                                                         .onTapGesture {
-                                                            if schoolCode == "EPAdmin" {
+                                                            if schoolCode == "123456789" {
                                                                 self.adminMove = true
-                                                            } else if schoolCode == "EPStudent" {
+                                                            } else if schoolCode == "272" {
                                                                 self.studentMove = true
                                                             }
                                                             

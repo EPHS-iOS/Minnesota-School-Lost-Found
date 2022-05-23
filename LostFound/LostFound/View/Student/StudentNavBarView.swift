@@ -12,6 +12,7 @@ struct StudentNavBarView: View {
     var title = ""
     var pic = ""
     var isHome: Bool
+    @State var move = false
     @Binding var hasScrolled: Bool
     @EnvironmentObject var model : ItemModel
     
@@ -39,8 +40,9 @@ struct StudentNavBarView: View {
                     
                     
                     if isHome {
+                       // NavigationLink(destination: LoginView().environmentObject(model), isActive: $move) {
                         Button {
-                            
+                            self.move = true
                         } label: {
                             Image(systemName: "person.crop.circle")
                                 .font(.body.bold())
@@ -48,6 +50,8 @@ struct StudentNavBarView: View {
                                 .foregroundColor(.secondary)
                                 .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
                                 .strokeStyle(cornerRadius: 14)
+                            
+                       // }
                         }
                     } else {
                         Button {

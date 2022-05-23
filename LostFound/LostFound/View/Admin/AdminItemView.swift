@@ -17,10 +17,11 @@ struct AdminItemView: View {
         NavigationView {
             ZStack {
                 
-                Image("Background")
+                Image("Background-1")
                 
                     .resizable()
                     .ignoresSafeArea()
+                    .opacity(0.4)
                     .mask(LinearGradient(gradient: Gradient(colors: [Color.black, Color.black, Color.black, Color.black.opacity(0)]), startPoint: .top, endPoint: .bottom))
                     .cornerRadius(20)
                     .offset(y: -UIScreen.main.bounds.height / 4.5)
