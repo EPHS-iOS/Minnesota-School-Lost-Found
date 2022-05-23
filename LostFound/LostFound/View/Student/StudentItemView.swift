@@ -21,10 +21,11 @@ struct StudentItemView: View {
                 Color(.white)
                     .ignoresSafeArea()
                 
-                Image("Background")
+                Image("Background-2")
                 
                     .resizable()
                     .ignoresSafeArea()
+                    .opacity(0.8)
                     .mask(LinearGradient(gradient: Gradient(colors: [Color.black, Color.black, Color.black, Color.black.opacity(0)]), startPoint: .top, endPoint: .bottom))
                     .cornerRadius(20)
                     .offset(y: -UIScreen.main.bounds.height / 4.5)
@@ -62,7 +63,7 @@ struct StudentItemView: View {
                     }.frame(width: 250, height: 25)
                         .padding()
                         .foregroundColor(.white)
-                        .background((LinearGradient(gradient: Gradient(colors: [Color.cyan, Color.blue]), startPoint: .bottom, endPoint: .top)))
+                        //.background((LinearGradient(gradient: Gradient(colors: [Color.cyan, Color.blue]), startPoint: .bottom, endPoint: .top)))
                         .cornerRadius(20)
                         .disabled(item.isClaimed != 0)
                     

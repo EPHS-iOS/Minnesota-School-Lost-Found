@@ -111,9 +111,10 @@ struct StudentFeaturedView : View {
         .tabViewStyle(.page(indexDisplayMode: .never))
         .frame(height: UIScreen.main.bounds.height / 2.2)
         .background(
-            Image("Background")
+            Image("Background-2")
                 .resizable()
                 .ignoresSafeArea()
+                .opacity(0.8)
                 .mask(LinearGradient(gradient: Gradient(colors: [Color.black, Color.black, Color.black, Color.black.opacity(0)]), startPoint: .top, endPoint: .bottom))
                 .cornerRadius(20)
                 .offset(y: -UIScreen.main.bounds.height / 4.5)
