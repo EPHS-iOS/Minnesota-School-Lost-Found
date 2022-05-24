@@ -42,9 +42,10 @@ struct StudentNavBarView: View {
                     if isHome {
                        // NavigationLink(destination: LoginView().environmentObject(model), isActive: $move) {
                         Button {
-                            self.move = true
+                            model.showStudent = false
                         } label: {
-                            Image(systemName: "person.crop.circle")
+                            Image(systemName: "rectangle.portrait.and.arrow.right")
+                                .environment(\.layoutDirection, .rightToLeft)
                                 .font(.body.bold())
                                 .frame(width: 36, height: 36)
                                 .foregroundColor(.secondary)
@@ -83,7 +84,7 @@ struct StudentNavBarView: View {
                         Image(systemName: pic)
                             .resizable()
                             .frame(width: 26, height: 26)
-                        //.cornerRadius(10)
+                            .foregroundColor(.secondary)
                             .padding(8)
                             .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
                             .strokeStyle(cornerRadius: 18)
@@ -104,6 +105,7 @@ struct StudentNavBarView: View {
             }
             
         }
+        //.padding(.top, 50)
         .frame(height: hasScrolled ? 44 : model.navHeight)
         .frame(maxHeight: .infinity, alignment: .top)
         

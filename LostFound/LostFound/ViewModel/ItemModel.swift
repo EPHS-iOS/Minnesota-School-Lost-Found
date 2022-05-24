@@ -37,6 +37,8 @@ class ItemModel : ObservableObject {
     @Published var username: String = ""
     @Published var permissionStatus: Bool = false
     
+    @Published var showStudent = false
+    @Published var showAdmin = false
     @Published var showDetail: Bool = false
     @Published var showInd = false
     @Published var hasScrolled = false

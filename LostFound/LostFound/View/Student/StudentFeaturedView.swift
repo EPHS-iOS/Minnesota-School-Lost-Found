@@ -19,7 +19,8 @@ struct StudentFeaturedView : View {
     
     var body: some View {
         ZStack {
-            //Color("Background").ignoresSafeArea(.all)
+            Color("backColor")
+                .ignoresSafeArea(.all)
             
             ScrollView {
                 
@@ -56,7 +57,8 @@ struct StudentFeaturedView : View {
             }
             
             if model.showAll {
-                StudentAllView().background(Color.white)
+                StudentAllView()
+                    .background(Color("backColor"))
             }
             
         }
@@ -91,6 +93,8 @@ struct StudentFeaturedView : View {
     }
     
     var new: some View {
+        
+        
         TabView {
             ForEach(model.newItems) { item in
                 GeometryReader { proxy in
@@ -140,20 +144,19 @@ struct StudentFeaturedView : View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .opacity(0.5)
-                //.offset(x: -10, y: 10)
                 
                 Text(type.category.uppercased())
                     .font(.footnote.weight(.semibold))
                     .foregroundColor(.secondary)
                     .padding(10)
-                    
+                
             }
             .onTapGesture {
                 model.selectedCategory = type.category
                 model.showAll.toggle()
             }
             .frame(width: UIScreen.main.bounds.width/3-15, height: UIScreen.main.bounds.width/3+20)
-            .background(.ultraThinMaterial)
+            .background(Color("featColor"))
             .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
             
         }
@@ -209,7 +212,7 @@ struct NewItem : View {
                         .lineLimit(2)
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }.padding(10)
-                    .background(LinearGradient(gradient: Gradient(colors: colorScheme == .dark ? [Color(red: 91/255, green: 107/255, blue: 116/255), Color(red: 91/255, green: 107/255, blue: 116/255).opacity(0.85)] : [Color.white, Color.white.opacity(0.85)]), startPoint: .bottom, endPoint: .top))
+                    .background(LinearGradient(gradient: Gradient(colors: [Color("featColor"), Color("featColor").opacity(0.85)]), startPoint: .bottom, endPoint: .top))
                     .cornerRadius(10)
                     .shadow(radius: 5)
             })

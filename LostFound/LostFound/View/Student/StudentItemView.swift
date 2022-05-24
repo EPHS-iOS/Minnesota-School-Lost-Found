@@ -18,7 +18,7 @@ struct StudentItemView: View {
        
             ZStack {
                 
-                Color(.white)
+                Color("backColor")
                     .ignoresSafeArea()
                 
                 Image("Background-2")
@@ -63,7 +63,7 @@ struct StudentItemView: View {
                     }.frame(width: 250, height: 25)
                         .padding()
                         .foregroundColor(.white)
-                        //.background((LinearGradient(gradient: Gradient(colors: [Color.cyan, Color.blue]), startPoint: .bottom, endPoint: .top)))
+                        .background(Color("featColor"))
                         .cornerRadius(20)
                         .disabled(item.isClaimed != 0)
                     

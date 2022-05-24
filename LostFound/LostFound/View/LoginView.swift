@@ -58,38 +58,62 @@ struct LoginView: View {
                         
                         
                         Spacer(minLength: 10)
-                                            
-                                            NavigationLink(destination: AdminAllView().environmentObject(model), isActive: $adminMove) {
-                                                NavigationLink(destination: StudentFeaturedView().environmentObject(model), isActive: $studentMove) {
-                                                    Text("Enter").padding()
-                                                        .foregroundColor(.white)
-                                                        .background(Rectangle()
-                                                                        .foregroundStyle(LinearGradient(gradient: Gradient(colors: [Color.cyan, Color.blue]), startPoint: .bottom, endPoint: .top)))
-                                                        .cornerRadius(20)
-                                                    
-                                                        .onTapGesture {
-                                                            if schoolCode == "123456789" {
-                                                                self.adminMove = true
-                                                            } else if schoolCode == "272" {
-                                                                self.studentMove = true
-                                                            }
-                                                            
-                                                            
-                                                        }
-                                                    
-                                                }
-                                            }
-                                                    }
-                                                    Spacer(minLength: 200)
-                                                    
-                                                }
-                                            }
+                        
+                        NavigationLink(destination: AdminAllView().environmentObject(model), isActive: $model.showAdmin) {
+                            NavigationLink(destination: StudentFeaturedView().environmentObject(model), isActive: $model.showStudent) {
+                                Text("Enter").padding()
+                                    .foregroundColor(.white)
+                                    .background(Rectangle()
+                                        .foregroundStyle(LinearGradient(gradient: Gradient(colors: [Color.cyan, Color.blue]), startPoint: .bottom, endPoint: .top)))
+                                    .cornerRadius(20)
+                                
+                                    .onTapGesture {
+                                        if schoolCode == "123456789" {
+                                            model.showAdmin = true
+                                        } else if schoolCode == "272" {
+                                            model.showStudent = true
+                                        }
+                                        
+                                        
+                                    }
+                                
+                            }
+                        }
+                        
+                        //                        Button {
+                        //                            if schoolCode == "admin" {
+                        //                                model.showAdmin = true
+                        //                            } else if schoolCode == "272" {
+                        //                                model.showStudent = true
+                        //                            }
+                        //                        } label: {
+                        //                            Text("Enter")
+                        //                                .padding()
+                        //                                .foregroundColor(.white)
+                        //                                .background(Rectangle()
+                        //                                    .foregroundStyle(LinearGradient(gradient: Gradient(colors: [Color.cyan, Color.blue]), startPoint: .bottom, endPoint: .top)))
+                        //                                .cornerRadius(20)
+                        //                        }
+                    }
+                    Spacer(minLength: 200)
+                    
+                }
+                
+                //                if model.showStudent {
+                //                    StudentFeaturedView().environmentObject(model)
+                //                        .ignoresSafeArea()
+                //
+                //                } else if model.showAdmin {
+                //                    AdminAllView().environmentObject(model)
+                //                }
+                
+            }
+            .ignoresSafeArea()
             .navigationBarBackButtonHidden(true)
             .animation(Animation.easeOut(duration: 0.5))
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
             .background(Color (red: 29/255.0,green: 161/255.0,blue: 242/25.0))
-            .ignoresSafeArea()
         }
         .navigationBarBackButtonHidden(true)
         
