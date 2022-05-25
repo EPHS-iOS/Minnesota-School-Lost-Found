@@ -19,26 +19,33 @@ struct AdminNavBarView: View {
                 .blur(radius: 10)
                 .opacity(hasScrolled ? 1 : 0)
             
-            Text(title)
-                .animatableFont(size: hasScrolled ? 22 : 34, weight: .bold)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.leading, 20)
-                .padding(.top, 20)
-                .offset(y: hasScrolled ? -4 : 0)
+            
             
             HStack(spacing: 16) {
-//                Button {
-//                    model.showingFilter.toggle()
-//                } label: {
-//                    Image(systemName: "line.3.horizontal.decrease.circle")
-//                        .font(.body.bold())
-//                        .frame(width: 36, height: 36)
-//                        .foregroundColor(.secondary)
-//                        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
-//                        .strokeStyle(cornerRadius: 14)
-//                }.popover(isPresented: $model.showingFilter) {
-//                    FilterView()
-//                }
+                Text(title)
+                    .animatableFont(size: hasScrolled ? 22 : 34, weight: .bold)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading, 20)
+                //.padding(.top, 20)
+                    .offset(y: hasScrolled ? -4 : 0)
+                
+                Spacer()
+                
+                
+                
+                Button {
+                    model.showAdmin = false
+                } label: {
+                    Image(systemName: "rectangle.portrait.and.arrow.right")
+                        .environment(\.layoutDirection, .rightToLeft)
+                        .font(.body.bold())
+                        .frame(width: 36, height: 36)
+                        .foregroundColor(.secondary)
+                        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+                        .strokeStyle(cornerRadius: 14)
+                    
+                }
+                
                 
                 Button {
                     model.showingAddItem.toggle()
@@ -50,8 +57,6 @@ struct AdminNavBarView: View {
                         .padding(8)
                         .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
                         .strokeStyle(cornerRadius: 18)
-                }.popover(isPresented: $model.showingAddItem) {
-                    AddLostItemView()
                 }
                 
             }
@@ -59,6 +64,12 @@ struct AdminNavBarView: View {
             .padding(.trailing, 20)
             .padding(.top, 20)
             .offset(y: hasScrolled ? -4 : 0)
+            
+            
+            
+            
+            
+            
             
         }
         .frame(height: hasScrolled ? 44 : 70)
