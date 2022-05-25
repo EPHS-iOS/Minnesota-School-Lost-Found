@@ -40,7 +40,7 @@ struct StudentItemView: View {
                     if let url = item.image, let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
                         Image(uiImage: image)
                             .resizable()
-                            .frame(width: UIScreen.main.bounds.width - 20, height: UIScreen.main.bounds.width - 80)
+                            .frame(width: UIScreen.main.bounds.width - 20, height: UIScreen.main.bounds.width - 60)
                             .border((LinearGradient(gradient: Gradient(colors: [Color.cyan, Color.blue]), startPoint: .bottom, endPoint: .top)), width: 10)
                             .cornerRadius(25)
                             .padding([.leading, .trailing, .bottom], 20)
@@ -62,7 +62,7 @@ struct StudentItemView: View {
                         
                     }.frame(width: 250, height: 25)
                         .padding()
-                        .foregroundColor(.white)
+                        //.foregroundColor(.white)
                         .background(Color("featColor"))
                         .cornerRadius(20)
                         .disabled(item.isClaimed != 0)

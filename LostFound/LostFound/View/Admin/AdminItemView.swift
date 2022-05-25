@@ -31,7 +31,7 @@ struct AdminItemView: View {
                 
                 ScrollView {
                     
-                    //scrollDetection
+                    scrollDetection
                     
                     if let url = item.image, let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
                         Image(uiImage: image)
