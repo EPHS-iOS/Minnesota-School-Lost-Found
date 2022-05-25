@@ -25,7 +25,7 @@ struct LoginView: View {
                 
                 
                 Rectangle()
-                    .fill(Color.white)
+                    .fill(Color("featColor"))
                     .frame(width: 350, height: 500)
                     .cornerRadius(30)
                 
@@ -64,7 +64,7 @@ struct LoginView: View {
                                 Text("Enter").padding()
                                     .foregroundColor(.white)
                                     .background(Rectangle()
-                                        .foregroundStyle(LinearGradient(gradient: Gradient(colors: [Color.cyan, Color.blue]), startPoint: .bottom, endPoint: .top)))
+                                        .foregroundStyle(Color ("launchColor")))
                                     .cornerRadius(20)
                                 
                                     .onTapGesture {
@@ -113,7 +113,7 @@ struct LoginView: View {
             .animation(Animation.easeOut(duration: 0.5))
             .navigationBarHidden(true)
             .navigationBarBackButtonHidden(true)
-            .background(Color (red: 29/255.0,green: 161/255.0,blue: 242/25.0))
+            .background(Color("launchColor"))
         }
         .navigationBarBackButtonHidden(true)
         

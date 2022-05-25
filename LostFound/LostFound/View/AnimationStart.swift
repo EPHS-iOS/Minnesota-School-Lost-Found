@@ -26,7 +26,7 @@ struct AnimationStart: View {
     var body: some View {
         ZStack {
             
-            Color(color)
+            Color("launchColor")
             
             Image("darkLogo")
                 .resizable()
