@@ -111,6 +111,10 @@ struct AddLostItemView: View {
                 ToolbarItemGroup {
                     Button {
                         model.addItem(image: model.imageSelected, title: model.enteredTitle, isClaimed: 0, type: model.enteredType, description: model.enteredDescription)
+                        model.changeProfileImage = false
+                        model.enteredTitle = ""
+                        model.enteredType = ""
+                        model.enteredDescription = ""
                         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
                             self.model.sortData(sortBy: model.enteredSort)
                         }
