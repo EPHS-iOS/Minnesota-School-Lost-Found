@@ -40,7 +40,6 @@ struct StudentNavBarView: View {
                     
                     
                     if isHome {
-                       // NavigationLink(destination: LoginView().environmentObject(model), isActive: $move) {
                         Button {
                             model.showStudent = false
                         } label: {
@@ -52,7 +51,6 @@ struct StudentNavBarView: View {
                                 .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
                                 .strokeStyle(cornerRadius: 14)
                             
-                       // }
                         }
                     } else {
                         Button {

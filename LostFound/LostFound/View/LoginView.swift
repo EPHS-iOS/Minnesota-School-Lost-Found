@@ -26,7 +26,7 @@ struct LoginView: View {
                 
                 Rectangle()
                     .fill(Color("featColor"))
-                    .frame(width: 350, height: 500)
+                    .frame(width: UIScreen.main.bounds.width - 40, height: UIScreen.main.bounds.height - 300)
                     .cornerRadius(30)
                 
                 
@@ -48,7 +48,7 @@ struct LoginView: View {
                         Spacer(minLength: 20)
                         HStack {
                             Spacer(minLength: 20)
-                            TextField("School Code", text: $schoolCode)
+                            TextField("District #", text: $schoolCode)
                                 .textFieldStyle(.roundedBorder)
                                 .cornerRadius(50)
                                 .padding(.horizontal)
@@ -80,32 +80,13 @@ struct LoginView: View {
                             }
                         }
                         
-                        //                        Button {
-                        //                            if schoolCode == "admin" {
-                        //                                model.showAdmin = true
-                        //                            } else if schoolCode == "272" {
-                        //                                model.showStudent = true
-                        //                            }
-                        //                        } label: {
-                        //                            Text("Enter")
-                        //                                .padding()
-                        //                                .foregroundColor(.white)
-                        //                                .background(Rectangle()
-                        //                                    .foregroundStyle(LinearGradient(gradient: Gradient(colors: [Color.cyan, Color.blue]), startPoint: .bottom, endPoint: .top)))
-                        //                                .cornerRadius(20)
-                        //                        }
+                      
                     }
                     Spacer(minLength: 200)
                     
                 }
                 
-                //                if model.showStudent {
-                //                    StudentFeaturedView().environmentObject(model)
-                //                        .ignoresSafeArea()
-                //
-                //                } else if model.showAdmin {
-                //                    AdminAllView().environmentObject(model)
-                //                }
+                
                 
             }
             .ignoresSafeArea()
