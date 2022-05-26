@@ -49,7 +49,7 @@ struct StudentFeaturedView : View {
                     .frame(height: 70)
             })
             .overlay(
-                StudentNavBarView(title: "Home", pic: "square.grid.3x3", isHome: true, hasScrolled: $model.hasScrolled)
+                StudentNavBarView(title: "Home", pic: "square.grid.3x3", size: 26, isHome: true, hasScrolled: $model.hasScrolled)
             )
             
             if model.showInd {

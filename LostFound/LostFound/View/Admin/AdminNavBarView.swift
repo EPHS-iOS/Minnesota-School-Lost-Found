@@ -57,6 +57,8 @@ struct AdminNavBarView: View {
                         .padding(8)
                         .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
                         .strokeStyle(cornerRadius: 18)
+                }.popover(isPresented: $model.showingAddItem) {
+                    AddLostItemView()
                 }
                 
             }
