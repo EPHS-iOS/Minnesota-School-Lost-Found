@@ -106,9 +106,7 @@ class ItemModel : ObservableObject {
 
     
     init() {
-        requestPermission()
         sortData(sortBy: enteredSort)
-        fetchRecordID()
         if items.count > 0 {
             newLength = min(items.count, 5)
             newItems = Array(items[0..<newLength])
@@ -269,32 +267,32 @@ class ItemModel : ObservableObject {
         showOther = true
     }
     
-    func requestPermission() {
-        CKContainer.default().requestApplicationPermission([.userDiscoverability]) { returnedStatus, returnedError in
-            DispatchQueue.main.async {
-                if returnedStatus == .granted {
-                    self.permissionStatus = true
-                }
-            }
-        }
-    }
-    
-    func fetchUserData(id: CKRecord.ID) {
-        CKContainer.default().discoverUserIdentity(withUserRecordID: id) { [weak self] returnedID, returnedError in
-            DispatchQueue.main.async {
-                if let firstName = returnedID?.nameComponents?.givenName, let lastName = returnedID?.nameComponents?.familyName {
-                    self?.username = firstName + " " + lastName
-                }
-            }
-        }
-    }
-    
-    func fetchRecordID() {
-        CKContainer.default().fetchUserRecordID { [weak self] returnedID, returnedError in
-            if let id = returnedID {
-                self?.fetchUserData(id: id)
-            }
-        }
-    }
+//    func requestPermission() {
+//        CKContainer.default().requestApplicationPermission([.userDiscoverability]) { returnedStatus, returnedError in
+//            DispatchQueue.main.async {
+//                if returnedStatus == .granted {
+//                    self.permissionStatus = true
+//                }
+//            }
+//        }
+//    }
+//
+//    func fetchUserData(id: CKRecord.ID) {
+//        CKContainer.default().discoverUserIdentity(withUserRecordID: id) { [weak self] returnedID, returnedError in
+//            DispatchQueue.main.async {
+//                if let firstName = returnedID?.nameComponents?.givenName, let lastName = returnedID?.nameComponents?.familyName {
+//                    self?.username = firstName + " " + lastName
+//                }
+//            }
+//        }
+//    }
+//
+//    func fetchRecordID() {
+//        CKContainer.default().fetchUserRecordID { [weak self] returnedID, returnedError in
+//            if let id = returnedID {
+//                self?.fetchUserData(id: id)
+//            }
+//        }
+//    }
     
 }
