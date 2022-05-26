@@ -68,7 +68,7 @@ struct LoginView: View {
                                     .cornerRadius(20)
                                 
                                     .onTapGesture {
-                                        if schoolCode == "123456789" {
+                                        if schoolCode == "272mod" {
                                             model.showAdmin = true
                                         } else if schoolCode == "272" {
                                             model.showStudent = true
