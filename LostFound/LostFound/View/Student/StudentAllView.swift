@@ -11,7 +11,6 @@ struct StudentAllView: View {
     
     @Namespace var namespace
     @State var showStatusBar = true
-    @State var selectedId = UUID()
     @EnvironmentObject var model : ItemModel
     //gets the color scheme
     @Environment(\.colorScheme) var colorScheme: ColorScheme
@@ -104,10 +103,10 @@ struct StudentAllView: View {
                     .resizable()
                     .frame(width: UIScreen.main.bounds.width/3, height: UIScreen.main.bounds.width/3)
                     .onTapGesture {
-                        model.showInd.toggle()
+                        model.selectedId = item.id
                         model.showDetail.toggle()
                         showStatusBar = false
-                        selectedId = item.id
+                        model.showInd.toggle()
                     }
                     .background(Image(systemName: "photo")
                         .foregroundColor(.white)
@@ -120,7 +119,7 @@ struct StudentAllView: View {
     
     var individualItem: some View {
         ForEach(model.searchResults, id: \.self) { item in
-            if item.id == selectedId {
+            if item.id == model.selectedId {
                 StudentItemView(item: item, show: $model.showInd)
                     .zIndex(1)
             }

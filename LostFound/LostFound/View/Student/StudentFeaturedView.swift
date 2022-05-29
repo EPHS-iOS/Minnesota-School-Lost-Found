@@ -12,7 +12,6 @@ struct StudentFeaturedView : View {
     @Namespace var namespace
     @State var showStatusBar = true
     @State var selectedCat = ""
-    @State var selectedId = UUID()
     @EnvironmentObject var model: ItemModel
     @Environment(\.colorScheme) var colorScheme: ColorScheme
     
@@ -106,10 +105,10 @@ struct StudentFeaturedView : View {
                         .shadow(radius: 5, x: 0, y: 5)
                         .blur(radius: abs(minX / 40))
                 }.onTapGesture {
-                    model.showInd.toggle()
+                    model.selectedId = item.id
                     model.showDetail.toggle()
                     showStatusBar = false
-                    selectedId = item.id
+                    model.showInd.toggle()
                 }
             }
         }
@@ -129,7 +128,7 @@ struct StudentFeaturedView : View {
     
     var individualItem: some View {
         ForEach(model.searchResults, id: \.self) { item in
-            if item.id == selectedId {
+            if item.id == model.selectedId {
                 StudentItemView(item: item, show: $model.showInd)
                     .zIndex(1)
             }

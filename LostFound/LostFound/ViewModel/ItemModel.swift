@@ -50,6 +50,7 @@ class ItemModel : ObservableObject {
     @Published var changeProfileImage = false
     @Published var openCameraRoll = false
     @Published var imageSelected = UIImage()
+    @Published var selectedId = UUID()
     
     @Published var enteredTitle : String = "" {
         didSet {

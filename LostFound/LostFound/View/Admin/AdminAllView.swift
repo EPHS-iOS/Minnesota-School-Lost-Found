@@ -87,10 +87,10 @@ struct AdminAllView: View {
                     .resizable()
                     .frame(width: UIScreen.main.bounds.width/3, height: UIScreen.main.bounds.width/3)
                     .onTapGesture {
-                        model.showInd.toggle()
+                        model.selectedId = item.id
                         model.showDetail.toggle()
                         showStatusBar = false
-                        selectedId = item.id
+                        model.showInd.toggle()
                     }
                     .background(Image(systemName: "photo")
                         .foregroundColor(.white)
@@ -103,7 +103,7 @@ struct AdminAllView: View {
     
     var individualItem: some View {
         ForEach(model.searchResults, id: \.self) { item in
-            if item.id == selectedId {
+            if item.id == model.selectedId {
                 AdminItemView(item: item, show: $model.showInd)
                     .zIndex(1)
             }
