@@ -1,5 +1,6 @@
 # Missing Stuff
 ### Lost &amp; Found for Eden Prairie Schools
+### [Download on the App Store](https://apps.apple.com/us/app/missing-stuff/id1617140249) 
 
 Searching through the lost and found can be a daunting task. There are piles of dirty sweatshirts, sweaty gym clothes, and moldy lunch boxes. You can spend hours searching for your lost item only to find nothing. 
 You’ll never have to worry about losing anything with the Missing Stuff app. With this app, users can view items that are currently in the lost and found without searching through the piles of clothing. Administrators of the app can add a picture of the item, a short descriptions, and tags. The time the item is added to the app is also recorded to make finding lost items even easier. The filter button along with the search bar allows users to search through the items in the lost and found efficiently. 
