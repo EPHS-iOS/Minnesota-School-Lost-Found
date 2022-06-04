@@ -10,7 +10,6 @@ import SwiftUI
 struct AdminAllView: View {
     
     
-    
     @Namespace var namespace
     @State var showStatusBar = true
     @State var selectedId = UUID()

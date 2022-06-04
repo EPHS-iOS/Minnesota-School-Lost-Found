@@ -9,6 +9,7 @@ import SwiftUI
 
 struct StudentFeaturedView : View {
     
+    
     @Namespace var namespace
     @State var showStatusBar = true
     @State var selectedCat = ""

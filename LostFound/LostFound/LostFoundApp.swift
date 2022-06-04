@@ -10,7 +10,6 @@ import SwiftUI
 @main
 struct LostFoundApp: App {
     @StateObject var globalVar = globalVariable()
-    @StateObject var model = ItemModel()
     var body: some Scene {
         WindowGroup {
             //ContentView().environmentObject(model)

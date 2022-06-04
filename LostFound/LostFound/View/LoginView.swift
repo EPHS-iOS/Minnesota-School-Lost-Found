@@ -68,11 +68,38 @@ struct LoginView: View {
                                     .cornerRadius(20)
                                 
                                     .onTapGesture {
-                                        if schoolCode == "272mod" {
-                                            model.showAdmin = true
-                                        } else if schoolCode == "272" {
-                                            model.showStudent = true
+                                        for pass in model.passwords {
+                                            var admin : Bool
+                                            if pass.isAdmin == "yes" {
+                                                admin = true
+                                            } else {
+                                                admin = false
+                                            }
+                                            if pass.password == schoolCode {
+                                                model.school = pass.school
+                                                if admin {
+                                                    model.showAdmin = true
+                                                    model.sortData(sortBy: model.enteredSort)
+                                                } else {
+                                                    model.showStudent = true
+                                                    model.sortData(sortBy: model.enteredSort)
+                                                    if model.items.count > 0 {
+                                                        model.newLength = min(model.items.count, 5)
+                                                        model.newItems = Array(model.items[0..<model.newLength])
+                                                    } else {
+                                                        DispatchQueue.main.asyncAfter(deadline: .now() + 6.0) {
+                                                            model.newLength = min(model.items.count, 5)
+                                                            model.newItems = Array(model.items[0..<model.newLength])
+                                                        }
+                                                    }
+                                                }
+                                            }
                                         }
+//                                        if schoolCode == "272mod" {
+//                                            model.showAdmin = true
+//                                        } else if schoolCode == "272" {
+//                                            model.showStudent = true
+//                                        }
                                         
                                         
                                     }

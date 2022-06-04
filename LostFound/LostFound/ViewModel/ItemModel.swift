@@ -13,6 +13,8 @@ import SwiftUI
 class ItemModel : ObservableObject {
     
     @Published var items = [Item]()
+    @Published var passwords = [Password]()
+    @Published var school = ""
     @Published var searchText = ""
     @Published var selectedCategory = ""
     @Published var showingAddItem = false
@@ -107,16 +109,17 @@ class ItemModel : ObservableObject {
 
     
     init() {
-        sortData(sortBy: enteredSort)
-        if items.count > 0 {
-            newLength = min(items.count, 5)
-            newItems = Array(items[0..<newLength])
-        } else {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 6.0) {
-                self.newLength = min(self.items.count, 5)
-                self.newItems = Array(self.items[0..<self.newLength])
-            }
-        }
+        fetchPasswords()
+        //sortData(sortBy: enteredSort)
+//        if items.count > 0 {
+//            newLength = min(items.count, 5)
+//            newItems = Array(items[0..<newLength])
+//        } else {
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 6.0) {
+//                self.newLength = min(self.items.count, 5)
+//                self.newItems = Array(self.items[0..<self.newLength])
+//            }
+//        }
         
     }
     
@@ -131,7 +134,7 @@ class ItemModel : ObservableObject {
     
     
     func addItem(image: UIImage?, title: String, isClaimed: Int64, type: String, description: String) {
-        let newItem = CKRecord(recordType: "LostItems")
+        let newItem = CKRecord(recordType: school)
         newItem["Title"] = title
         //newItem["Date Added"] = addedDate
         newItem["IsClaimed"] = isClaimed
@@ -157,7 +160,7 @@ class ItemModel : ObservableObject {
     func fetchItems(sortBy: String, isAscending: Bool) {
         
         let predicate = NSPredicate(value: true)
-        let query = CKQuery(recordType: "LostItems", predicate: predicate)
+        let query = CKQuery(recordType: school, predicate: predicate)
         query.sortDescriptors = [NSSortDescriptor(key: sortBy, ascending: isAscending)]
         
         let queryOperation = CKQueryOperation(query: query)
@@ -267,6 +270,39 @@ class ItemModel : ObservableObject {
         showJewelry = true
         showOther = true
     }
+    
+    func fetchPasswords() {
+        
+        let predicate = NSPredicate(value: true)
+        let query = CKQuery(recordType: "passwords", predicate: predicate)
+        let queryOperation = CKQueryOperation(query: query)
+        
+        var returnedPasswords = [Password]()
+        
+        queryOperation.recordMatchedBlock = { (returnedRecordID, returnedResult) in
+            switch returnedResult {
+            case .success(let record):
+                guard
+                    let password = record["password"] as? String,
+                    let school = record["school"] as? String,
+                    let isAdmin = record["isAdmin"] as? String
+                else { return }
+                returnedPasswords.append(Password(password: password, school: school, isAdmin: isAdmin))
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+        queryOperation.queryResultBlock = { [weak self] returnedResult in
+            print("Returned passwords: \(returnedResult)")
+            DispatchQueue.main.async {
+                self?.passwords = returnedPasswords
+            }
+            
+        }
+        addOperation(operation: queryOperation)
+    }
+    
     
 //    func requestPermission() {
 //        CKContainer.default().requestApplicationPermission([.userDiscoverability]) { returnedStatus, returnedError in
